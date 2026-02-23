@@ -1,0 +1,178 @@
+@import "@fontsource/m-plus-rounded-1c/400.css";
+@import "@fontsource/m-plus-rounded-1c/700.css";
+@import "@fontsource/m-plus-rounded-1c/800.css";
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
+
+:root {
+  /* Color Palette - Showa Retro */
+  /* 古い新聞紙・包装紙を思わせる、くすんだ黄土色（クラフト紙）ベース */
+  --color-bg-primary: #e8dfcc;
+  --color-bg-secondary: #f4ecdf;
+  /* コンテンツの背景（少し明るいざら紙） */
+  --color-bg-tertiary: #d0c4ai;
+  /* 見出しやアクセントの背景 */
+
+  --color-text-primary: #2d2621;
+  /* 墨色ではなく、少し退色した焦げ茶（セピア風） */
+  --color-text-secondary: #5c534c;
+  --color-text-tertiary: #8b8076;
+
+  /* レトロなアクセントカラー（退色した色合い） */
+  --color-accent-red: #c94c4c;
+  /* 注意書き・値札に使うあずき色（くすみ赤） */
+  --color-accent-green: #3d7c54;
+  /* 昭和の看板の深緑 */
+  --color-accent-blue: #3b608a;
+  /* 藍色 */
+  --color-accent-yellow: #dca73a;
+  /* くすんだマスタード色 */
+  --color-accent: #c94c4c;
+  /* メインアクセントは赤系へ変更 */
+
+  --color-border: #8b8076;
+  /* 罫線は少し目立つブラウン */
+  --color-border-dark: #2d2621;
+  /* 主要な枠線（看板風、注意書き風） */
+
+  /* Shadows - レトロ感を出すため影はフラットで、ずれた版のようにする */
+  --shadow-sm: 2px 2px 0px rgba(45, 38, 33, 0.4);
+  /* ベタッと落ちる影 */
+  --shadow-md: 4px 4px 0px rgba(45, 38, 33, 0.6);
+  --shadow-hover: 6px 6px 0px rgba(45, 38, 33, 0.8);
+
+  /* 丸みを多用してレトロポップ・素朴さを演出 */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Typography Hierarchy */
+  /* 全体に丸ゴシック体を適用し、ふんわり・もっさりとした雰囲気を出す */
+  --font-sans: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "VAGRounded BT", "Arial Rounded MT Bold", sans-serif;
+  --font-serif: var(--font-sans);
+  /* 昭和レトロでは明朝体を控え、主に丸ゴシックで構成 */
+
+  /* 詰まった行間などアナログ感を演出するためのスペーシング */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-8: 6rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  /* 昭和のチラシのような、少し詰まった行間・文字間 */
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  /* 全体的に文字間を広げて、ゆったりとしたレトロ感を */
+  font-weight: 400;
+
+  /* アナログ・ノイズエフェクト: 古いざら紙のテクスチャ（少し強めにする） */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+  /* ノイズを少し強める */
+
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* タイポグラフィ基盤：丸ゴシック体の統一 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  /* 見出しは極太で看板のように */
+  line-height: 1.3;
+  color: var(--color-text-primary);
+  letter-spacing: 0.08em;
+  /* 印刷ズレ（シアン・マゼンタ・イエロー風の微小な影）効果 */
+  text-shadow: 1px 1px 0 rgba(200, 50, 50, 0.4), -1px -1px 0 rgba(50, 150, 200, 0.4);
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* 見出し等で使える、昭和の注意書きラベル風の囲み */
+.retro-label {
+  display: inline-block;
+  background-color: var(--color-accent-red);
+  color: var(--color-bg-secondary);
+  border: 4px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 0.2rem 1rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-2deg);
+  /* 手で貼ったようなズレ */
+}
+
+/* 引用符・キャプションなどのスタイル（エディトリアルとは違い、注意書き風に） */
+.caption {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.pull-quote {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  border: 4px solid var(--color-border-dark);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* セレクションカラーの統一 */
+::selection {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-accent);
+}

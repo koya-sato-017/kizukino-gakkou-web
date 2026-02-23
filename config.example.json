@@ -1,0 +1,7 @@
+{
+  "rss_url": "",
+  "channel_url": "https://stand.fm/channels/606297aabe8d4428b912db34",
+  "google_credentials_path": "./credentials.json",
+  "google_drive_folder_id": "ここにGoogle DriveのフォルダIDを入力",
+  "download_dir": "./downloads"
+}

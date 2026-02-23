@@ -1,0 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# 設定・認証（機密情報）
+config.json
+credentials.json
+service_account.json
+
+# ダウンロードファイル
+downloads/
+*.mp3
+*.m4a
+*.wav
+
+# 文字起こし出力
+transcripts/
+
+# 処理済みエピソード管理
+processed_episodes.json
+
+# OS
+.DS_Store
