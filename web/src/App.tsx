@@ -168,7 +168,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + 'episodes.json')
+    fetch(import.meta.env.BASE_URL + `episodes.json?t=${new Date().getTime()}`)
       .then(res => res.json())
       .then(json => {
         setData(json);
