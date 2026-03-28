@@ -78,7 +78,7 @@ def fetch_channel_episodes(channel_id: str) -> list[dict]:
     return episodes
 
 
-def fetch_audio_url(episode_id: str) -> str | None:
+def fetch_audio_url(episode_id: str) -> "str | None":
     """
     エピソードページのHTMLから音声URLを取得する。
 
