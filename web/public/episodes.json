@@ -1,6 +1,6 @@
 {
   "channel_id": "606297aabe8d4428b912db34",
-  "updated_at": "2026-10-24T22:28:06+09:00",
+  "updated_at": "2026-10-24T22:30:46+09:00",
   "detail_failures": 0,
   "latest_published_at": "2026-10-24T06:00:11.148+09:00",
   "episodes": [
@@ -4808,8 +4808,10 @@
       "published_at": "2025-11-30T06:01:00.942+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/692b02e6a2034685d52ff49e",
-      "description": "",
+      "description": "1123～11/29の一週間に配信した学びと世の中で起こった重大ニュースを一緒に振り返りましょう",
       "audio_url": "https://cdncf.stand.fm/audios/01KB81BW5VEQXWRHXQ6Q08RTA9.m4a",
+      "details_checked_at": "2026-10-24T22:30:34+09:00",
+      "details_status": "ok",
       "index": 354
     },
     {
@@ -4832,8 +4834,10 @@
       "published_at": "2025-11-29T06:01:00.918+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/691ea1a46f36349e6ce936a7",
-      "description": "",
+      "description": "2025年、あなたの\n  心に残った出来事をレターで送ってください\n  お待ちしております\n  【お知らせ】\n  本日、11/29 21:30からキズキノ學校週末LIVE（メンバー限定）開催！！\n  0:00 オープニング\n  0:50 本編\n  15:02 誕生（中島みゆき）\n  18:28 エンディング\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01KAFTFGSRVJ0FF1EN4VSHT78Y.m4a",
+      "details_checked_at": "2026-10-24T22:30:35+09:00",
+      "details_status": "ok",
       "index": 356
     },
     {
@@ -4856,8 +4860,10 @@
       "published_at": "2025-11-27T06:01:02.319+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/691ff62943a32c645637b07b",
-      "description": "",
+      "description": "日本国家は借金大国であるが日本の財務的信用があるのは？\n  平成時代にあった現預金の半分を運用していたら？\n  凄いシミュレーション、そして「たられば」から学ぶ第三回！！\n  0:00 オープニング\n  0:50 本編\n  16:01 wild flower（Superfly）\n  18:44 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01KB12VQ7A8TVXC52RC3SPR76E.m4a",
+      "details_checked_at": "2026-10-24T22:30:35+09:00",
+      "details_status": "ok",
       "index": 358
     },
     {
@@ -4868,8 +4874,10 @@
       "published_at": "2025-11-26T06:01:13.331+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/691e9afef5566c1999321b2b",
-      "description": "",
+      "description": "野球の話ではなく生き方の話です\n  大谷翔平は今季、55本の自己最多ホームランを打った。コレは王貞治の記録と並ぶものである。\n  そのホームランは162個、およそ三倍の三振によってもたらされたと断言できる。さあ、自分らに当てはめるとどうなる？\n  0:00 オープニング\n  0:50 本編\n  16:06 らいおんハート（SMAP）\n  18:39 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01KAFVEEVCQCJYHF55TS2RE81E.m4a",
+      "details_checked_at": "2026-10-24T22:30:35+09:00",
+      "details_status": "ok",
       "index": 359
     },
     {
@@ -4880,8 +4888,10 @@
       "published_at": "2025-11-25T06:01:06.632+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/691fdd046f36349e6ce94c78",
-      "description": "",
+      "description": "前回の放送で「創造と挑戦」の重要性をお話ししました\n  そして、それを放置しないで「選択と集中」を実行すれば、あなたの笑顔は確定したようなものです\n  0:00 オープニング\n  0:50 本編\n  15:56 ハッピーエンド（backnumber）\n  18:21 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01KAJ7FD2MRN3A9GBK4ZX8TA03.m4a",
+      "details_checked_at": "2026-10-24T22:30:36+09:00",
+      "details_status": "ok",
       "index": 360
     },
     {
@@ -4892,8 +4902,10 @@
       "published_at": "2025-11-24T06:01:15.705+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/691eac5a6f36349e6ce93782",
-      "description": "",
+      "description": "勤労感謝の日ってなに？\n  どうして休みなのか？\n  どうしてハッピーマンデーではないのか？\n  0:00 オープニング\n  0:50 本編\n  15:21 precious Heart（松田聖子）\n  18:57 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01KAFX3DDZHZK7208JZS71SJ8P.m4a",
+      "details_checked_at": "2026-10-24T22:30:36+09:00",
+      "details_status": "ok",
       "index": 361
     },
     {
@@ -4904,8 +4916,10 @@
       "published_at": "2025-11-23T06:01:00.864+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6921c68d086f581f2c120547",
-      "description": "",
+      "description": "11/17～11/22の講義を皆さんのコメントを紹介しながら振り返ります。同時に今週起こった出来事を解説",
       "audio_url": "https://cdncf.stand.fm/audios/01KAP094W7BB7N9JZ4F363TZ6E.m4a",
+      "details_checked_at": "2026-10-24T22:30:36+09:00",
+      "details_status": "ok",
       "index": 362
     },
     {
@@ -4928,8 +4942,10 @@
       "published_at": "2025-11-22T06:01:01.709+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/691447305c6a780dba90c012",
-      "description": "",
+      "description": "あなたの2025年に起こった「心に残るあの出来事」を教えてください\n  書いてみると違う景色が見えてきます\n  お待ちしています\n  0:00 オープニング\n  0:50 本編　\n  15:12 himawari（Mr.Children）\n  17:52 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K9VKD4YY16CR1X5ZWVPZ0E2N.m4a",
+      "details_checked_at": "2026-10-24T22:30:36+09:00",
+      "details_status": "ok",
       "index": 364
     },
     {
@@ -4952,8 +4968,10 @@
       "published_at": "2025-11-20T06:01:01.246+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/691bb39d967c5680709ceec4",
-      "description": "",
+      "description": "人生二周目は一周目以上に「幸せ」の格差が生まれます\n  では、どうすれば良いか？\n  まずは創造と挑戦の意識を持つ事から\n  0:00 オープニング\n  0:50 本編\n  17:00 goodby yesterday（今井美樹）\n  19:00 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01KAA4NW47TGT5FWRMZFWAE52S.m4a",
+      "details_checked_at": "2026-10-24T22:30:37+09:00",
+      "details_status": "ok",
       "index": 366
     },
     {
@@ -4964,8 +4982,10 @@
       "published_at": "2025-11-19T06:01:06.153+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/69111a40c0ad0347a1ef597d",
-      "description": "",
+      "description": "不易流行。江戸時代の俳人・松尾芭蕉の教えであります\n  この言葉を僕は常に頭の片隅に置いておくよう意識しています\n  日本経済は不易流行を忘れたから三十年も失ったのです\n  そして、今、この言葉を意識すべき人達がいます\n  0:00 オープニング\n  0:50 本編\n  16:26 らいおんハート（SMAP）\n  18:15 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01KA7BZH8PZQ5FMD050AX79603.m4a",
+      "details_checked_at": "2026-10-24T22:30:37+09:00",
+      "details_status": "ok",
       "index": 367
     },
     {
@@ -4976,8 +4996,10 @@
       "published_at": "2025-11-18T06:01:06.777+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690c05338b9f0ac22ea9d04e",
-      "description": "",
+      "description": "「投資をしない奴は馬鹿だ」という人がいる\n  そういえば\n  「財テクしない企業は馬鹿だ」と言われた\n  それでどうなった？失敗しただろ？\n  本質を見よう！学ぶことはあっても同じではない\n  0:00 オープニング\n  0:50 本編\n  16:36 Wild flower（Superfly）\n  19:00 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01KA7BYVJ7ZFZXEK59DHN5ZFRS.m4a",
+      "details_checked_at": "2026-10-24T22:30:37+09:00",
+      "details_status": "ok",
       "index": 368
     },
     {
@@ -4988,8 +5010,10 @@
       "published_at": "2025-11-17T06:01:09.453+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/69105f4527ecbeb46cccd98b",
-      "description": "",
+      "description": "そろそろ年末調整の紙が届く時期になりました\n  しかしまあ、これってどうして毎年やってるの？で、それよりもなんで税金なのに税務署ではなく会社とやりとりするんですかね？\n  そもそも所得税ってどうして会社通して払ってるの？\n  0:00 オープニング\n  0:50 本編\n  16:23 愛を込めて花束を（Superfly）\n  19:39 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K9KZ9DNM5SEGQFZCDE6QMXCH.m4a",
+      "details_checked_at": "2026-10-24T22:30:37+09:00",
+      "details_status": "ok",
       "index": 369
     },
     {
@@ -5000,8 +5024,10 @@
       "published_at": "2025-11-16T08:40:52.629+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/69190e2e0481acbccd75ecc4",
-      "description": "",
+      "description": "11/10～11/15の配信をリスナーさんのコメントを紹介しながら振り返りました(生放送)",
       "audio_url": "https://cdncf.stand.fm/audios/01KA4Y8ZJNESECM1FTDM90EKE2.m4a",
+      "details_checked_at": "2026-10-24T22:30:38+09:00",
+      "details_status": "ok",
       "index": 370
     },
     {
@@ -5012,8 +5038,10 @@
       "published_at": "2025-11-15T06:01:01.640+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690dbcac62d0bba438a03c67",
-      "description": "",
+      "description": "2025年、ラストテーマ\n  まだレターを書かれていない方！まだ間に合います\n  あなたの2025年の出来事を教えてください！！\n  匿名OK\n  締切　12/14日曜日　\n  0:00 オープニング\n  0:50 本編\n  15:14 however（GLAY）\n  18:17 エンディング\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01K9ETJT5BQVGQT5Y98QG5C6QX.m4a",
+      "details_checked_at": "2026-10-24T22:30:38+09:00",
+      "details_status": "ok",
       "index": 371
     },
     {
@@ -5036,8 +5064,10 @@
       "published_at": "2025-11-13T06:01:14.726+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690d65eb919744f13c86210d",
-      "description": "",
+      "description": "高市総理の経済政策、サナエノミクス。\n  コレは就任前から彼女が唱えてきたもので信念を感じます\n  それを学ぶ事はコレからの日本、我々の生活を予測する大きな材料となると思います\n  0:00 オープニング\n  0:50 本編\n  18:14 beautiful（Superfly）\n  21:04 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K9E7RMZDD029HJFJ22G3JHJ8.m4a",
+      "details_checked_at": "2026-10-24T22:30:38+09:00",
+      "details_status": "ok",
       "index": 373
     },
     {
@@ -5048,8 +5078,10 @@
       "published_at": "2025-11-12T06:01:04.634+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/69094326e4c8151dd8443a76",
-      "description": "",
+      "description": "世の中インフレである\n  起業業績はコロナ後は絶好調なのである\n  営業利益が増えてる\n  しかし、その利益、、、どこにいってるのか？\n  だって実質賃金は下がってるわけですから\n  0:00 オープニング\n  0:50 本編\n  17:15 なんてったってアイドル（小泉今日子）\n  19:11 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K9VRDVX3BXYK8A8K22NY3DDS.m4a",
+      "details_checked_at": "2026-10-24T22:30:38+09:00",
+      "details_status": "ok",
       "index": 374
     },
     {
@@ -5060,8 +5092,10 @@
       "published_at": "2025-11-11T06:01:03.107+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6901d76bd41d60e073138ddb",
-      "description": "",
+      "description": "富国強兵を推進した日本は1894年\n  日清戦争（中国との戦争）を開戦し勝利する\n  ここから日本の侵略戦争が始まった。搾取しようとするとんでもない愚行が終戦まで続く\n  と、考える人は多いのですが、\n  そうでもないかも？\n  0:00 オープニング\n  0:50 本編\n  16:49 誰もいない海（トワエモア）\n  18:41 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K9E7QA5YKV5YJ8W46J3JG8M8.m4a",
+      "details_checked_at": "2026-10-24T22:30:39+09:00",
+      "details_status": "ok",
       "index": 375
     },
     {
@@ -5072,8 +5106,10 @@
       "published_at": "2025-11-10T06:01:16.869+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690d6f4e62d0bba438a0369e",
-      "description": "",
+      "description": "ストレスが低下する生活を送るとストレス耐性が低下する\n  コレを感じたことありませんか？\n  僕は経験しました\n  で、ストレスは低いままで耐性を上げる方法を実践中です\n  それをシェア！\n  0:00 オープニング\n  0:50 本編\n  16:12 YAH YAH YAH（CHAGE&ASKA）\n  18:37 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K9E7PBAGG9WXVK3D3F5GYWBT.m4a",
+      "details_checked_at": "2026-10-24T22:30:40+09:00",
+      "details_status": "ok",
       "index": 376
     },
     {
@@ -5084,8 +5120,10 @@
       "published_at": "2025-11-09T06:01:02.499+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690f52be30c9a17efce0fbda",
-      "description": "",
+      "description": "11/3～11/8の配信を皆さんのコメントを中心にして振り返ります",
       "audio_url": "https://cdncf.stand.fm/audios/01K9HYW1CT50DAENBGFEA2FPK8.m4a",
+      "details_checked_at": "2026-10-24T22:30:40+09:00",
+      "details_status": "ok",
       "index": 377
     },
     {
@@ -5108,8 +5146,10 @@
       "published_at": "2025-11-08T06:01:01.126+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690966af276fd575008a6ee5",
-      "description": "",
+      "description": "今年最後のレターテーマは、\n  今年一番\n  心に残ったあの出来事をレターで教えてください\n  締切は12/14です\n  0:00 オープニング\n  0:50 本編\n  15:26 恋におちて（小林明子）\n  18:31 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K96BJXA4D88Z8NKXZG30GFQS.m4a",
+      "details_checked_at": "2026-10-24T22:30:39+09:00",
+      "details_status": "ok",
       "index": 379
     },
     {
@@ -5132,8 +5172,10 @@
       "published_at": "2025-11-06T06:01:00.881+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690936d369a165fbafa44ec6",
-      "description": "",
+      "description": "人生二周目を浪費している方々が僕らの先輩のスタンダード\n  そうならないための最終兵器が自分史シートです\n  その意義、書き方、見えてくるものを解説します\n  0:00 オープニング\n  0:50 本編\n  16:26 らいおんハート（SMAP）\n  19:02 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K99H8C548VV80XYCCYWHG1JD.m4a",
+      "details_checked_at": "2026-10-24T22:30:40+09:00",
+      "details_status": "ok",
       "index": 381
     },
     {
@@ -5144,8 +5186,10 @@
       "published_at": "2025-11-05T06:01:01.323+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6903186b54b87c12798b3a44",
-      "description": "",
+      "description": "インフレ時代に突入し資産運用してる人としていない人で差がついている。資産運用の入口政策である新NISAは現状はどの程度利用されているのか？実態を報告、解説する\n  0:00 オープニング\n  0:50 本編\n  19:09 君に逢いたくなったら（ZARD）\n  20:49 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K8T1FNSVZSKA0Q7MP9WWX96B.m4a",
+      "details_checked_at": "2026-10-24T22:30:40+09:00",
+      "details_status": "ok",
       "index": 382
     },
     {
@@ -5156,8 +5200,10 @@
       "published_at": "2025-11-04T06:01:04.139+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68fc08327992ee21e4c8e85d",
-      "description": "",
+      "description": "幕末に開国した日本\n  国際社会にデビューした日本を待っていたのは対等な関係ではなかった。その証拠に結んだ契約は不平等条約。\n  コレを続けてる限り搾取される側から抜け出せないと考えたのが当時の明治政府だったのです\n  0:00 オープニング\n  0:50 本編\n  16:00 メロディー（玉置浩二）\n  19:03 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K95SV5V5NSF1X3Z239ANA1VF.m4a",
+      "details_checked_at": "2026-10-24T22:30:41+09:00",
+      "details_status": "ok",
       "index": 383
     },
     {
@@ -5168,8 +5214,10 @@
       "published_at": "2025-11-03T06:01:08.504+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6901a37a6501805e717f7032",
-      "description": "",
+      "description": "今日は月曜日です\n  が、文化の日はハッピーマンデー制度の対象日ではなく11/3には二つの意味があります\n  0:00 オープニング\n  0:50 本編\n  14:12 いのちの歌（竹内まりや）\n  17:42 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K8Q6DVHZEWWGPEW2YMVET7XD.m4a",
+      "details_checked_at": "2026-10-24T22:30:41+09:00",
+      "details_status": "ok",
       "index": 384
     },
     {
@@ -5180,8 +5228,10 @@
       "published_at": "2025-11-02T08:24:01.011+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690695b9e3d464c88313b2c9",
-      "description": "",
+      "description": "10/27～11/1の配信をリスナーさんのコメントをご紹介しながら振り返ります。ぜひ、聴いてアナタもコメントしてみてください。",
       "audio_url": "https://cdncf.stand.fm/audios/01K90VR4C93V98J1966TQW13A8.m4a",
+      "details_checked_at": "2026-10-24T22:30:41+09:00",
+      "details_status": "ok",
       "index": 385
     },
     {
@@ -5192,8 +5242,10 @@
       "published_at": "2025-11-01T06:01:01.148+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/690199711cb7176d01e8855d",
-      "description": "",
+      "description": "あなたの2025年はいかがでしたか？\n  レターで教えてください\n  締切　12/14 日曜日\n  0:00 オープニング\n  0:50 本編\n  16:38 ハッピーエンド（backnumber）\n  19:08 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K8Q3ZKYSZGWMANWKAAR4Q876.m4a",
+      "details_checked_at": "2026-10-24T22:30:41+09:00",
+      "details_status": "ok",
       "index": 386
     },
     {
@@ -5216,8 +5268,10 @@
       "published_at": "2025-10-30T06:01:18.518+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68edd068d090546674183da4",
-      "description": "",
+      "description": "物価が上がり生活は苦しい\n  一方で消費、購買は増加していてインフレであり景気動向も良い\n  内容は褒められたものではないけど、デフレからの脱却は国のテーマではあります\n  そんな中、今こそ賢いお金の文化を創る時なのです\n  0:00 オープニング\n  0:50 本編\n  16:43 勇気100%（光GENJI）\n  19:00 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K8QP8FHDCE5XB4H692X5VMYD.m4a",
+      "details_checked_at": "2026-10-24T22:30:42+09:00",
+      "details_status": "ok",
       "index": 388
     },
     {
@@ -5228,8 +5282,10 @@
       "published_at": "2025-10-29T06:01:07.262+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68f9d76fbc8a89d5bdce3a50",
-      "description": "",
+      "description": "とにかくお爺さんは怒りっぽい人が多い\n  決して全員ではないが多いのは間違いない\n  そして、そのことにより自分の居場所が作れない人が大量にいる\n  その怒りっぽい理由を明らかにして、対策を考えてみる\n  0:00 オープニング\n  0:50 本題\n  17:26 Don't you see!（ZARD）\n  19:27 エンディング\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01K87Z3VE6TCKJ9K8KKVJSRBBD.m4a",
+      "details_checked_at": "2026-10-24T22:30:42+09:00",
+      "details_status": "ok",
       "index": 389
     },
     {
@@ -5240,8 +5296,10 @@
       "published_at": "2025-10-28T06:01:10.615+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68ef3cc72dcfe531864a9280",
-      "description": "",
+      "description": "元サントリーHD会長、新浪剛史氏。\n  彼は何の罪を起こして、企業や経済団体の重職を失い、\n  SNS上で批判をされているのか？\n  疑わしきは罰せず、法治国家の大原則が無知や卑しい妬みやSNSの不適切な使用により崩れている\n  コレは大きな問題です\n  0:00 オープニング\n  0:50 本編\n  16:19 いとしき日々よ（平井堅）\n  19:31 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K7N1NYBSZNKBT7EF578R0KPV.m4a",
+      "details_checked_at": "2026-10-24T22:30:42+09:00",
+      "details_status": "ok",
       "index": 390
     },
     {
@@ -5252,8 +5310,10 @@
       "published_at": "2025-10-27T06:01:14.391+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68face8caf0f73599f67e178",
-      "description": "",
+      "description": "2025年は、あなたにとってどんな年でしたか？\n  まだ早い？笑笑\n  コレまでレターを書いたことない方もぜひ参加してください\n  0:00 オープニング\n  0:50 本編\n  15:36 恋一夜（工藤静香）\n  18:33 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K89VERRCTANJSRTN6QR8MBVV.m4a",
+      "details_checked_at": "2026-10-24T22:30:42+09:00",
+      "details_status": "ok",
       "index": 391
     },
     {
@@ -5264,8 +5324,10 @@
       "published_at": "2025-10-26T06:01:03.072+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68fcdd9e95947470ba5435aa",
-      "description": "",
+      "description": "10/20～10/25の配信をまとめて振り返ります。合わせて今週の最大のニュース解説も",
       "audio_url": "https://cdncf.stand.fm/audios/01K8DXAS6WCDGH2D9PGFSXQE1X.m4a",
+      "details_checked_at": "2026-10-24T22:30:43+09:00",
+      "details_status": "ok",
       "index": 392
     },
     {
@@ -5288,8 +5350,10 @@
       "published_at": "2025-10-25T06:01:04.565+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68f4adf0159b4f6ecfbe4bd1",
-      "description": "",
+      "description": "我々はいかにして人生二周時代をイキイキとすごせるでしょうか？\n  それには趣味のチカラがとても大切だと思うわけです\n  今回はついに最終回！！\n  0:00 オープニング\n  0:50 本編\n  14:52 風は秋色（松田聖子）\n  18:20 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K7XWFPPSZFWMX6N2931FMBPR.m4a",
+      "details_checked_at": "2026-10-24T22:30:43+09:00",
+      "details_status": "ok",
       "index": 394
     },
     {
@@ -5312,8 +5376,10 @@
       "published_at": "2025-10-23T06:01:01.466+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68ef65f4c0616d6e2311eb7b",
-      "description": "",
+      "description": "江戸時代を経て圧倒的に全てのものが欧米から遅れていた日本\n  富国強兵を国の方針として打ち出し、国民皆学で基礎を固めていった。しかし、文明国として認められるには憲法、そしてそれに基づいた議会、内閣が設置されることが前提になります\n  そこで欧米に習って進めたのではあるが、、、\n  0:00 オープニング\n  0:50 本編\n  18:18 beautiful（Superfly）\n  20:10 エンディング\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01K8314GKK9MSDST4SZT665PP7.m4a",
+      "details_checked_at": "2026-10-24T22:30:43+09:00",
+      "details_status": "ok",
       "index": 396
     },
     {
@@ -5324,8 +5390,10 @@
       "published_at": "2025-10-22T06:01:05.219+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68f74fea8ce6f49c3b7029cb",
-      "description": "",
+      "description": "議員定数削減\n  なんとなく議員は多すぎる\n  そして自分たちの職場を狭める\n  身を切る改革と言われる\n  が、冷静に俯瞰的に捉えてみると、、、\n  0:00 オープニング\n  0:50 本編\n  18:21 365日の紙飛行機（AKB48）\n  20:18 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K8311MJD1P4TAYRZD8MXNHH8.m4a",
+      "details_checked_at": "2026-10-24T22:30:43+09:00",
+      "details_status": "ok",
       "index": 397
     },
     {
@@ -5336,8 +5404,10 @@
       "published_at": "2025-10-21T06:01:01.898+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68ec3f34896f2e62fa5b3e80",
-      "description": "",
+      "description": "インターネットは我々の生活を限りなく便利にしたけど、詐欺はそこに巣くって発展しています\n  最近の事例、注意ポイント、対策をご紹介！！\n  ネット詐欺を撲滅しましょう\n  0:00 オープニング\n  0:50 本編\n  15:33 365日（Mr.Children）\n  18:41 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K7Z63DDDDQQ2C6YA2E3NC8QJ.m4a",
+      "details_checked_at": "2026-10-24T22:30:44+09:00",
+      "details_status": "ok",
       "index": 398
     },
     {
@@ -5348,8 +5418,10 @@
       "published_at": "2025-10-20T06:01:12.653+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68f027465f5ddfd5dd925bf6",
-      "description": "",
+      "description": "大阪・関西万博が10/13に閉幕した\n  結果、多くの人を感動させ目標数値をことごとくクリア\n  黒字化も達成した\n  しかし、大会前は地獄絵図のような世論だったのを覚えてますか？\n  0:00 オープニング\n  0:50 本編\n  17:11 大阪lover（DREAMS COME TRUE）\n  19:38 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K7N1KGABVFDRRFSBKR58P6Z8.m4a",
+      "details_checked_at": "2026-10-24T22:30:44+09:00",
+      "details_status": "ok",
       "index": 399
     },
     {
@@ -5360,8 +5432,10 @@
       "published_at": "2025-10-19T08:32:31.177+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68f4227435f0a062337975c9",
-      "description": "",
+      "description": "10/13～10/18の配信を皆様のコメントをお借りして振り返ります。",
       "audio_url": "https://cdncf.stand.fm/audios/01K7WTNHQQW054MEJ042BP9ECP.m4a",
+      "details_checked_at": "2026-10-24T22:30:44+09:00",
+      "details_status": "ok",
       "index": 400
     },
     {
@@ -5372,8 +5446,10 @@
       "published_at": "2025-10-18T06:01:00.906+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68ed8104d6f076717518d467",
-      "description": "",
+      "description": "人生二周時代は趣味がチカラに、資産に、基盤になる時代です\n  好きなもの、打ち込めるもの、元氣になるもの、\n  それを見つけていきませんか？\n  0:00 オープニング\n  0:50 本編\n  13:58 未来へ\n  18:28 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K7FW0V97Z9VAY884W3GNG9NN.m4a",
+      "details_checked_at": "2026-10-24T22:30:45+09:00",
+      "details_status": "ok",
       "index": 401
     },
     {
@@ -5396,8 +5472,10 @@
       "published_at": "2025-10-16T06:01:32.910+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68e73fc963759aabad9b6088",
-      "description": "",
+      "description": "人生二周時代や人生百年時代というのは希望でも夢でもなくて現実確定だと思います\n  理由もあるが、そんな中、一周目から二周目にかけて段差を作らない意識は必要という話です\n  0:00 オープニング\n  0:50 本編\n  14:43 恋を止めないで（COMPLEX）\n  17:31 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K7DZ6XG06FP8QQXYSYC6YN86.m4a",
+      "details_checked_at": "2026-10-24T22:30:45+09:00",
+      "details_status": "ok",
       "index": 403
     },
     {
@@ -5408,8 +5486,10 @@
       "published_at": "2025-10-15T06:01:00.879+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/68dcf5b4e3f759cc7c3bb2a4",
-      "description": "",
+      "description": "歴史を学べば今起こっていること、問題になってること、流行ってることなど大概のことはわかります\n  今日は「今、好景気なのに景況感を感じない」のはなぜか？を歴史からお答えします\n  0:00 オープニング\n  0:50 本編\n  18:18 突然（ZARD）　\n  20:32 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01K6FJ17H6NK2WXTPC02XJYQMF.m4a",
+      "details_checked_at": "2026-10-24T22:30:46+09:00",
+      "details_status": "ok",
       "index": 404
     },
     {
