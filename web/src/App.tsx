@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   FiSearch,
   FiArrowUp,
@@ -218,10 +218,8 @@ function App() {
     );
   };
 
-  // 無限スクロール用のステータス
+  // ボタンを押すごとに12件ずつ追加表示する
   const [displayCount, setDisplayCount] = useState(12);
-  const [isFetchingMore, setIsFetchingMore] = useState(false);
-  const observerTarget = useRef<HTMLDivElement>(null);
 
   // TOPに戻るボタン用のステータス
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -327,37 +325,8 @@ function App() {
     return filteredEpisodes.slice(0, displayCount);
   }, [filteredEpisodes, displayCount]);
 
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (
-          entries[0].isIntersecting &&
-          displayCount < filteredEpisodes.length &&
-          !timer
-        ) {
-          setIsFetchingMore(true);
-          timer = setTimeout(() => {
-            setDisplayCount((prev) => prev + 12);
-            setIsFetchingMore(false);
-          }, 800);
-        }
-      },
-      { threshold: 0.1 },
-    );
-
-    if (observerTarget.current) {
-      observer.observe(observerTarget.current);
-    }
-    return () => {
-      observer.disconnect();
-      if (timer) clearTimeout(timer);
-    };
-  }, [displayCount, filteredEpisodes.length]);
-
   const handleSelectSeries = (seriesName: string) => {
     setDisplayCount(12);
-    setIsFetchingMore(false);
     if (selectedSeries === seriesName) {
       // 同じシリーズをクリックで解除
       setSelectedSeries(null);
@@ -372,7 +341,6 @@ function App() {
 
   const clearSeries = () => {
     setDisplayCount(12);
-    setIsFetchingMore(false);
     setSelectedSeries(null);
     setSortOldest(false);
   };
@@ -533,7 +501,6 @@ function App() {
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 setDisplayCount(12);
-                setIsFetchingMore(false);
               }}
               aria-label="放送のタイトル・概要を検索"
             />
@@ -544,7 +511,6 @@ function App() {
             onClick={() => {
               setShowFavoritesOnly(!showFavoritesOnly);
               setDisplayCount(12);
-              setIsFetchingMore(false);
             }}
           >
             <FiHeart
@@ -624,7 +590,6 @@ function App() {
                 onChange={(e) => {
                   setSortOldest(e.target.value === "oldest");
                   setDisplayCount(12);
-                  setIsFetchingMore(false);
                 }}
               >
                 <option value="newest">新しい順</option>
@@ -670,7 +635,7 @@ function App() {
             </div>
           ) : (
             <>
-              <div className="episode-list">
+              <div className="episode-list" id="episode-list">
                 {displayedEpisodes.map((ep) => {
                   const label = ep.title.match(/^[【〖]([^】〗]+)[】〗]/)?.[1];
                   const title = label
@@ -781,17 +746,26 @@ function App() {
                   </p>
                 </div>
               )}
-              {displayCount < filteredEpisodes.length && (
-                <div className="loading-more" ref={observerTarget}>
-                  <button
-                    className="outline-button"
-                    onClick={() => setDisplayCount((prev) => prev + 12)}
-                  >
-                    {isFetchingMore
-                      ? "放送を読み込んでいます…"
-                      : "もっと放送を見る"}
-                    <FiArrowDown aria-hidden="true" />
-                  </button>
+              {filteredEpisodes.length > 0 && (
+                <div className="loading-more">
+                  <p className="display-count" role="status">
+                    {displayedEpisodes.length.toLocaleString()} /{" "}
+                    {filteredEpisodes.length.toLocaleString()}話を表示
+                  </p>
+                  {displayCount < filteredEpisodes.length && (
+                    <button
+                      className="outline-button"
+                      aria-controls="episode-list"
+                      onClick={() =>
+                        setDisplayCount((prev) =>
+                          Math.min(prev + 12, filteredEpisodes.length),
+                        )
+                      }
+                    >
+                      さらに放送を読み込む
+                      <FiArrowDown aria-hidden="true" />
+                    </button>
+                  )}
                 </div>
               )}
             </>

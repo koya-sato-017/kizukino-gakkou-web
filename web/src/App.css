@@ -783,6 +783,8 @@
 }
 .loading-more {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
   align-items: center;
   justify-content: center;
   padding-top: 44px;
@@ -1778,4 +1780,8 @@
   .footer-bottom {
     font-size: 14px;
   }
+}
+
+.display-count {
+  font-size: 16px;
 }
