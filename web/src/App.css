@@ -4,6 +4,20 @@
   min-height: 100vh;
 }
 
+.update-status {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin: 0 0 var(--space-5);
+  overflow-wrap: anywhere;
+}
+
+.load-error {
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+}
+
 /* ----------------------------------
    Header (フルワイドのオレンジ背景)
  ---------------------------------- */

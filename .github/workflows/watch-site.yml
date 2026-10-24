@@ -1,0 +1,43 @@
+name: Watch published site
+
+on:
+  schedule:
+    # 更新処理とは別に実行し、更新ジョブの停止も検知する。
+    - cron: '47 */2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: site-health
+  cancel-in-progress: false
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-web.txt
+      - name: Check data freshness
+        run: python -m src.check_web_site --attempts 2
+      - name: Report state changes only
+        if: always()
+        uses: actions/github-script@v7
+        env:
+          FAILED: ${{ job.status != 'success' }}
+        with:
+          script: |
+            const title = '運用アラート: 公開サイトの更新停止';
+            const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', creator: 'github-actions[bot]'});
+            const issue = issues.find(item => item.title === title && !item.pull_request);
+            if (process.env.FAILED === 'true' && !issue) {
+              await github.rest.issues.create({...context.repo, title, body: `公開データの鮮度・読み込み確認に失敗しました。配信休止か取得停止かはログと配信元で確認してください。\n\n実行ログ: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`});
+            } else if (process.env.FAILED !== 'true' && issue) {
+              await github.rest.issues.update({...context.repo, issue_number: issue.number, state: 'closed', state_reason: 'completed'});
+            }

@@ -1,0 +1,165 @@
+name: Update and deploy site
+
+on:
+  schedule:
+    # 毎時17分 (UTC)。日本時間でも毎時17分。定刻の実行保証はない。
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'web/**'
+      - 'requirements-web.txt'
+      - '.github/workflows/update-site.yml'
+  workflow_dispatch:
+    inputs:
+      restore_commit:
+        description: '復旧時だけ指定: 正常だったデータのコミットSHA (通常は空欄)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-web.txt
+      - run: python -m pip install -r requirements-web.txt
+      - name: Test update safety
+        run: python -m unittest discover -s tests -v
+      - name: Fetch and validate complete snapshot
+        if: inputs.restore_commit == ''
+        run: python -m src.export_web_data
+      - name: Restore confirmed snapshot
+        if: inputs.restore_commit != ''
+        env:
+          RESTORE_COMMIT: ${{ inputs.restore_commit }}
+        run: |
+          [[ "$RESTORE_COMMIT" =~ ^[a-fA-F0-9]{7,40}$ ]] || exit 1
+          git show "${RESTORE_COMMIT}:web/public/episodes.json" > /tmp/restore-episodes.json
+          python -c 'import json; d=json.load(open("/tmp/restore-episodes.json")); assert d["episodes"]'
+          mv /tmp/restore-episodes.json web/public/episodes.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install frontend
+        working-directory: web
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+        run: npm ci
+      - name: Lint frontend
+        working-directory: web
+        run: npm run lint
+      - name: Build site
+        working-directory: web
+        run: npm run build
+      - name: Save validated data for next run and recovery
+        run: |
+          git add web/public/episodes.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m '放送データを自動更新'
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validated-episodes
+          path: web/public/episodes.json
+          retention-days: 30
+      - name: Update summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          data = json.load(open('web/public/episodes.json'))
+          print(f"放送数: {len(data['episodes'])}件")
+          print(f"最終取得: {data.get('updated_at', '旧形式')}")
+          print(f"詳細取得の失敗: {data.get('detail_failures', 0)}件")
+          PY
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-web.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: validated-episodes
+          path: /tmp/expected
+      - name: Confirm published snapshot
+        if: inputs.restore_commit == ''
+        env:
+          SITE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: python -m src.check_web_site --url "$SITE_URL" --expected /tmp/expected/episodes.json --attempts 8
+      - name: Confirm restored snapshot
+        if: inputs.restore_commit != ''
+        env:
+          SITE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: python -m src.check_web_site --url "$SITE_URL" --expected /tmp/expected/episodes.json --max-age-hours 876000 --max-episode-age-hours 0 --attempts 8
+
+  report:
+    if: always() && github.ref == 'refs/heads/main'
+    needs: [build, deploy, verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/github-script@v7
+        env:
+          FAILED: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        with:
+          script: |
+            const title = '運用アラート: サイトの自動更新';
+            const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', creator: 'github-actions[bot]'});
+            const issue = issues.find(item => item.title === title && !item.pull_request);
+            if (process.env.FAILED === 'true' && !issue) {
+              await github.rest.issues.create({...context.repo, title, body: `自動更新・公開確認に失敗しました。直前の正常な公開版を確認してください。\n\n実行ログ: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`});
+            } else if (process.env.FAILED !== 'true' && issue) {
+              await github.rest.issues.update({...context.repo, issue_number: issue.number, state: 'closed', state_reason: 'completed'});
+            }

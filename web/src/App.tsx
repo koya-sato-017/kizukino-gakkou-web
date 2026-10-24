@@ -6,6 +6,7 @@ interface Episode {
   id: string;
   title: string;
   published: string; // YYYY-MM-DD
+  published_at?: string;
   description: string;
   duration_ms: number;
   link: string;
@@ -16,6 +17,27 @@ interface Episode {
 interface EpisodeData {
   channel_id: string;
   episodes: Episode[];
+  updated_at?: string;
+}
+
+function parseEpisodeData(value: unknown): EpisodeData {
+  if (!value || typeof value !== 'object') throw new Error('放送データが不正です');
+  const data = value as Partial<EpisodeData>;
+  if (typeof data.channel_id !== 'string' || !Array.isArray(data.episodes) || data.episodes.length === 0) {
+    throw new Error('放送データが空、または形式が不正です');
+  }
+  if (!data.episodes.every(ep => ep && typeof ep.id === 'string' && typeof ep.title === 'string'
+    && typeof ep.published === 'string' && typeof ep.description === 'string'
+    && typeof ep.duration_ms === 'number' && typeof ep.link === 'string'
+    && /^https:\/\/stand\.fm\/episodes\//.test(ep.link)
+    && (ep.audio_url == null || (typeof ep.audio_url === 'string' && ep.audio_url.startsWith('https://'))))) {
+    throw new Error('放送の形式が不正です');
+  }
+  return data as EpisodeData;
+}
+
+function episodeTime(episode: Episode): number {
+  return Date.parse(episode.published_at || `${episode.published}T00:00:00+09:00`);
 }
 
 interface SeriesInfo {
@@ -58,7 +80,7 @@ function normalizeSeriesName(name: string): string {
 /** タイトルからシリーズ名を抽出 */
 function extractSeriesName(title: string): string | null {
   // 【XXX】の後のテキストを取得
-  const bracketMatch = title.match(/【[^】]+】(.+)/);
+  const bracketMatch = title.match(/[【〖][^】〗]+[】〗](.+)/);
   if (!bracketMatch) return null;
 
   const content = bracketMatch[1];
@@ -70,7 +92,7 @@ function extractSeriesName(title: string): string | null {
   }
 
   // パターン2: 「シリーズ名 最終回」「シリーズ名 完結」
-  const finalMatch = content.match(/^(.+?)[\s　]*(最終回|完結)/);
+  const finalMatch = content.match(/^(.+?)[\s\u3000]*(最終回|完結)/);
   if (finalMatch && finalMatch[1].trim().length >= 4) {
     return normalizeSeriesName(finalMatch[1]);
   }
@@ -118,12 +140,15 @@ function App() {
   const [data, setData] = useState<EpisodeData | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [reloadKey, setReloadKey] = useState(0);
 
   // お気に入り状態
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('kizukino_favorites');
-      return saved ? JSON.parse(saved) : [];
+      const parsed: unknown = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === 'string') : [];
     } catch {
       return [];
     }
@@ -135,7 +160,11 @@ function App() {
   const [sortOldest, setSortOldest] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem('kizukino_favorites', JSON.stringify(favorites));
+    try {
+      localStorage.setItem('kizukino_favorites', JSON.stringify(favorites));
+    } catch {
+      // 保存を制限するブラウザーでも、閲覧と現在の画面でのお気に入りは利用できる。
+    }
   }, [favorites]);
 
   const toggleFavorite = (id: string, e: React.MouseEvent) => {
@@ -168,17 +197,31 @@ function App() {
   };
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + `episodes.json?t=${new Date().getTime()}`)
-      .then(res => res.json())
+    const controller = new AbortController();
+    fetch(import.meta.env.BASE_URL + 'episodes.json', { cache: 'no-cache', signal: controller.signal })
+      .then(res => {
+        if (!res.ok) throw new Error(`読み込みエラー: ${res.status}`);
+        return res.json();
+      })
       .then(json => {
-        setData(json);
+        if (controller.signal.aborted) return;
+        setData(parseEpisodeData(json));
         setIsLoading(false);
       })
       .catch(err => {
+        if (controller.signal.aborted) return;
         console.error("エピソードの読み込みに失敗しました", err);
+        setLoadError('放送一覧を読み込めませんでした。時間をおいて再読み込みしてください。');
         setIsLoading(false);
       });
-  }, []);
+    return () => controller.abort();
+  }, [reloadKey]);
+
+  const retryLoad = () => {
+    setIsLoading(true);
+    setLoadError(null);
+    setReloadKey(prev => prev + 1);
+  };
 
   // シリーズ一覧を構築
   const seriesList = useMemo(() => {
@@ -215,9 +258,9 @@ function App() {
     }
 
     // ソート
-    if (sortOldest) {
-      filtered = [...filtered].sort((a, b) => a.published.localeCompare(b.published));
-    }
+    filtered = [...filtered].sort((a, b) => sortOldest
+      ? episodeTime(a) - episodeTime(b)
+      : episodeTime(b) - episodeTime(a));
 
     return filtered;
   }, [data, searchQuery, showFavoritesOnly, favorites, selectedSeries, sortOldest]);
@@ -227,11 +270,12 @@ function App() {
   }, [filteredEpisodes, displayCount]);
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
     const observer = new IntersectionObserver(
       entries => {
-        if (entries[0].isIntersecting && displayCount < filteredEpisodes.length) {
+        if (entries[0].isIntersecting && displayCount < filteredEpisodes.length && !timer) {
           setIsFetchingMore(true);
-          setTimeout(() => {
+          timer = setTimeout(() => {
             setDisplayCount(prev => prev + 12);
             setIsFetchingMore(false);
           }, 800);
@@ -243,14 +287,15 @@ function App() {
     if (observerTarget.current) {
       observer.observe(observerTarget.current);
     }
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (timer) clearTimeout(timer);
+    };
   }, [displayCount, filteredEpisodes.length]);
 
-  useEffect(() => {
-    setDisplayCount(12);
-  }, [searchQuery, showFavoritesOnly, selectedSeries, sortOldest]);
-
   const handleSelectSeries = (seriesName: string) => {
+    setDisplayCount(12);
+    setIsFetchingMore(false);
     if (selectedSeries === seriesName) {
       // 同じシリーズをクリックで解除
       setSelectedSeries(null);
@@ -264,6 +309,8 @@ function App() {
   };
 
   const clearSeries = () => {
+    setDisplayCount(12);
+    setIsFetchingMore(false);
     setSelectedSeries(null);
     setSortOldest(false);
   };
@@ -280,8 +327,8 @@ function App() {
   // 曜日を取得する（レトロな雰囲気を出すため）
   const getDayOfWeek = (dateString: string) => {
     const days = ['日', '月', '火', '水', '木', '金', '土'];
-    const d = new Date(dateString);
-    return isNaN(d.getTime()) ? '' : `（${days[d.getDay()]}）`;
+    const d = new Date(`${dateString}T00:00:00Z`);
+    return isNaN(d.getTime()) ? '' : `(${days[d.getUTCDay()]})`;
   };
 
   // プレイリスト一覧のスクロール用
@@ -336,6 +383,12 @@ function App() {
       </header>
 
       <main className="main-content">
+        {data?.updated_at && (
+          <p className="update-status">
+            最終取得: {new Date(data.updated_at).toLocaleString('sv-SE', { timeZone: 'Asia/Tokyo' })} (日本時間)
+            <br />放送を1時間ごとに確認しています。
+          </p>
+        )}
         {/* プレイリスト（シリーズ一覧）セクション */}
         {!isLoading && seriesList.length > 0 && (
           <section className="playlist-section">
@@ -368,7 +421,7 @@ function App() {
             <div className="playlist-active-actions">
               <button
                 className={`sort-toggle-btn ${sortOldest ? 'active' : ''}`}
-                onClick={() => setSortOldest(!sortOldest)}
+                onClick={() => { setSortOldest(!sortOldest); setDisplayCount(12); setIsFetchingMore(false); }}
               >
                 {sortOldest ? '古い順 ↑' : '新しい順 ↓'}
               </button>
@@ -386,21 +439,28 @@ function App() {
             className="search-input"
             placeholder="キーワードで探す..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => { setSearchQuery(e.target.value); setDisplayCount(12); setIsFetchingMore(false); }}
+            aria-label="放送のタイトル・概要を検索"
           />
         </div>
 
         <div className="filter-controls" style={{ textAlign: 'center', marginBottom: 'var(--space-5)' }}>
           <button
             className={`favorite-filter-btn ${showFavoritesOnly ? 'active' : ''}`}
-            onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+            onClick={() => { setShowFavoritesOnly(!showFavoritesOnly); setDisplayCount(12); setIsFetchingMore(false); }}
           >
             <FiHeart className="filter-heart-icon" fill={showFavoritesOnly ? "currentColor" : "none"} />
             {showFavoritesOnly ? "お気に入りのみ表示中" : "お気に入りで絞り込む"}
           </button>
         </div>
 
-        {isLoading ? (
+        {loadError ? (
+          <div role="alert" className="load-error">
+            <p>{loadError}</p>
+            <button className="sort-toggle-btn" onClick={retryLoad}>再読み込み</button>
+            <p><a href={standfmUrl} target="_blank" rel="noopener noreferrer">stand.fmで放送を見る</a></p>
+          </div>
+        ) : isLoading ? (
           <div style={{ textAlign: 'center', color: 'var(--color-text-tertiary)', padding: '4rem', fontWeight: 800 }}>
             読込中... しばらくお待ちください
           </div>
@@ -417,7 +477,7 @@ function App() {
               {displayedEpisodes.map((ep, index) => (
                 <article key={ep.id} className="episode-card">
                   {/* 値札シール風の装飾（最新話のみ、プレイリスト未選択時） */}
-                  {index === 0 && !searchQuery && !selectedSeries && (
+                  {index === 0 && !searchQuery && !selectedSeries && !showFavoritesOnly && (
                     <div className="price-tag">最新<br />放送</div>
                   )}
 
@@ -441,7 +501,7 @@ function App() {
                     </div>
                     <div className="episode-meta">
                       <span className="meta-item caption">
-                        {ep.published.replace(/-/g, '/')} {getDayOfWeek(ep.published)}
+                        {ep.published} {getDayOfWeek(ep.published)}
                       </span>
                       {ep.duration_ms > 0 && (
                         <span className="meta-item caption">
