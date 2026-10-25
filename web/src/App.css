@@ -28,12 +28,11 @@
   width: 235px;
   flex-shrink: 0;
 }
-.nav-brand img,
-.hero-logo img,
-.footer-brand img {
+.brand-logo {
   display: block;
   width: 100%;
   height: auto;
+  filter: brightness(0) invert(18.8%);
 }
 .main-nav {
   display: flex;

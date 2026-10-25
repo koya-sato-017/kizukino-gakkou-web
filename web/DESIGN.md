@@ -1,7 +1,7 @@
 # デザインとイラスト
 
 - 明るいクリーム地、濃い青緑の文字、朱赤のアクセント。
-- ロゴはユーザー提供の公式画像を使用する。ヘッダー・ファーストビュー・フッターに扉のシンボル付きロゴを置く。画像の色・縦横比・文字の形は変更しない。
+- ロゴはユーザー提供の公式画像を使用する。ヘッダー・ファーストビュー・フッターに扉のシンボル付きロゴを置く。赤い背景を透過させ、文字と扉マークを濃いグレーにした画像を使用する。表示領域と色は `BrandLogo.tsx` とCSSで統一する。
 - 画像以外の文字(セクション見出し・シリーズ名・放送タイトル・本文・操作ボタン・日時)はすべて「Zen Kaku Gothic New」に統一する。
 - フォントはFontsourceのnpmパッケージから同梱する。出典: [Zen Kaku Gothic New](https://fontsource.org/fonts/zen-kaku-gothic-new)。ライセンスは `public/fonts/` に同梱する。
 - 音声と学びにまつわる18点を周囲に散らす。写真、人物、価格表示は使用しない。
@@ -16,7 +16,14 @@
 
 ユーザー提供画像を加工せずコピー。元画像は変更しない。
 
-- `public/brand/logo-orange.jpg`: `logo__kizukinogakkou_orange.jpg`
+- `public/brand/logo-orange.jpg`: ユーザー提供の `logo__kizukinogakkou_orange.jpg` (元画像を保存)
+- `public/brand/logo-charcoal.png`: 上記画像を組み込みimage_genで背景透過・濃いグレーに編集。生成PNGは再加工せず、SVGのviewBoxで上下の余白を調整して表示する。
+
+編集方法: imagegenスキルの組み込み `image_gen` (背景透過を指定)。最終プロンプト:
+
+```text
+Use case: background-extraction. Asset type: official website logo, precise recoloring of an existing logo. Edit target: provided orange rectangular official logo with open-door symbol followed by Japanese wordmark. Remove ALL orange/red background and make it genuinely transparent (alpha), including the holes and cutouts inside the door handles and glyphs. Change ALL formerly white strokes of both the symbol and the wordmark to solid near-black charcoal gray #303030. Text verbatim: キズキノ學校. CRITICAL invariants: trace/preserve the exact original glyph shapes, strokes, spacing, positioning and open-door symbol; do not typeset new lettering, do not substitute a font, do not redesign or redraw with different proportions. Keep the same horizontal composition and approximately same 1210:216 canvas aspect ratio with the original small margins, no extra blank space. No orange/red pixels, no colored rectangle, no white rectangle, no shadows, no outline, no texture, no checkerboard painted into the image. Only the original precise logo silhouette in #303030 on real transparency.
+```
 
 ## 素材
 

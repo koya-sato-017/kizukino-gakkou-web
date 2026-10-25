@@ -14,6 +14,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import BrandScene from "./BrandScene";
+import BrandLogo from "./BrandLogo";
 import { extractSeriesName } from "./series";
 import "./App.css";
 
@@ -326,12 +327,7 @@ function App() {
           onClick={scrollToTop}
           aria-label="キズキノ學校 トップへ"
         >
-          <img
-            src={`${import.meta.env.BASE_URL}brand/logo-orange.jpg`}
-            width="1210"
-            height="216"
-            alt="キズキノ學校"
-          />
+          <BrandLogo />
         </a>
         <nav className="main-nav" aria-label="メインナビゲーション">
           <a href="#episodes">放送を探す</a>
@@ -351,13 +347,7 @@ function App() {
         <BrandScene />
         <div className="hero-inner">
           <h1 className="hero-logo" id="site-title">
-            <img
-              src={`${import.meta.env.BASE_URL}brand/logo-orange.jpg`}
-              width="1210"
-              height="216"
-              alt="キズキノ學校"
-              fetchPriority="high"
-            />
+            <BrandLogo />
           </h1>
           <p className="hero-description">
             人生二周時代を
@@ -709,13 +699,7 @@ function App() {
           <div>
             <p className="eyebrow">LISTEN. LEARN. DISCOVER.</p>
             <a className="footer-brand" href="#" onClick={scrollToTop}>
-              <img
-                src={`${import.meta.env.BASE_URL}brand/logo-orange.jpg`}
-                width="1210"
-                height="216"
-                alt="キズキノ學校"
-                loading="lazy"
-              />
+              <BrandLogo />
             </a>
             <p>気づいて、築こう。</p>
           </div>
