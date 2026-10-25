@@ -46,7 +46,7 @@ def check_data(data, expected=None, max_age_hours=3, max_episode_age_hours=72, n
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--url", default="https://koya-sato-017.github.io/kizukino-gakkou-web/")
+    parser.add_argument("--url", default="https://kizukino-gakkou.pages.dev/")
     parser.add_argument("--expected", type=Path)
     parser.add_argument("--max-age-hours", type=float, default=3)
     parser.add_argument("--max-episode-age-hours", type=float, default=72,

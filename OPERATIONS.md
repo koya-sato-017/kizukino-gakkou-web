@@ -73,18 +73,36 @@ python -m src.check_web_site
 
 大量削除が意図した変更だと確認できた場合だけ、手元で `--allow-large-removal` を付けて全件取得し、差分を確認してコミットする。定期実行ではこの保護を無効化しない。
 
-## Cloudflare Pagesへの移行
+## Cloudflare Pagesでの公開
 
-同じReact + ViteのソースとJSONを使用できる。
+公開先プロジェクト: `kizukino-gakkou`。URL: `https://kizukino-gakkou.pages.dev/`。
+Cloudflare PagesのDirect Uploadを使い、取得・検証・ビルドは既存のGitHub Actionsで行う。Git連携によるCloudflare側の再ビルドは使用しない。
 
-| 項目 | Cloudflare Pagesの設定 |
-|---|---|
-| Root directory | `web` |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Node.js | 24 |
-| 環境変数 | `VITE_BASE_PATH=/` |
+### 自動公開の接続
 
-移行時はActionsの取得・検証・データ保存を残し、公開ジョブをCloudflare用に変更する。取得後のコミットをCloudflareのGit連携でビルドさせる方式、または検証済みの `web/dist` を明示的にアップロードする方式を選ぶ。公開後の確認先URLも変更する。Cloudflareに置くだけではstand.fmからの取得は自動化されない。
+GitHubリポジトリ Settings → Secrets and variables → Actions に以下を設定する。
 
-GitHub PagesのURLとCloudflareのURLは別オリジンなので、現在のlocalStorageに保存しているお気に入りは自動移行されない。切り替え前にエクスポート・インポート機能を追加するか、利用者に案内する。独自ドメインを継続利用できる構成にしておくと、将来のホスティング変更の影響を減らせる。
+| 種別 | 名前 | 値 |
+|---|---|---|
+| Secret | `CLOUDFLARE_API_TOKEN` | 対象CloudflareアカウントのCloudflare Pages編集権限を持つトークン |
+| Variable | `CLOUDFLARE_ACCOUNT_ID` | CloudflareのアカウントID |
+| Variable | `CLOUDFLARE_SITE_URL` | `https://kizukino-gakkou.pages.dev/` |
+| Variable | `CLOUDFLARE_PAGES_PROJECT` | `kizukino-gakkou` |
+
+トークンの値をコード、ログ、ドキュメントに書かない。アカウントIDとURLを設定し、Secretを保存した後、最後に `CLOUDFLARE_PAGES_PROJECT` を設定して有効化する。未設定の間は従来のGitHub Pagesだけを更新する。
+
+`Update and deploy site` を手動実行し、`deploy-cloudflare` と `verify-cloudflare` の成功を確認する。以後は毎時17分の取得に続いて自動公開する。公開先切り替え中もGitHub Pagesの更新・監視を残すため、既存リンクは利用できる。
+
+### ビルドと監視
+
+- 同じソース・同じ検証済みJSONを使い、Cloudflare用は `VITE_BASE_PATH=/` で別の `dist-cloudflare/` へビルドする。
+- `cloudflare-site` artifactを公開ジョブへ引き継ぎ、Wranglerで本番ブランチ `main` にアップロードする。
+- 公開直後はCloudflareの `episodes.json` と検証済みJSONを比較する。復旧用 `restore_commit` も両公開先で利用できる。
+- `Watch published site` はCloudflareの公開JSONも2時間ごとに確認する。異常は既存の運用アラートIssueへまとめる。
+- `web/public/_headers` でCloudflareの `episodes.json` のキャッシュを無効にし、HTMLも再検証する。
+
+Cloudflareでの公開を停止する場合は `CLOUDFLARE_PAGES_PROJECT` を削除する。GitHub Pagesの更新は続く。
+
+GitHub PagesのURLとCloudflareのURLは別オリジンなので、現在のlocalStorageに保存しているお気に入りは自動移行されない。GitHub Pagesの旧URLにも引き続きアクセスできる。
+
+公式手順: [Direct UploadとCIの連携](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/)。

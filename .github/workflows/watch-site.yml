@@ -25,7 +25,12 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r requirements-web.txt
       - name: Check data freshness
-        run: python -m src.check_web_site --attempts 2
+        run: python -m src.check_web_site --url https://koya-sato-017.github.io/kizukino-gakkou-web/ --attempts 2
+      - name: Check Cloudflare data freshness
+        if: always() && vars.CLOUDFLARE_PAGES_PROJECT != ''
+        env:
+          SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL }}
+        run: python -m src.check_web_site --url "$SITE_URL" --attempts 2
       - name: Report state changes only
         if: always()
         uses: actions/github-script@v9.0.0
