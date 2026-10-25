@@ -1,6 +1,6 @@
 {
   "channel_id": "606297aabe8d4428b912db34",
-  "updated_at": "2026-10-25T10:17:36+09:00",
+  "updated_at": "2026-10-25T10:33:35+09:00",
   "detail_failures": 0,
   "latest_published_at": "2026-10-25T08:54:34.614+09:00",
   "episodes": [
@@ -12108,8 +12108,10 @@
       "published_at": "2024-09-01T06:01:04.253+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66d32598656588d66424ad24",
-      "description": "",
+      "description": "20240902-0907の六日分の学びを振り返ります\n  タイヨウのうた\n  夏の日の1993",
       "audio_url": "https://cdncf.stand.fm/audios/01J6MD76GCEN4NP28SGSS95FWV.m4a",
+      "details_checked_at": "2026-10-25T10:33:26+09:00",
+      "details_status": "ok",
       "index": 889
     },
     {
@@ -12132,8 +12134,10 @@
       "published_at": "2024-08-31T06:01:05.477+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66cd7b571614f6996f04fd1e",
-      "description": "",
+      "description": "本日の称賛は先生の方々です\n  0:00 オープニング\n  0:50 本編\n  15:12 365日の紙飛行機（AKB48）楽曲申請済み\n  17:28 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J69AM9E05JJKP8F6GM8HXB5R.m4a",
+      "details_checked_at": "2026-10-25T10:33:26+09:00",
+      "details_status": "ok",
       "index": 891
     },
     {
@@ -12144,8 +12148,10 @@
       "published_at": "2024-08-30T08:00:12.181+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66cc46468ebd85887c57cc77",
-      "description": "",
+      "description": "朗読会イベントのお願い\n  \n  じっくり聞くことに集中するため\n  お聞きになったらイイネだけお願いします\n  (コメント等はイベントの為返信等はしません)\n  \n  #朗読\n  #声優\n  #朗読よんでる\n  #朗読よんでるよね18〜\n  \n  \n  【明日への手紙】手嶌葵\n  作詞：池田綾子     作曲：池田綾子　\n  ※デジタル技術を使ったカバー曲を下記配信でご紹介しています\n  https://stand.fm/episodes/66cd35002b919b3ab93d2efc\n  \n  元気でいますか。\n  大事な人はできましたか。\n  いつか夢は叶いますか。\n  この道の先で\n  \n  覚えていますか\n  揺れる麦の穂 あの夕映え\n  地平線 続く空を探し続けていた\n  \n  明日を描こうともがきながら\n  今夢の中へ\n  形ないものの輝きを\n  そっとそっと抱きしめて\n  進むの\n  \n  笑っていますか\n  あの日のように無邪気な目で\n  寒い夜も雨の朝もきっとあったでしょう\n  \n  ふるさとの街は帰る場所ならここにあると\n  いつだって変わらずに あなたを待っている\n  \n  明日を描くことを止めないで\n  今夢の中へ\n  大切な人のぬくもりを\n  ずっとずっと忘れずに\n  進むの\n  \n  人は迷いながら揺れながら\n  歩いてゆく\n  二度とない時の輝きを\n  見つめていたい\n  \n  明日を描こうともがきながら\n  今夢の中で\n  形ないものの輝きを\n  そっとそっと抱きしめて\n  進むの\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01J68SFFVRVXXX36NHV1D6H16G.m4a",
+      "details_checked_at": "2026-10-25T10:33:26+09:00",
+      "details_status": "ok",
       "index": 892
     },
     {
@@ -12156,8 +12162,10 @@
       "published_at": "2024-08-30T06:01:01.824+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66cd35002b919b3ab93d2efc",
-      "description": "",
+      "description": "５０代から捨てた方がよいもの\n  ①もう歳だから\n  ②サラリーマンのプライド\n  ③嫌な関係性\n  このうちの②の深掘り回\n  0:00 オープニング\n  0:50 本編\n  16:00 明日への手紙（手嶌葵）\n  17:56エンディング\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01J68SMMZW1PE9GG49FM5TFB09.m4a",
+      "details_checked_at": "2026-10-25T10:33:26+09:00",
+      "details_status": "ok",
       "index": 893
     },
     {
@@ -12168,8 +12176,10 @@
       "published_at": "2024-08-29T20:01:01.304+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66cff458245601996a8123b0",
-      "description": "",
+      "description": "台風嫌ですね\n  嫌でもくるもんはしゃあない。対策はしときましょう\n  #無学の扉 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J6EWECZDW2NH9Q1B3GR3H16G.m4a",
+      "details_checked_at": "2026-10-25T10:33:27+09:00",
+      "details_status": "ok",
       "index": 894
     },
     {
@@ -12180,8 +12190,10 @@
       "published_at": "2024-08-29T06:01:03.543+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b09fdbb4a15766ea25317d",
-      "description": "",
+      "description": "管理職になりたくない理由三選\n  こちら少し解説しました。特に三つ目がなってない会社は結構多くて見切りをつけた方がいいです\n  0:00 オープニング\n  0:50 本編\n  17:14 夏の日の1993（Class）楽曲申請済み\n  18:58 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J68SM9GTQ7QHKCPTXR1N3W25.m4a",
+      "details_checked_at": "2026-10-25T10:33:27+09:00",
+      "details_status": "ok",
       "index": 895
     },
     {
@@ -12192,8 +12204,10 @@
       "published_at": "2024-08-28T06:01:05.405+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66cd21f0ada216b8862a7149",
-      "description": "",
+      "description": "台風にはご注意ください\n  しかし過去の予報を追っていくと随分と違いますけど、どういうこと？\n  気象予報をする方々にエールを送りビジネスパーソンに学びを届ける渾身の講義🤣\n  0:00 オープニング\n  0:50 本編\n  16:46 雨（森高千里）楽曲申請済み\n  18:32 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J68MT3DJSE0PZZDFYD7FMF48.m4a",
+      "details_checked_at": "2026-10-25T10:33:28+09:00",
+      "details_status": "ok",
       "index": 896
     },
     {
@@ -12216,8 +12230,10 @@
       "published_at": "2024-08-27T06:01:03.436+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c6ebdc09a887e62910cdb5",
-      "description": "",
+      "description": "自民党総裁戦は総理大臣を決める選挙です\n  総理大臣が代わると同じ自民党でも生活に影響があります\n  なので、ソコソコは関心を持ってください\n  ただし、選挙に行ってはなりません🤣\n  0:00 オープニング\n  0:50 本題\n  17:15 渡瀬橋（森高千里）楽曲申請済み\n  18:51 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J68SJCDN37PQA81KV4JZVE6Z.m4a",
+      "details_checked_at": "2026-10-25T10:33:27+09:00",
+      "details_status": "ok",
       "index": 898
     },
     {
@@ -12228,8 +12244,10 @@
       "published_at": "2024-08-26T06:01:01.190+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c6e0da3ea022197b9595ae",
-      "description": "",
+      "description": "ある企業の社長さんと会話した時にふと気付いたことをシェアします\n  僕は結局、\n  創造と挑戦が評価される世の中であってほしい\n  だけなのです\n  0:00 オープニング\n  0:50 本題\n  14:44 アクアマリンのままでいて（オメガトライブ）楽曲申請済み\n  17:39 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J5WEDX0VDBA2V4D67YV0CCBP.m4a",
+      "details_checked_at": "2026-10-25T10:33:28+09:00",
+      "details_status": "ok",
       "index": 899
     },
     {
@@ -12240,8 +12258,10 @@
       "published_at": "2024-08-25T06:01:00.867+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c9ea4098a1699bfc47a3be",
-      "description": "",
+      "description": "今週の月曜日から土曜日の配信をコンパクトにしてコメントをご紹介しながら振り返ります",
       "audio_url": "https://cdncf.stand.fm/audios/01J62CTYDC2PNTQZZGK69BNB1X.m4a",
+      "details_checked_at": "2026-10-25T10:33:29+09:00",
+      "details_status": "ok",
       "index": 900
     },
     {
@@ -12264,8 +12284,10 @@
       "published_at": "2024-08-24T06:01:00.906+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c5951a1ea900fd2b9b7d01",
-      "description": "",
+      "description": "リスナーの皆さんからのレターをご紹介して学びに生かす「さぁー、みんなで考えよう」のは最新テーマは、\n  今、称賛したい人、モノ、こと。\n  今回は二人の先生方からのレターをご紹介します\n  0:00 オープニング\n  0:50 本編\n  15:35 時代（中島みゆき）楽曲申請済み\n  17:46 エンディング\n  #さぁー、みんなで考えよう ",
       "audio_url": "https://cdncf.stand.fm/audios/01J5ZM7AMZCP970YECFPAXQMNY.m4a",
+      "details_checked_at": "2026-10-25T10:33:29+09:00",
+      "details_status": "ok",
       "index": 902
     },
     {
@@ -12276,8 +12298,10 @@
       "published_at": "2024-08-23T06:01:22.579+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c55d6955a7592a4b7c3de2",
-      "description": "",
+      "description": "世間でも話題のテーマからたくさんの気づきと学びを受け取ろうというシリーズ第三弾\n  ①、②もまだ聴いてない方は聴いてね\n  0:00 オープニング\n  0:50 本編\n  19:16 息もできない（ZARD）楽曲申請済み\n  21:11 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J5SXSPHREHSKQ7SCWWVF7CWY.m4a",
+      "details_checked_at": "2026-10-25T10:33:29+09:00",
+      "details_status": "ok",
       "index": 903
     },
     {
@@ -12288,8 +12312,10 @@
       "published_at": "2024-08-22T20:01:01.077+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c6c27e09a887e62910cac0",
-      "description": "",
+      "description": "朝からラーメン食べてます\n  昨日は中華そばでした\n  一昨日はラーメンでしたけど\n  えっ？\n  大阪弁です語るどうでもいい話\n  今日もありがとうございます\n  #無学の扉 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J5W6GA4CWXCP4ZZS89X1KH0S.m4a",
+      "details_checked_at": "2026-10-25T10:33:29+09:00",
+      "details_status": "ok",
       "index": 904
     },
     {
@@ -12300,8 +12326,10 @@
       "published_at": "2024-08-22T06:01:01.984+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c5572955a7592a4b7c3d70",
-      "description": "",
+      "description": "昨日の続編です。\n  セブン&アイはカナダの会社から買収提案を受けていて、会社の経営陣としてこの提案に賛同するかどうかの検討を今行っています。\n  株式会社は株の論理で権限が決まるという当たり前のことを株式会社で働くサラリーマンはどこまで理解しているのか？\n  ということで、その辺りを解説する第二回\n  0:00 オープニング\n  0:50 本編\n  18:46 シーズン・イン・ザ・サン（TUBE）楽曲申請済み\n  20:39 エンディング\n  #セブンイレブン ",
       "audio_url": "https://cdncf.stand.fm/audios/01J5SXH64Z39QTY5KSB4TRCY41.m4a",
+      "details_checked_at": "2026-10-25T10:33:29+09:00",
+      "details_status": "ok",
       "index": 905
     },
     {
@@ -12312,8 +12340,10 @@
       "published_at": "2024-08-21T06:01:01.731+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c3e3a1ba7ccb0a222adc21",
-      "description": "",
+      "description": "あれだけ成功してるセブンがカナダの企業から買収提案されています。どうしてそんなことになってるのか？\n  0:00 オープニング\n  0:50 本編\n  18:58 ジェットコースターロマンス（KinKi Kids）楽曲申請済み\n  21:16 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J5SX24X1PVX340W58Z27S0PV.m4a",
+      "details_checked_at": "2026-10-25T10:33:30+09:00",
+      "details_status": "ok",
       "index": 906
     },
     {
@@ -12336,8 +12366,10 @@
       "published_at": "2024-08-20T06:01:05.121+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66bf0793e9ce265e127ca5fa",
-      "description": "",
+      "description": "岸田首相と聞くとついネガティヴな反応をしがちですが、辞めていく人から学んだ方がプラスになりますよね\n  このあたりが学べるポイント\n  ①民意が効いている\n  ②大事なことが動き出した\n  ③②が進展することを我々はチェックしていくべき\n  0:00 オープニング\n  0:50 本編\n  17:35 あなたに逢いたくて（松田聖子）楽曲申請済み\n  19:47 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J5D3CVHRH3G2W6KV0SA462C3.m4a",
+      "details_checked_at": "2026-10-25T10:33:31+09:00",
+      "details_status": "ok",
       "index": 908
     },
     {
@@ -12348,8 +12380,10 @@
       "published_at": "2024-08-19T06:01:01.895+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66bd9460cc4f778af9d03458",
-      "description": "",
+      "description": "キズキノ學校の新たなSCOP支援のご報告\n  下記のプロジェクトにゴールドスポンサーとして支援を致しました\n  「野球を通じて人と夢を育てる！」クラウドファンディング\n  https://camp-fire.jp/projects/763495/view/activities/607851\n  0:00 オープニング\n  0:50 本編\n  16:30 Secret base〜君がくれたもの〜（ZONE）\n  18:41 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J5MVBS91PTXBEPFH9G36S4KR.m4a",
+      "details_checked_at": "2026-10-25T10:33:30+09:00",
+      "details_status": "ok",
       "index": 909
     },
     {
@@ -12360,8 +12394,10 @@
       "published_at": "2024-08-18T06:01:02.288+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66c0b0bfeee3d9556affc3ac",
-      "description": "",
+      "description": "20240812-20240817の六日間の配信をイッキに振り返ります。濃く学べる配信です\n  空と君のあいだに（中島みゆき）\n  揺れる想い(ZARD)",
       "audio_url": "https://cdncf.stand.fm/audios/01J5GCCHAH4YNACHXQ0MXAJ211.m4a",
+      "details_checked_at": "2026-10-25T10:33:30+09:00",
+      "details_status": "ok",
       "index": 910
     },
     {
@@ -12384,8 +12420,10 @@
       "published_at": "2024-08-17T06:01:01.564+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66bea84215ca91df602c04be",
-      "description": "",
+      "description": "今週末のLIVEは本日21:30から\n  お時間を作っていただける方は参加してみてください\n  本日の配信は投資に関する二つの質問にお答えしました\n  0:00 オープニング\n  0:50 本編\n  16:30 にんげんっていいな（小林亜星）楽曲申請済み\n  17:21 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J5D3WYGTVHQNH9QQ4WT7J86K.m4a",
+      "details_checked_at": "2026-10-25T10:33:30+09:00",
+      "details_status": "ok",
       "index": 912
     },
     {
@@ -12396,8 +12434,10 @@
       "published_at": "2024-08-16T06:01:03.642+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66bc5625b6b3444df2ebae90",
-      "description": "",
+      "description": "今日は言われてみないと忘れがちだけど称賛すべき方々の話\n  0:00 オープニング\n  0:50 本編\n  14:32 俺たちの明日\n  17:09 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J57V1QDQZGH1GJ9PS6ARRJKK.m4a",
+      "details_checked_at": "2026-10-25T10:33:31+09:00",
+      "details_status": "ok",
       "index": 913
     },
     {
@@ -12408,8 +12448,10 @@
       "published_at": "2024-08-15T20:01:03.466+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66bc3cf0a910cde97ae34cfb",
-      "description": "",
+      "description": "パリオリンピック、沢山の感動をありがとうございました\n  #パリオリンピック #無学の扉 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J57MXCBSYEET0MEG0D3864GD.m4a",
+      "details_checked_at": "2026-10-25T10:33:31+09:00",
+      "details_status": "ok",
       "index": 914
     },
     {
@@ -12420,8 +12462,10 @@
       "published_at": "2024-08-15T06:01:01.882+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b96056e27a8f10c7447bd4",
-      "description": "",
+      "description": "戦争、敗戦からの学びを伝えていくのは我々の責務だと思っています。今年もこの時期に考える時間をお届けします\n  0:00 オープニング\n  0:50 本編\n  18:09 ひこうき雲（荒井由美）楽曲申請済み\n  19:42 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J55SHP09GDR3HRJ2S7AEHSVV.m4a",
+      "details_checked_at": "2026-10-25T10:33:31+09:00",
+      "details_status": "ok",
       "index": 915
     },
     {
@@ -12432,8 +12476,10 @@
       "published_at": "2024-08-14T06:01:03.567+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66bb49a7f84546d2dc8b6fce",
-      "description": "",
+      "description": "コンビニの歴史は創造の歴史。我々に利便性を提供してきた歴史ともいえます。その半世紀を振り返るスッキリ聴き流せる夏休みスペシャル！！\n  0:00 オープニング\n  0:50 本編\n  15:04 二人の夏物語（杉山清貴とオメガトライブ）楽曲申請済み\n  16:47 エンディング\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01J55SGGAW8WHMJ95KXRDBWRRN.m4a",
+      "details_checked_at": "2026-10-25T10:33:32+09:00",
+      "details_status": "ok",
       "index": 916
     },
     {
@@ -12456,8 +12502,10 @@
       "published_at": "2024-08-13T06:01:09.867+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b33e60443fd4bb5aca6a6e",
-      "description": "",
+      "description": "「もう歳だから」を捨てるべき理由をしっかりお話しします！\n  0:00 オープニング\n  0:50 本編\n  14:48 シーズン・イン・ザ・サン（TUBE）楽曲申請済み\n  16:40 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J4P2R0SHTB5N3YE8MQM665HA.m4a",
+      "details_checked_at": "2026-10-25T10:33:32+09:00",
+      "details_status": "ok",
       "index": 918
     },
     {
@@ -12468,8 +12516,10 @@
       "published_at": "2024-08-12T06:01:02.067+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b41c6122fc5f36d790b69f",
-      "description": "",
+      "description": "「潜在能力は君の中。」\n  ある商品のPRのコピーです。昨今のコピーとしては秀逸だと思います。さて、どんな商品ですかね？\n  0:00 オープニング\n  0:50本編（揺れる想い挿入）楽曲申請済み\n  17:32 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J4QRYBCP20N6KBNB3ZR98KFC.m4a",
+      "details_checked_at": "2026-10-25T10:33:33+09:00",
+      "details_status": "ok",
       "index": 919
     },
     {
@@ -12480,8 +12530,10 @@
       "published_at": "2024-08-11T08:12:07.319+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b7f2897aefdc64bf94ebbe",
-      "description": "",
+      "description": "20240805-20240810の六回分の配信をまとめて振り返り配信",
       "audio_url": "https://cdncf.stand.fm/audios/01J4Z90D5YV4HVDSM9098V2WSV.m4a",
+      "details_checked_at": "2026-10-25T10:33:32+09:00",
+      "details_status": "ok",
       "index": 920
     },
     {
@@ -12492,8 +12544,10 @@
       "published_at": "2024-08-10T06:01:01.372+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b32939443fd4bb5aca68f5",
-      "description": "",
+      "description": "僕の金融投資先をご紹介しました\n  インデックスファンドーオルカン、S&P500\n  WealthNavi、ゴールド、仮想通貨などなど\n  0:00 オープニング\n  0:50 本編\n  17:23 ポニーテールとシュシュ（AKB48）楽曲申請済み\n  19:09 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J4Z2SQCRWBBE4W731V0G66E6.m4a",
+      "details_checked_at": "2026-10-25T10:33:33+09:00",
+      "details_status": "ok",
       "index": 921
     },
     {
@@ -12504,8 +12558,10 @@
       "published_at": "2024-08-09T06:01:03.800+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b173f8f486791097f4282d",
-      "description": "",
+      "description": "昭和はずっとインフレでした\n  それを体感してるのは５０代より上の方だと思います\n  ただ、コレから少しずつインフレが進行するとしたら体感してない世代も学んでおくべきです\n  0:00 オープニング\n  0:50 本編\n  17:49 夏祭り（White berry）楽曲申請済み\n  19:07 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J4REEW4JAARQTB0N3CSSE0Q1.m4a",
+      "details_checked_at": "2026-10-25T10:33:33+09:00",
+      "details_status": "ok",
       "index": 922
     },
     {
@@ -12516,8 +12572,10 @@
       "published_at": "2024-08-08T06:01:04.869+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b31449443fd4bb5aca6768",
-      "description": "",
+      "description": "子は宝。いつもキズキノ學校で話していることです。これは感傷的とか、ウエットな気持ちで言っているのではなく、ロジカルな思考なのです。そして、それをしっかり支えているのは母親！\n  子と母親を称賛するキズキノ學校に相応しいレターをご紹介\n  0:00 オープニング\n  0:50 本編\n  13:52 白いカイト（My Little Lover）楽曲申請済み\n  15:50 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J4NRF8BA7BK0JY7D188GFD8G.m4a",
+      "details_checked_at": "2026-10-25T10:33:33+09:00",
+      "details_status": "ok",
       "index": 923
     },
     {
@@ -12528,8 +12586,10 @@
       "published_at": "2024-08-07T06:01:08.042+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b0810a9efab421723521f0",
-      "description": "",
+      "description": "■ひっつー主催、11/30キズキノ學校IN石川のチケット販売はコチラです\n  https://takanoha.theshop.jp/\n  \n  令和の50代は、\n  ①もう歳だから（という言い訳）\n  ②サラリーマンのプライド\n  ③嫌な関係性\n  はキッパリ捨て去りましょう\n  0:00 オープニング\n  0:50 本編\n  15:38 ジェットコースター・ロマンス（KinKi Kids）楽曲申請済み\n  18:28 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J4H6XPCHDK935QF3NTT7D3KT.m4a",
+      "details_checked_at": "2026-10-25T10:33:33+09:00",
+      "details_status": "ok",
       "index": 924
     },
     {
@@ -12552,8 +12612,10 @@
       "published_at": "2024-08-06T06:01:02.651+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66b01bc40d8ffa7f3f932715",
-      "description": "",
+      "description": "■ひっつー主催、11/30キズキノ學校IN石川のチケット販売はコチラ。みんなで被災地を明るくしましょう！！\n  https://takanoha.theshop.jp/\n  \n  50代からのオススメ指針\n  ①自分のやりたいことを見つける\n  ②自分の得意を見つける\n  ③世の中に求められているものを見つける\n  この三つについて追加で軽く解説します\n  0:00 オープニング\n  0:50 本編\n  13:32 悲しみの果て（エレファントカシマシ）楽曲申請済み\n  15:49 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01J4J88MN4DQ26APN3Z3JDS5YX.m4a",
+      "details_checked_at": "2026-10-25T10:33:33+09:00",
+      "details_status": "ok",
       "index": 926
     },
     {
@@ -12564,8 +12626,10 @@
       "published_at": "2024-08-05T06:01:03.056+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66af37e51f664f768fb920ba",
-      "description": "",
+      "description": "ここのところ金融商品が全面安\n  資産数値が低下すると胸がザワザワすると思いますが、\n  そんな時、投資で結果を出している先輩方はどうしてるのか？\n  ■ひっつー主催、キズキノ學校IN石川のチケット販売はコチラです\n  https://takanoha.theshop.jp/\n  \n  0:00 オープニング\n  0:50 本編\n  17:04 負けないで（ZARD）楽曲申請済み\n  18:37 エンディング\n  \n  #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J4FM8ATCJVXGFZMJYE2MQ8DC.m4a",
+      "details_checked_at": "2026-10-25T10:33:34+09:00",
+      "details_status": "ok",
       "index": 927
     },
     {
@@ -12576,8 +12640,10 @@
       "published_at": "2024-08-04T08:21:06.791+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66aeb95e563967e0f390b4e3",
-      "description": "",
+      "description": "20240729～0803までの配信を生放送で復習しました\n  \n  オーシャンゼリゼ\n  栄光の架橋\n  上を向いて歩こう\n  ※楽曲申請済み\n  \n  ■ダサ米の予約販売はコチラです\n  【予約限定】ダサ米 5kg(精米) | ダサザウルスストア \n  https://thebase.page.link/k8Qf\n  \n  ■ひっつー主催、キズキノ學校IN石川のチケット販売はコチラです\n  8/4 20:00〜販売とのこと\n  https://takanoha.theshop.jp/\n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01J4D8QRR7J8RYD7GKFW8E4GGR.m4a",
+      "details_checked_at": "2026-10-25T10:33:34+09:00",
+      "details_status": "ok",
       "index": 928
     },
     {
@@ -12588,8 +12654,10 @@
       "published_at": "2024-08-03T06:01:02.730+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66a831706a6b2b9aa64f228d",
-      "description": "",
+      "description": "レター大募集！\n  あなたの「今、称賛したい人、モノ、こと」を教えてください！\n  締切は8/4 24;00\n  お待ちしてまーす\n  0:00 オープニング\n  0:50 本編\n  14:40 メロディ（玉置浩二）楽曲申請済み\n  16:39 エンディング\n  #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J40G2XC20TZJB1T56W54TT98.m4a",
+      "details_checked_at": "2026-10-25T10:33:34+09:00",
+      "details_status": "ok",
       "index": 929
     },
     {
@@ -12600,8 +12668,10 @@
       "published_at": "2024-08-02T06:01:00.953+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66ab1a2e25355172f2a5b578",
-      "description": "",
+      "description": "一昨日、昨日と僕の大切にしているものが新ステージへ突入しました。スタエフと菊池雄星投手です。\n  この後出来事を解説するとともに引き続き応援していきたい\n  0:00 オープニング\n  0:50 本題\n  16:25 世界でいちばん熱い夏（プリンセス　プリンセス）楽曲申請済み\n  17:49 エンディング\n  #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J47XACZ4AXKZZ36DDRJTRS6P.m4a",
+      "details_checked_at": "2026-10-25T10:33:34+09:00",
+      "details_status": "ok",
       "index": 930
     },
     {
@@ -12612,8 +12682,10 @@
       "published_at": "2024-08-01T20:01:01.780+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66aae39c51debab42c954efb",
-      "description": "",
+      "description": "エンターテイメントの世界でメジャーはなくなりつつある\n  ということはSNSでありストーリーなんですよー\n  ばんざーい🤣\n  #無学の扉 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J45RK0C34WT6S94K4TGS1937.m4a",
+      "details_checked_at": "2026-10-25T10:33:34+09:00",
+      "details_status": "ok",
       "index": 931
     },
     {
@@ -12624,8 +12696,10 @@
       "published_at": "2024-08-01T06:01:04.276+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66a9dc2ab15391da2ddeb3ef",
-      "description": "",
+      "description": "令和の五十代は平成の五十代とは生き方を変えた方がいい\n  その五十代から見つけたい三つのこと\n  好きなこと、得意なこと、世の中ごと\n  0:00 オープニング\n  0:50 本編\n  16:17 sign（Mr.Children）楽曲申請済み\n  18:19 エンディング\n  #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J43R8Y33BEVA7T6RSXMMQ41D.m4a",
+      "details_checked_at": "2026-10-25T10:33:35+09:00",
+      "details_status": "ok",
       "index": 932
     },
     {
@@ -12636,8 +12710,10 @@
       "published_at": "2024-07-31T08:00:10.200+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66a218e93bca9a22333920c2",
-      "description": "",
+      "description": "朗読会イベントのお願い\n  じっくり聞くことに集中するため\n  お聞きになったらイイネだけお願いします\n  (コメント等はイベントの為返信等はしません)\n  \n  #朗読\n  #朗読よんでる\n  #朗読よんでよな17\n  \n  \n  🌟🌟🌟\n  夏休み\n  作詞：吉田拓郎     作曲：吉田拓郎　\n  ※この曲のデジタルカバー曲をこちらの配信でお届けしています\n  https://stand.fm/episodes/66a1e3b9a5e73333bdabc50a\n  \n  麦わら帽子は もう消えた\n  たんぼの蛙は もう消えた\n  それでも待ってる 夏休み\n  \n  姉さん先生 もういない\n  きれいな先生 もういない\n  それでも待ってる 夏休み\n  \n  絵日記つけてた 夏休み\n  花火を買ってた 夏休み\n  指おり待ってた 夏休み\n  \n  畑のとんぼは どこ行った\n  あの時逃がして あげたのに\n  ひとりで待ってた 夏休み\n  \n  西瓜を食べてた 夏休み\n  水まきしたっけ 夏休み\n  ひまわり 夕立 せみの声\n  \n  それでも待ってる　夏休み\n  \n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01J3SMHP95PAHY8PNCXCMSGRHG.m4a",
+      "details_checked_at": "2026-10-25T10:33:35+09:00",
+      "details_status": "ok",
       "index": 933
     },
     {
@@ -12648,8 +12724,10 @@
       "published_at": "2024-07-31T06:01:02.484+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/66a87c0a31d4b5ae9e76629a",
-      "description": "",
+      "description": "パリ五輪、観てますか？\n  僕の中ではかなりエンジンがかかってきました\n  眠い！けどしっかり見届けます\n  0:00 オープニング\n  0:50 本編\n  18:27 栄光の架橋（ゆず）楽曲申請済み\n  21:02 エンディング\n  #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01J42SG8R8YBH1NCREYTEAKF6X.m4a",
+      "details_checked_at": "2026-10-25T10:33:35+09:00",
+      "details_status": "ok",
       "index": 934
     },
     {
@@ -12672,8 +12750,10 @@
       "published_at": "2024-07-30T06:01:02.739+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/669f3aedcba6f9ec22c72029",
-      "description": "",
+      "description": "火縄銃で世界一を目指し、日本文化を世界に届けようとしている現代の武士・火縄銃男子の佐野翔平さんを久々にゲストにお招きしました！！！\n  #コラボ収録",
       "audio_url": "https://cdncf.stand.fm/audios/01J3SN4VJM2V7J7Y96C3K2VQ5Y.m4a",
+      "details_checked_at": "2026-10-25T10:33:35+09:00",
+      "details_status": "ok",
       "index": 936
     },
     {
