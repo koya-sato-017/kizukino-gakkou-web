@@ -511,7 +511,7 @@ function App() {
                 >
                   <span className="series-card-top" aria-hidden="true">
                     <span>SERIES</span>
-                    <Illustration index={[0, 2, 8, 4, 13, 17][index % 6]} />
+                    <Illustration index={[0, 2, 8, 1, 13, 17][index % 6]} />
                   </span>
                   <span className="series-name">{series.displayName}</span>
                   <span className="series-card-bottom">
