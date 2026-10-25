@@ -44,7 +44,9 @@ Awwwards・Webby Awards・FWAを品質の目標とし、視覚設計だけでな
 
 ## 本番公開後の確認
 
-- [最終調整を含む自動公開](https://github.com/koya-sato-017/kizukino-gakkou-web/actions/runs/40188486028)のbuild・save-data・deploy-cloudflare・verify-cloudflare・reportがすべて成功。
+- [最終調整を含む自動公開](https://github.com/koya-sato-017/kizukino-gakkou-web/actions/runs/40189014084)のbuild・save-data・deploy-cloudflare・verify-cloudflare・reportがすべて成功。
 - [公開サイト](https://kizukino-gakkou.pages.dev/)で独立プレーヤーの実音声を再生。読み込み完了・時間の進行・検索中の継続・一時停止・終了を確認。確認後は検索とプレーヤーを初期状態へ戻した。
-- 実際のHTTPレスポンスのCSP・埋め込み禁止・権限制限の検査に成功。公開JSONも正常 (2341件、最終取得2026-10-25T20:21:36+09:00)。
+- 実際のHTTPレスポンスのCSP・埋め込み禁止・権限制限の検査に成功。公開JSONも正常 (2341件、最終取得2026-10-25T20:29:15+09:00)。
 - 公開された最終デザインの画面記録を、チャットのレビュー用フォルダに保存。
+
+- 公開画面の1031px幅で最終の地球儀・ノート・小ラベルの配置を目視し、文字への重なりが解消していることを確認。
