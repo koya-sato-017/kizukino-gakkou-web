@@ -398,9 +398,6 @@ function App() {
       <section className="hero" aria-labelledby="site-title">
         <BrandScene />
         <div className="hero-inner">
-          <p className="hero-eyebrow">
-            <span /> 耳からひらく、学びの時間。
-          </p>
           <h1 className="hero-logo" id="site-title" aria-label="キズキノ學校">
             <span className="hero-logo-top" aria-hidden="true">
               キズキ
@@ -417,9 +414,9 @@ function App() {
             </span>
           </h1>
           <p className="hero-description">
-            いつもの毎日に、
+            人生二周時代を
             <br className="mobile-break" />
-            ひとつ新しい気付きを。
+            イキイキ生きるヒントが満載
           </p>
           <a className="hero-cta" href="#episodes">
             <FiHeadphones aria-hidden="true" /> 放送を聴いてみる{" "}
@@ -427,18 +424,6 @@ function App() {
               <FiArrowDown aria-hidden="true" />
             </span>
           </a>
-        </div>
-        <div className="hand-note note-left" aria-hidden="true">
-          耳をすませて。
-          <svg viewBox="0 0 98 55">
-            <path d="M5 5c30-2 65 8 77 35m-20-6 22 8 5-23" />
-          </svg>
-        </div>
-        <div className="hand-note note-right" aria-hidden="true">
-          気になる話、発見！
-          <svg viewBox="0 0 98 55">
-            <path d="M90 4C64 2 29 16 15 40m-4-20 2 23 23-5" />
-          </svg>
         </div>
       </section>
 
