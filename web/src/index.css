@@ -51,7 +51,7 @@ p {
 h1,
 h2,
 h3 {
-  font-family: var(--font-sign);
+  font-family: var(--font-body);
   font-weight: 800;
   line-height: 1.4;
 }

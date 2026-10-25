@@ -77,21 +77,21 @@
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 730px;
+  min-height: 640px;
   background: var(--paper);
   border-bottom: 1.5px solid var(--ink);
 }
 .hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 920px;
+  max-width: 760px;
   margin: auto;
-  padding: 128px 24px 94px;
+  padding: 80px 24px 64px;
   text-align: center;
 }
 .hero-logo {
-  font-size: clamp(130px, 15vw, 210px);
-  line-height: 0.98;
+  font-size: clamp(112px, 15vw, 168px);
+  line-height: 1.04;
   font-family: var(--font-sign);
   font-weight: 800;
   letter-spacing: -0.06em;
@@ -125,29 +125,29 @@
 }
 .hero-logo-bottom {
   margin-top: 9px;
-  gap: 23px;
+  gap: 20px;
   letter-spacing: -0.07em;
 }
 .logo-side {
   font-family: var(--font-body);
-  font-size: 21px;
+  font-size: 18px;
   letter-spacing: 0.1em;
   font-weight: 800;
   margin-top: 20px;
 }
 .hero-description {
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 700;
-  margin-top: 26px;
+  margin-top: 28px;
   letter-spacing: 0.045em;
 }
 .hero-cta {
   display: inline-flex;
   gap: 14px;
   align-items: center;
-  min-height: 60px;
+  min-height: 56px;
   padding: 10px 12px 10px 25px;
-  margin-top: 24px;
+  margin-top: 20px;
   background: var(--card);
   border: 1.8px solid var(--ink);
   border-radius: 40px;
@@ -210,6 +210,49 @@
   width: 100%;
   height: auto;
   overflow: hidden;
+}
+/* 小さい画面では上下にモチーフを集め、文字の左右は空ける。 */
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 640px;
+  }
+  .hero-inner {
+    padding: 156px 20px 134px;
+  }
+  .hero-logo {
+    font-size: clamp(80px, 22vw, 140px);
+  }
+  .hero-logo-top {
+    padding-right: 0;
+  }
+  .logo-side {
+    display: none;
+  }
+  .hero-description {
+    font-size: 20px;
+    margin-top: 24px;
+  }
+  .motif {
+    left: var(--mobile-x);
+    top: var(--mobile-y);
+    width: var(--mobile-size);
+  }
+}
+@media (max-width: 560px) {
+  .hero-description {
+    font-size: 17px;
+    line-height: 1.9;
+  }
+  .hero-cta {
+    min-height: 54px;
+    padding: 8px 10px 8px 20px;
+    font-size: 16px;
+    gap: 12px;
+  }
+  .hero-cta > span {
+    width: 31px;
+    height: 31px;
+  }
 }
 .motto-strip {
   display: flex;
@@ -480,7 +523,7 @@
   outline-offset: 3px;
 }
 .series-name {
-  font-family: var(--font-sign);
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 17px;
   line-height: 1.55;
@@ -808,7 +851,7 @@
   stroke-width: 1.5;
 }
 .library-notice strong {
-  font-family: var(--font-sign);
+  font-family: var(--font-body);
   display: block;
   font-size: 20px;
   font-weight: 800;
@@ -906,29 +949,7 @@
   height: 22px;
 }
 
-@media (min-width: 1600px) {
-  .hero-inner {
-    padding-top: 84px;
-    padding-bottom: 110px;
-  }
-  .motif {
-    width: calc(var(--size) * 1.2);
-  }
-}
 @media (max-width: 1100px) {
-  .hero {
-    min-height: 670px;
-  }
-  .hero-inner {
-    padding-top: 128px;
-    padding-bottom: 80px;
-  }
-  .hero-logo {
-    font-size: 15.5vw;
-  }
-  .motif {
-    width: calc(var(--size) * 0.8);
-  }
   .motto-strip {
     gap: 30px;
   }
@@ -992,45 +1013,6 @@
   }
   .main-nav a:nth-child(2) {
     display: none;
-  }
-  .hero-inner {
-    padding-top: 148px;
-    padding-bottom: 110px;
-  }
-  .hero-logo {
-    font-size: 17vw;
-  }
-  .hero-description {
-    font-size: 20px;
-  }
-  .logo-side {
-    font-size: 17px;
-  }
-  .hero-logo-bottom {
-    gap: 17px;
-  }
-  .motif {
-    width: calc(var(--size) * 0.65);
-  }
-  .motif-0 {
-    left: 2%;
-    top: 15%;
-  }
-  .motif-1 {
-    left: 86%;
-    top: 17%;
-  }
-  .motif-2 {
-    left: -5%;
-    top: 48%;
-  }
-  .motif-3 {
-    left: 94%;
-    top: 47%;
-  }
-  .motif-7 {
-    left: 84%;
-    top: 80%;
   }
   .motto-strip {
     flex-direction: column;
@@ -1170,152 +1152,8 @@
     width: 17px;
     height: 17px;
   }
-  .hero {
-    min-height: 650px;
-  }
-  .hero-inner {
-    padding: 174px 16px 137px;
-  }
-  .hero-logo {
-    font-size: clamp(80px, 25.5vw, 145px);
-  }
-  .hero-logo-top {
-    letter-spacing: -0.12em;
-    padding-right: 0;
-  }
-  .hero-logo-bottom {
-    margin-top: 9px;
-    gap: 12px;
-  }
-  .logo-side {
-    display: none;
-  }
-  .hero-description {
-    font-size: 17px;
-    line-height: 1.9;
-    margin-top: 24px;
-    font-weight: 800;
-  }
   .mobile-break {
     display: inline;
-  }
-  .hero-cta {
-    min-height: 54px;
-    margin-top: 21px;
-    padding: 8px 9px 8px 19px;
-    gap: 10px;
-    font-size: 15px;
-  }
-  .hero-cta > svg {
-    width: 20px;
-    height: 20px;
-  }
-  .hero-cta > span {
-    width: 31px;
-    height: 31px;
-  }
-  .hero-bottom-label {
-    bottom: 14px;
-    font-size: 9px;
-    left: 19px;
-    right: 19px;
-    letter-spacing: 0.07em;
-  }
-  .hero-bottom-label span:last-child {
-    display: none;
-  }
-  .motif {
-    width: calc(var(--size) * 0.52);
-  }
-  .motif-0 {
-    left: 3%;
-    top: 6%;
-    width: 87px;
-  }
-  .motif-1 {
-    left: 77%;
-    top: 7%;
-    width: 73px;
-  }
-  .motif-2 {
-    left: -10%;
-    top: 51%;
-    width: 99px;
-  }
-  .motif-3 {
-    left: 91%;
-    top: 47%;
-    width: 65px;
-  }
-  .motif-4 {
-    left: 33%;
-    top: 2%;
-    width: 35px;
-  }
-  .motif-5 {
-    left: 56%;
-    top: 5%;
-    width: 43px;
-  }
-  .motif-6 {
-    left: 5%;
-    top: 80%;
-    width: 77px;
-  }
-  .motif-7 {
-    left: 78%;
-    top: 78%;
-    width: 74px;
-  }
-  .motif-8 {
-    left: 28%;
-    top: 85%;
-    width: 42px;
-  }
-  .motif-9 {
-    left: -2%;
-    top: 31%;
-    width: 32px;
-  }
-  .motif-10 {
-    left: 92%;
-    top: 30%;
-    width: 43px;
-  }
-  .motif-11 {
-    left: 59%;
-    top: 84%;
-    width: 38px;
-  }
-  .motif-12 {
-    left: -6%;
-    top: -3%;
-    width: 37px;
-  }
-  .motif-13 {
-    left: 44%;
-    top: 11%;
-    width: 40px;
-  }
-  .motif-14 {
-    left: 5%;
-    top: 68%;
-    width: 30px;
-  }
-  .motif-15 {
-    left: 91%;
-    top: -2%;
-    width: 51px;
-  }
-  .motif-16 {
-    left: 44%;
-    top: 92%;
-    width: 44px;
-  }
-  .motif-17 {
-    left: 72%;
-    top: 92%;
-    width: 37px;
   }
   .motto-strip {
     padding: 16px 12px;
