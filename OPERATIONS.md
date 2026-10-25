@@ -118,7 +118,7 @@ GitHub Pagesの旧URLとCloudflareのURLは別オリジンなので、移行前�
 - npmはlockfileで固定し、`npm ci --ignore-scripts` で依存パッケージのインストール時スクリプトを実行しない。Pythonは `requirements-web.txt` に直接・間接依存のバージョンとSHA-256を固定し、`pip install --require-hashes` で検証する。
 - `Security checks` が全npm依存 (開発用を含む) とWeb運用用Python依存を毎週・依存変更時に検査する。監査ツールは `requirements-security.txt` で管理し、公開用Secretを渡さない。ローカル専用の `requirements.txt` はこのWeb監査の対象外。
 - 失敗時は `運用アラート: セキュリティ確認` を1件作り、検査が回復したら閉じる。既存Issueがある間は増やさない。通信失敗も検査失敗として扱う。新しい脆弱性が判明しても、定期監査だけを理由に放送更新を自動停止する設定にはしていない。
-- Dependabotがnpm・Python・GitHub Actionsの更新PRを毎週提案する。自動マージは行わず、変更内容とテスト結果を確認する。Pythonの更新では対応するハッシュも更新する。
+- Dependabotがnpm・Web運用用Python・GitHub Actionsの更新PRを毎週提案する。ローカル音声ツール用の `requirements.txt` は除外する。自動マージは行わず、変更内容とテスト結果を確認する。Pythonの更新では対応するハッシュも更新する。PRでは脆弱性検査に加えてテスト・lint・ビルドを実行する。
 
 ```bash
 python -m pip install --require-hashes -r requirements-web.txt
