@@ -1,10 +1,12 @@
-@import "@fontsource/m-plus-rounded-1c/400.css";
-@import "@fontsource/m-plus-rounded-1c/700.css";
-@import "@fontsource/m-plus-rounded-1c/800.css";
-@import "@fontsource/m-plus-rounded-1c/900.css";
+@import "@fontsource/dela-gothic-one/400.css";
+@import "@fontsource/zen-kaku-gothic-new/400.css";
+@import "@fontsource/zen-kaku-gothic-new/700.css";
+@import "@fontsource/zen-kaku-gothic-new/900.css";
 
 :root {
-  font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+  --font-sign: "Dela Gothic One", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: var(--font-body);
   color: #203b3a;
   background: #fff5da;
   color-scheme: light;
@@ -51,6 +53,10 @@ h2,
 h3 {
   font-weight: 900;
   line-height: 1.4;
+}
+h2 {
+  font-family: var(--font-sign);
+  font-weight: 400;
 }
 button,
 input,

@@ -28,7 +28,8 @@
   align-items: center;
   gap: 12px;
   font-size: 24px;
-  font-weight: 900;
+  font-family: var(--font-sign);
+  font-weight: 400;
   letter-spacing: -0.05em;
   white-space: nowrap;
 }
@@ -107,8 +108,9 @@
 .hero-logo {
   font-size: clamp(130px, 15vw, 210px);
   line-height: 0.98;
-  font-weight: 900;
-  letter-spacing: -0.09em;
+  font-family: var(--font-sign);
+  font-weight: 400;
+  letter-spacing: -0.06em;
 }
 .hero-logo-top,
 .hero-logo-bottom {
@@ -143,6 +145,7 @@
   letter-spacing: -0.07em;
 }
 .logo-side {
+  font-family: var(--font-body);
   font-size: 21px;
   letter-spacing: 0.1em;
   font-weight: 800;
@@ -318,7 +321,7 @@
 }
 .library-intro h2 {
   font-size: clamp(36px, 4vw, 52px);
-  letter-spacing: -0.065em;
+  letter-spacing: 0;
 }
 .section-lead {
   margin-top: 14px;
@@ -454,8 +457,8 @@
 }
 .section-heading h2 {
   font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 .text-button {
   display: inline-flex;
@@ -547,7 +550,7 @@
 }
 .results-heading h2 {
   font-size: 30px;
-  letter-spacing: -0.045em;
+  letter-spacing: 0;
   margin-top: 5px;
 }
 .sort-control {
@@ -883,7 +886,8 @@
 }
 .footer-brand {
   font-size: clamp(32px, 4.5vw, 60px);
-  font-weight: 900;
+  font-family: var(--font-sign);
+  font-weight: 400;
   letter-spacing: -0.075em;
   line-height: 1.3;
 }
