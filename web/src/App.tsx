@@ -9,26 +9,18 @@ import {
   FiHeadphones,
   FiRadio,
   FiPlay,
+  FiPause,
   FiClock,
   FiChevronDown,
   FiX,
 } from "react-icons/fi";
-import BrandScene from "./BrandScene";
+import BrandScene, { Illustration } from "./BrandScene";
+import AudioPlayer from "./AudioPlayer";
+import { useAudioPlayer } from "./useAudioPlayer";
+import type { Episode } from "./episode";
 import BrandLogo from "./BrandLogo";
 import { extractSeriesName } from "./series";
 import "./App.css";
-
-interface Episode {
-  id: string;
-  title: string;
-  published: string; // YYYY-MM-DD
-  published_at?: string;
-  description: string;
-  duration_ms: number;
-  link: string;
-  audio_url: string | null;
-  is_supporter_only?: boolean;
-}
 
 interface EpisodeData {
   channel_id: string;
@@ -126,6 +118,10 @@ function buildSeriesMap(episodes: Episode[]): SeriesInfo[] {
 }
 
 function App() {
+  const player = useAudioPlayer();
+  const [expandedDescriptions, setExpandedDescriptions] = useState<Set<string>>(
+    new Set(),
+  );
   const [data, setData] = useState<EpisodeData | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -170,20 +166,25 @@ function App() {
   // ボタンを押すごとに12件ずつ追加表示する
   const [displayCount, setDisplayCount] = useState(12);
 
-  // TOPに戻るボタン用のステータス
-  const [showScrollTop, setShowScrollTop] = useState(false);
+  // スクロール時のヘッダー表示
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
+      setIsScrolled(window.scrollY > 300);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
   };
 
   useEffect(() => {
@@ -286,6 +287,16 @@ function App() {
       setSearchQuery(""); // 検索をクリア
       setShowFavoritesOnly(false); // お気に入り絞り込みを解除
     }
+    requestAnimationFrame(() => {
+      const results = document.getElementById("results-title");
+      results?.focus({ preventScroll: true });
+      document.getElementById("broadcasts")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "start",
+      });
+    });
   };
 
   const clearSeries = () => {
@@ -316,11 +327,13 @@ function App() {
   const latestId = data?.episodes.find((ep) => !ep.is_supporter_only)?.id;
 
   return (
-    <div className="app-container">
+    <div
+      className={`app-container ${player.episode ? "has-player" : ""} ${player.error ? "has-player-error" : ""}`}
+    >
       <a className="skip-link" href="#episodes">
         放送一覧へ移動
       </a>
-      <header className="site-header">
+      <header className={`site-header ${isScrolled ? "is-scrolled" : ""}`}>
         <a
           className="nav-brand"
           href="#"
@@ -345,7 +358,14 @@ function App() {
 
       <section className="hero" aria-labelledby="site-title">
         <BrandScene />
+        <div className="hero-edition" aria-hidden="true">
+          <span>LISTEN. LEARN. DISCOVER.</span>
+          <span>stand.fm 放送ライブラリー</span>
+        </div>
         <div className="hero-inner">
+          <p className="hero-kicker">
+            <span /> 気づいて、築こう。
+          </p>
           <h1 className="hero-logo" id="site-title">
             <BrandLogo />
           </h1>
@@ -354,38 +374,52 @@ function App() {
             <br className="mobile-break" />
             イキイキ生きるヒントが満載
           </p>
-          <a className="hero-cta animated-action" href="#episodes">
+          <a className="hero-cta animated-action" href="#broadcasts">
             <FiHeadphones aria-hidden="true" /> 放送を聴いてみる{" "}
             <span>
               <FiArrowDown aria-hidden="true" />
             </span>
           </a>
         </div>
+        <div className="hero-bottom-label">
+          <span>
+            <i />
+            声からつながる、学びの場所。
+          </span>
+          <a href="#episodes">
+            放送を探す <FiArrowDown aria-hidden="true" />
+          </a>
+        </div>
       </section>
 
-      <div className="motto-strip" aria-label="キズキノ學校が大切にすること">
+      <section
+        className="motto-strip"
+        aria-label="キズキノ學校が大切にすること"
+      >
         <span className="motto-intro">気付きから、次の一歩へ。</span>
         <div className="motto-words">
           <span>
             <b>S</b>創造
           </span>
-          <i />{" "}
           <span>
             <b>C</b>挑戦
           </span>
-          <i />{" "}
           <span>
             <b>O</b>応援
           </span>
-          <i />{" "}
           <span>
             <b>P</b>称賛
           </span>
         </div>
-      </div>
+      </section>
 
-      <main className="main-content" id="episodes">
-        <section className="library-intro" aria-labelledby="library-title">
+      <main className="main-content">
+        <section
+          className="library-intro"
+          id="episodes"
+          tabIndex={-1}
+          aria-labelledby="library-title"
+        >
           <div>
             <p className="eyebrow">THE EPISODE LIBRARY</p>
             <h2 id="library-title">放送を、探そう。</h2>
@@ -395,10 +429,7 @@ function App() {
               今日のあなたに、ぴったりの話を。
             </p>
           </div>
-          <div
-            className="library-total"
-            aria-label={`公開放送 ${publicCount}話`}
-          >
+          <div className="library-total">
             <FiRadio aria-hidden="true" />
             <div>
               <span>公開中の放送</span>
@@ -410,6 +441,10 @@ function App() {
           </div>
         </section>
 
+        <div className="search-label">
+          <label htmlFor="episode-search">キーワードで探す</label>
+          <span>タイトル・放送の概要から検索できます</span>
+        </div>
         <div className="search-tools">
           <div className="search-container">
             <FiSearch aria-hidden="true" />
@@ -417,7 +452,7 @@ function App() {
               id="episode-search"
               type="search"
               className="search-input"
-              placeholder="タイトルや、気になる言葉を入力"
+              placeholder="どんな話を聴きたいですか？"
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -474,9 +509,16 @@ function App() {
                   onClick={() => handleSelectSeries(series.name)}
                   aria-pressed={selectedSeries === series.name}
                 >
+                  <span className="series-card-top" aria-hidden="true">
+                    <span>SERIES</span>
+                    <Illustration index={[0, 2, 8, 4, 13, 17][index % 6]} />
+                  </span>
                   <span className="series-name">{series.displayName}</span>
                   <span className="series-card-bottom">
-                    <span>全{series.count}話</span>
+                    <span>
+                      {selectedSeries === series.name ? "選択中 / " : ""}全
+                      {series.count}話
+                    </span>
                     <FiArrowUpRight aria-hidden="true" />
                   </span>
                 </button>
@@ -485,7 +527,11 @@ function App() {
           </section>
         )}
 
-        <section className="results-section" aria-labelledby="results-title">
+        <section
+          className="results-section"
+          id="broadcasts"
+          aria-labelledby="results-title"
+        >
           <div className="results-heading">
             <div>
               <span className="section-index">
@@ -493,9 +539,9 @@ function App() {
                   ? "YOUR FAVORITES"
                   : selectedSeries
                     ? "SELECTED SERIES"
-                    : "ON AIR"}
+                    : "BROADCAST ARCHIVE"}
               </span>
-              <h2 id="results-title">
+              <h2 id="results-title" tabIndex={-1}>
                 {showFavoritesOnly
                   ? "お気に入りの放送"
                   : selectedSeries ||
@@ -564,10 +610,14 @@ function App() {
                     : ep.title;
                   const isLatest = ep.id === latestId;
                   const isFavorite = favorites.includes(ep.id);
+                  const isPlaying =
+                    player.episode?.id === ep.id && player.isPlaying;
+                  const isSelected = player.episode?.id === ep.id;
+                  const descriptionExpanded = expandedDescriptions.has(ep.id);
                   return (
                     <article
                       key={ep.id}
-                      className={`episode-card ${isLatest ? "is-latest" : ""}`}
+                      className={`episode-card ${isLatest ? "is-latest" : ""} ${isSelected ? "is-selected" : ""}`}
                     >
                       <div className="card-topline">
                         <span className="episode-category">
@@ -604,28 +654,62 @@ function App() {
                       </div>
                       <h3 className="episode-title">{title}</h3>
                       <p
-                        className={`episode-description ${!ep.description ? "description-pending" : ""}`}
+                        id={`description-${ep.id}`}
+                        className={`episode-description ${descriptionExpanded ? "is-expanded" : ""} ${!ep.description ? "description-pending" : ""}`}
                       >
                         {ep.description ||
                           "放送の詳しい内容は、stand.fmでご覧いただけます。"}
                       </p>
+                      {ep.description.length > 110 && (
+                        <button
+                          className="description-toggle"
+                          aria-expanded={descriptionExpanded}
+                          aria-controls={`description-${ep.id}`}
+                          onClick={() =>
+                            setExpandedDescriptions((previous) => {
+                              const next = new Set(previous);
+                              if (next.has(ep.id)) next.delete(ep.id);
+                              else next.add(ep.id);
+                              return next;
+                            })
+                          }
+                        >
+                          {descriptionExpanded ? "概要を閉じる" : "概要を読む"}
+                          <FiChevronDown
+                            className={descriptionExpanded ? "flipped" : ""}
+                            aria-hidden="true"
+                          />
+                        </button>
+                      )}
                       <div className="card-listen">
                         {ep.audio_url ? (
-                          <audio
-                            controls
-                            className="audio-player"
-                            src={ep.audio_url}
-                            preload="none"
-                            aria-label={`「${ep.title}」の音声`}
-                            onPlay={(event) => {
-                              const current = event.currentTarget;
-                              document
-                                .querySelectorAll("audio")
-                                .forEach((audio) => {
-                                  if (audio !== current) audio.pause();
-                                });
-                            }}
-                          />
+                          <button
+                            className={`episode-play ${isPlaying ? "is-playing" : ""}`}
+                            onClick={() => player.playEpisode(ep)}
+                            aria-label={`「${ep.title}」を${isPlaying ? "一時停止" : "再生"}`}
+                          >
+                            <span className="play-disc">
+                              {isPlaying ? (
+                                <FiPause aria-hidden="true" />
+                              ) : (
+                                <FiPlay aria-hidden="true" />
+                              )}
+                            </span>
+                            <span>
+                              {isPlaying
+                                ? "再生中"
+                                : isSelected
+                                  ? "つづきから聴く"
+                                  : "この放送を聴く"}
+                            </span>
+                            <span className="sound-bars" aria-hidden="true">
+                              <i />
+                              <i />
+                              <i />
+                              <i />
+                              <i />
+                            </span>
+                          </button>
                         ) : (
                           <a
                             className="audio-fallback"
@@ -725,15 +809,7 @@ function App() {
           </a>
         </div>
       </footer>
-      {showScrollTop && (
-        <button
-          className="scroll-to-top"
-          onClick={scrollToTop}
-          aria-label="トップへ戻る"
-        >
-          <FiArrowUp aria-hidden="true" />
-        </button>
-      )}
+      <AudioPlayer player={player} />
     </div>
   );
 }

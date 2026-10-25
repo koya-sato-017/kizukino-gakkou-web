@@ -5,25 +5,26 @@
 :root {
   --font-body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
   font-family: var(--font-body);
-  color: #203b3a;
-  background: #fff5da;
+  color: #292b26;
+  background: #fff7e3;
   color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --ink: #203b3a;
-  --accent: #ec4931;
-  --paper: #fff5da;
-  --card: #fffcf1;
-  --rule: #203b3a38;
+  --ink: #292b26;
+  --accent: #c63b26;
+  --paper: #fff7e3;
+  --card: #fffcf3;
+  --rule: #292b2633;
+  --muted: #626158;
 }
 * {
   box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 28px;
+  scroll-padding-top: 110px;
 }
 body {
   margin: 0;
@@ -37,7 +38,7 @@ body::after {
   inset: 0;
   z-index: 100;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.022;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23000' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
 }
 h1,

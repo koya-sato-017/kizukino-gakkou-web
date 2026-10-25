@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 const ATLAS = `${import.meta.env.BASE_URL}illustrations/learning-atlas.png`;
 const crops = [
   [20, 22, 304, 303],
@@ -37,6 +39,7 @@ export function Illustration({
   index: number;
   className?: string;
 }) {
+  const clipId = `motif-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   return (
     <svg
       aria-hidden="true"
@@ -46,7 +49,7 @@ export function Illustration({
     >
       {masks[index] && (
         <defs>
-          <clipPath id={`motif-clip-${index}`}>
+          <clipPath id={clipId}>
             <polygon points={masks[index]} />
           </clipPath>
         </defs>
@@ -55,7 +58,7 @@ export function Illustration({
         href={ATLAS}
         width="1774"
         height="887"
-        clipPath={masks[index] ? `url(#motif-clip-${index})` : undefined}
+        clipPath={masks[index] ? `url(#${clipId})` : undefined}
       />
     </svg>
   );
