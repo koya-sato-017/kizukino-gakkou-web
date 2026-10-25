@@ -1,5 +1,3 @@
-import type { CSSProperties } from "react";
-
 const ATLAS = `${import.meta.env.BASE_URL}illustrations/learning-atlas.png`;
 const crops = [
   [20, 22, 304, 303],
@@ -63,52 +61,14 @@ export function Illustration({
   );
 }
 
-// [PCのx, y, 幅, 角度, 小さい画面のx, y, 幅]。中央は文字のために空ける。
-const positions = [
-  [4, 23, 132, -14, 3, 5, 68],
-  [86, 21, 112, 14, 80, 5, 58],
-  [-2, 52, 148, -13, -5, 80, 64],
-  [94, 51, 98, 18, 93, 72, 48],
-  [13, 5, 62, -9, 33, 3, 32],
-  [82, 5, 76, 11, 55, 6, 38],
-  [7, 78, 105, 9, 6, 87, 66],
-  [85, 77, 112, -12, 80, 82, 64],
-  [24, 85, 64, -13, 32, 87, 33],
-  [0, 36, 58, 12, -2, 15, 28],
-  [94, 34, 78, -12, 94, 15, 34],
-  [74, 88, 60, 17, 60, 86, 31],
-  [-2, -5, 80, 12, -4, -4, 34],
-  [40, -3, 72, -10, 46, 13, 32],
-  [2, 67, 56, 15, 47, 1, 26],
-  [96, -4, 86, -12, 94, -3, 42],
-  [43, 93, 72, -9, 45, 94, 37],
-  [59, 91, 66, 9, 73, 93, 32],
-];
-
 export default function BrandScene() {
   return (
     <div className="brand-scene" aria-hidden="true">
-      {positions.map(
-        ([x, y, size, angle, mobileX, mobileY, mobileSize], index) => (
-          <span
-            key={index}
-            className={`motif motif-${index}`}
-            style={
-              {
-                "--x": `${x}%`,
-                "--y": `${y}%`,
-                "--size": `${size}px`,
-                "--angle": `${angle}deg`,
-                "--mobile-x": `${mobileX}%`,
-                "--mobile-y": `${mobileY}%`,
-                "--mobile-size": `${mobileSize}px`,
-              } as CSSProperties
-            }
-          >
-            <Illustration index={index} />
-          </span>
-        ),
-      )}
+      {crops.map((_, index) => (
+        <span key={index} className={`motif motif-${index}`}>
+          <Illustration index={index} />
+        </span>
+      ))}
     </div>
   );
 }

@@ -1,0 +1,114 @@
+name: Security checks
+
+on:
+  schedule:
+    # 月曜日09:30 (日本時間)。新しい脆弱性とトークン期限を毎週確認する。
+    - cron: '30 0 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - 'web/package*.json'
+      - 'requirements-web.txt'
+      - 'requirements-security.txt'
+      - 'src/check_token_expiry.py'
+      - '.github/workflows/security.yml'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'web/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'requirements-web.txt'
+      - 'requirements-security.txt'
+      - '.github/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-checks
+  cancel-in-progress: false
+
+jobs:
+  frontend:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci --ignore-scripts
+        working-directory: web
+      - run: npm run audit:security
+        working-directory: web
+      - name: Validate dependency update proposals
+        if: github.event_name == 'pull_request'
+        working-directory: web
+        run: |
+          npm test
+          npm run lint
+          npm run build
+
+  python:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-security.txt
+      - run: python -m pip_audit --require-hashes --disable-pip -r requirements-web.txt
+      - name: Validate Python update proposals
+        if: github.event_name == 'pull_request'
+        run: |
+          python -m pip install --require-hashes -r requirements-web.txt
+          python -m unittest discover -s tests -v
+
+  token-expiry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Warn 30 days before expiration
+        env:
+          CLOUDFLARE_TOKEN_EXPIRES_ON: ${{ vars.CLOUDFLARE_TOKEN_EXPIRES_ON }}
+        run: python -m src.check_token_expiry
+
+  report:
+    if: always() && github.ref == 'refs/heads/main'
+    needs: [frontend, python, token-expiry]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          FRONTEND: ${{ needs.frontend.result }}
+          PYTHON: ${{ needs.python.result }}
+          TOKEN_EXPIRY: ${{ needs.token-expiry.result }}
+        with:
+          script: |
+            const title = '運用アラート: セキュリティ確認';
+            const checks = {frontend: process.env.FRONTEND, python: process.env.PYTHON, 'token-expiry': process.env.TOKEN_EXPIRY};
+            const failed = Object.values(checks).some(result => result !== 'success');
+            const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', creator: 'github-actions[bot]'});
+            const issue = issues.find(item => item.title === title && !item.pull_request);
+            if (failed && !issue) {
+              await github.rest.issues.create({...context.repo, title, body: `依存関係の脆弱性・監査通信・公開トークンの期限のいずれかを確認してください。\n\n${Object.entries(checks).map(([name, result]) => '- ' + name + ': ' + result).join('\n')}\n\n実行ログ: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`});
+            } else if (!failed && issue) {
+              await github.rest.issues.update({...context.repo, issue_number: issue.number, state: 'closed', state_reason: 'completed'});
+            }

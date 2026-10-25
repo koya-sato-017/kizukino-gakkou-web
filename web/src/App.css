@@ -160,6 +160,169 @@
   width: var(--size);
   transform: rotate(var(--angle));
 }
+/* 中央は文字のために空ける。位置はCSPで保護できる外部CSSで指定する。 */
+.motif-0 {
+  --x: 4%;
+  --y: 23%;
+  --size: 132px;
+  --angle: -14deg;
+  --mobile-x: 3%;
+  --mobile-y: 5%;
+  --mobile-size: 68px;
+}
+.motif-1 {
+  --x: 86%;
+  --y: 21%;
+  --size: 112px;
+  --angle: 14deg;
+  --mobile-x: 80%;
+  --mobile-y: 5%;
+  --mobile-size: 58px;
+}
+.motif-2 {
+  --x: -2%;
+  --y: 52%;
+  --size: 148px;
+  --angle: -13deg;
+  --mobile-x: -5%;
+  --mobile-y: 80%;
+  --mobile-size: 64px;
+}
+.motif-3 {
+  --x: 94%;
+  --y: 51%;
+  --size: 98px;
+  --angle: 18deg;
+  --mobile-x: 93%;
+  --mobile-y: 72%;
+  --mobile-size: 48px;
+}
+.motif-4 {
+  --x: 13%;
+  --y: 5%;
+  --size: 62px;
+  --angle: -9deg;
+  --mobile-x: 33%;
+  --mobile-y: 3%;
+  --mobile-size: 32px;
+}
+.motif-5 {
+  --x: 82%;
+  --y: 5%;
+  --size: 76px;
+  --angle: 11deg;
+  --mobile-x: 55%;
+  --mobile-y: 6%;
+  --mobile-size: 38px;
+}
+.motif-6 {
+  --x: 7%;
+  --y: 78%;
+  --size: 105px;
+  --angle: 9deg;
+  --mobile-x: 6%;
+  --mobile-y: 87%;
+  --mobile-size: 66px;
+}
+.motif-7 {
+  --x: 85%;
+  --y: 77%;
+  --size: 112px;
+  --angle: -12deg;
+  --mobile-x: 80%;
+  --mobile-y: 82%;
+  --mobile-size: 64px;
+}
+.motif-8 {
+  --x: 24%;
+  --y: 85%;
+  --size: 64px;
+  --angle: -13deg;
+  --mobile-x: 32%;
+  --mobile-y: 87%;
+  --mobile-size: 33px;
+}
+.motif-9 {
+  --x: 0%;
+  --y: 36%;
+  --size: 58px;
+  --angle: 12deg;
+  --mobile-x: -2%;
+  --mobile-y: 15%;
+  --mobile-size: 28px;
+}
+.motif-10 {
+  --x: 94%;
+  --y: 34%;
+  --size: 78px;
+  --angle: -12deg;
+  --mobile-x: 94%;
+  --mobile-y: 15%;
+  --mobile-size: 34px;
+}
+.motif-11 {
+  --x: 74%;
+  --y: 88%;
+  --size: 60px;
+  --angle: 17deg;
+  --mobile-x: 60%;
+  --mobile-y: 86%;
+  --mobile-size: 31px;
+}
+.motif-12 {
+  --x: -2%;
+  --y: -5%;
+  --size: 80px;
+  --angle: 12deg;
+  --mobile-x: -4%;
+  --mobile-y: -4%;
+  --mobile-size: 34px;
+}
+.motif-13 {
+  --x: 40%;
+  --y: -3%;
+  --size: 72px;
+  --angle: -10deg;
+  --mobile-x: 46%;
+  --mobile-y: 13%;
+  --mobile-size: 32px;
+}
+.motif-14 {
+  --x: 2%;
+  --y: 67%;
+  --size: 56px;
+  --angle: 15deg;
+  --mobile-x: 47%;
+  --mobile-y: 1%;
+  --mobile-size: 26px;
+}
+.motif-15 {
+  --x: 96%;
+  --y: -4%;
+  --size: 86px;
+  --angle: -12deg;
+  --mobile-x: 94%;
+  --mobile-y: -3%;
+  --mobile-size: 42px;
+}
+.motif-16 {
+  --x: 43%;
+  --y: 93%;
+  --size: 72px;
+  --angle: -9deg;
+  --mobile-x: 45%;
+  --mobile-y: 94%;
+  --mobile-size: 37px;
+}
+.motif-17 {
+  --x: 59%;
+  --y: 91%;
+  --size: 66px;
+  --angle: 9deg;
+  --mobile-x: 73%;
+  --mobile-y: 93%;
+  --mobile-size: 32px;
+}
 .illustration {
   display: block;
   width: 100%;

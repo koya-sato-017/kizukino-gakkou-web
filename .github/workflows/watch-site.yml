@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 concurrency:
   group: site-health
@@ -19,27 +18,41 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-python@v7.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
-      - run: python -m pip install -r requirements-web.txt
+      - run: python -m pip install --require-hashes -r requirements-web.txt
       - name: Check Cloudflare data freshness
         env:
           SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL }}
         run: python -m src.check_web_site --url "$SITE_URL" --attempts 2
-      - name: Report state changes only
-        if: always()
-        uses: actions/github-script@v9.0.0
+      - name: Check browser security headers
         env:
-          FAILED: ${{ job.status != 'success' }}
+          SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL }}
+        run: python -m src.check_web_security --url "$SITE_URL" --attempts 2
+
+  report:
+    if: always() && github.ref == 'refs/heads/main'
+    needs: health
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    permissions:
+      issues: write
+    steps:
+      - name: Report state changes only
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          FAILED: ${{ needs.health.result != 'success' }}
         with:
           script: |
             const title = '運用アラート: 公開サイトの更新停止';
             const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', creator: 'github-actions[bot]'});
             const issue = issues.find(item => item.title === title && !item.pull_request);
             if (process.env.FAILED === 'true' && !issue) {
-              await github.rest.issues.create({...context.repo, title, body: `公開データの鮮度・読み込み確認に失敗しました。配信休止か取得停止かはログと配信元で確認してください。\n\n実行ログ: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`});
+              await github.rest.issues.create({...context.repo, title, body: `公開データの鮮度・読み込み、または保護設定の確認に失敗しました。ログで失敗箇所を確認してください。\n\n実行ログ: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`});
             } else if (process.env.FAILED !== 'true' && issue) {
               await github.rest.issues.update({...context.repo, issue_number: issue.number, state: 'closed', state_reason: 'completed'});
             }

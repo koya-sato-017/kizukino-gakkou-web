@@ -30,19 +30,18 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
+          persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-python@v7.1.0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: requirements-web.txt
-      - run: python -m pip install -r requirements-web.txt
+      - run: python -m pip install --require-hashes -r requirements-web.txt
       - name: Test update safety
         run: python -m unittest discover -s tests -v
       - name: Fetch and validate complete snapshot
@@ -57,16 +56,14 @@ jobs:
           git show "${RESTORE_COMMIT}:web/public/episodes.json" > /tmp/restore-episodes.json
           python -c 'import json; d=json.load(open("/tmp/restore-episodes.json")); assert d["episodes"]'
           mv /tmp/restore-episodes.json web/public/episodes.json
-      - uses: actions/setup-node@v7.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
           cache: npm
           cache-dependency-path: web/package-lock.json
       - name: Install frontend
         working-directory: web
-        env:
-          PUPPETEER_SKIP_DOWNLOAD: 'true'
-        run: npm ci
+        run: npm ci --ignore-scripts
       - name: Test series detection
         working-directory: web
         run: npm test
@@ -78,23 +75,14 @@ jobs:
         env:
           VITE_BASE_PATH: /
         run: npm run build -- --outDir dist-cloudflare
-      - name: Save validated data for next run and recovery
-        run: |
-          git add web/public/episodes.json
-          if ! git diff --cached --quiet; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m '放送データを自動更新'
-            git push origin HEAD:main
-          fi
       - name: Save Cloudflare build
-        uses: actions/upload-artifact@v7.0.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: cloudflare-site
           path: web/dist-cloudflare
           retention-days: 3
           if-no-files-found: error
-      - uses: actions/upload-artifact@v7.0.2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: validated-episodes
           path: web/public/episodes.json
@@ -109,20 +97,50 @@ jobs:
           print(f"詳細取得の失敗: {data.get('detail_failures', 0)}件")
           PY
 
-  deploy-cloudflare:
+  save-data:
     needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: validated-episodes
+          path: /tmp/validated
+      - name: Copy validated data only
+        run: |
+          python3 -c 'import json; d=json.load(open("/tmp/validated/episodes.json")); assert d["episodes"]'
+          cp /tmp/validated/episodes.json web/public/episodes.json
+      - name: Save validated data for next run and recovery
+        run: |
+          git add web/public/episodes.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m '放送データを自動更新'
+            git push origin HEAD:main
+          fi
+
+  deploy-cloudflare:
+    needs: [build, save-data]
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     environment:
       name: cloudflare-pages
       url: ${{ vars.CLOUDFLARE_SITE_URL }}
     steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/download-artifact@v8.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: cloudflare-site
           path: site
-      - uses: actions/setup-node@v7.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
       - name: Validate Cloudflare configuration
@@ -137,8 +155,9 @@ jobs:
           [[ "$SITE_URL" == "https://${PROJECT}.pages.dev/" ]] || exit 1
           test -n "$API_TOKEN"
       - name: Deploy Cloudflare Pages
-        uses: cloudflare/wrangler-action@v4
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4
         with:
+          wranglerVersion: '4.152.0'
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy site --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=main
@@ -148,12 +167,18 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 6
     steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-python@v7.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
-      - run: python -m pip install -r requirements-web.txt
-      - uses: actions/download-artifact@v8.0.2
+      - run: python -m pip install --require-hashes -r requirements-web.txt
+      - name: Confirm browser security headers
+        env:
+          SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL }}
+        run: python -m src.check_web_security --url "$SITE_URL" --attempts 8
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: validated-episodes
           path: /tmp/expected
@@ -170,13 +195,13 @@ jobs:
 
   report:
     if: always() && github.ref == 'refs/heads/main'
-    needs: [build, deploy-cloudflare, verify-cloudflare]
+    needs: [build, save-data, deploy-cloudflare, verify-cloudflare]
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     permissions:
       issues: write
     steps:
-      - uses: actions/github-script@v9.0.0
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           FAILED: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
         with:

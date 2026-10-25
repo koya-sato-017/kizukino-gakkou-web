@@ -29,6 +29,8 @@ GitHub Actionsの `Update and deploy site` が毎時17分に実行される。�
 |---|---|
 | 公開直後 | 公開JSONが今回のデータと一致しない、読み込みに失敗、詳細取得の失敗がある |
 | 2時間ごとの独立した確認 | 最終取得から3時間超、最新の公開放送から72時間超、JSONが不正 |
+| 公開直後と2時間ごと | HTMLのCSP・埋め込み禁止などの保護設定が欠落・変更している |
+| 毎週月曜日09:30 (日本時間) | npm・Python依存に既知の脆弱性がある、監査通信が失敗、公開トークンの期限まで30日以下 |
 
 失敗時は `運用アラート: サイトの自動更新` または `運用アラート: 公開サイトの更新停止` というGitHub Issueを1件だけ作る。回復後に閉じる。失敗が継続しても同じIssueを増やさない。新しい障害は別Issueになる。
 
@@ -43,11 +45,11 @@ Issueの通知を受け取るには、GitHubリポジトリのWatchでIssuesを�
 ```bash
 python3 -m venv .venv-web
 source .venv-web/bin/activate
-python -m pip install -r requirements-web.txt
+python -m pip install --require-hashes -r requirements-web.txt
 python -m unittest discover -s tests -v
 python -m src.export_web_data
 cd web
-npm ci
+npm ci --ignore-scripts
 npm run lint
 npm run build
 ```
@@ -88,6 +90,7 @@ GitHubリポジトリ Settings → Secrets and variables → Actions に以下�
 | Variable | `CLOUDFLARE_ACCOUNT_ID` | CloudflareのアカウントID |
 | Variable | `CLOUDFLARE_SITE_URL` | `https://kizukino-gakkou.pages.dev/` |
 | Variable | `CLOUDFLARE_PAGES_PROJECT` | `kizukino-gakkou` |
+| Variable | `CLOUDFLARE_TOKEN_EXPIRES_ON` | Cloudflareに表示される実際の失効日 (YYYY-MM-DD) |
 
 トークンの値をコード、ログ、ドキュメントに書かない。アカウントID・URL・プロジェクト名とSecretはすべて必須。設定が不足した場合は公開ジョブを失敗させ、アラートで通知する。
 
@@ -106,6 +109,42 @@ GitHubリポジトリ Settings → Secrets and variables → Actions に以下�
 GitHub Pagesの旧URLとCloudflareのURLは別オリジンなので、移行前のlocalStorageに保存していたお気に入りは自動移行されない。
 
 公式手順: [Direct UploadとCIの連携](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/)。
+
+## セキュリティの維持
+
+### 依存関係
+
+- 未使用のPuppeteer・フォント・日付処理・旧公開用ツールは削除済み。Webは静的ファイルだけを配信し、PHPやPages Functionsは使用しない。
+- npmはlockfileで固定し、`npm ci --ignore-scripts` で依存パッケージのインストール時スクリプトを実行しない。Pythonは `requirements-web.txt` に直接・間接依存のバージョンとSHA-256を固定し、`pip install --require-hashes` で検証する。
+- `Security checks` が全npm依存 (開発用を含む) とWeb運用用Python依存を毎週・依存変更時に検査する。監査ツールは `requirements-security.txt` で管理し、公開用Secretを渡さない。ローカル専用の `requirements.txt` はこのWeb監査の対象外。
+- 失敗時は `運用アラート: セキュリティ確認` を1件作り、検査が回復したら閉じる。既存Issueがある間は増やさない。通信失敗も検査失敗として扱う。新しい脆弱性が判明しても、定期監査だけを理由に放送更新を自動停止する設定にはしていない。
+- Dependabotがnpm・Python・GitHub Actionsの更新PRを毎週提案する。自動マージは行わず、変更内容とテスト結果を確認する。Pythonの更新では対応するハッシュも更新する。
+
+```bash
+python -m pip install --require-hashes -r requirements-web.txt
+python -m pip install -r requirements-security.txt
+python -m pip_audit --require-hashes --disable-pip -r requirements-web.txt
+cd web
+npm run audit:security
+```
+
+### 自動公開と管理アカウント
+
+- GitHub Actionsは公式リポジトリの検証済みコミットSHAに固定する。Wranglerもバージョンを固定する。更新はDependabotの提案や公式リリースを確認して行う。
+- ビルド・監査・公開確認はGitHubの読み取り権限で実行する。Gitへの書き込みはJSONを保存する専用ジョブに分離し、Issue作成権限も報告ジョブだけに与える。Cloudflare Secretを使うのは公開ジョブだけ。
+- Cloudflare APIトークンは対象アカウントのCloudflare Pages編集権限に限定する。この権限はアカウント内のPagesプロジェクトに及ぶため、プロジェクト1件だけに限定された権限とは異なる。
+- 2026-10-25に既存トークンの有効期限を90日に変更。Cloudflare画面で確認した失効日は **2027-01-23**。値や権限の拡張は行っていない。
+- 期限の30日前から週次検査が失敗してIssueで通知する。期限切れでは自動更新の公開が失敗するが、公開済みの静的サイトは残る。期限の記録だけではトークン自体の有効性を証明できないため、通常の公開ジョブでも実際の認証を確認する。
+- 更新時はCloudflareで期限付きの同じ最小権限のトークンを用意し、GitHubの `CLOUDFLARE_API_TOKEN` と `CLOUDFLARE_TOKEN_EXPIRES_ON` を更新する。公開成功を確認し、不要になった旧トークンは失効する。値をログ・Issue・チャットへ貼り付けない。
+- GitHubとCloudflareの二段階認証を有効にし、復旧コードを本人が安全な場所に保管する。認証アプリやセキュリティキーの登録は本人が行う。
+
+### ブラウザーの保護
+
+- `web/public/_headers` のCSPで、スクリプト・CSS・フォント・JSON取得は同一サイト、音声は `https://cdncf.stand.fm` のみに制限する。紙の質感用画像だけ `data:` を許可する。外部へのリンクを開く操作は可能。
+- インラインスクリプト・インラインスタイル属性・外部サイトのiframe埋め込み・フォーム送信を禁止する。イラストの配置は外部CSSへ移し、インラインスタイルの許可を不要にした。
+- MIME形式の推測を禁止し、参照元情報の送信を抑止する。カメラ・マイク・位置情報など、サイトで不要なブラウザー権限も無効にする。
+- `python -m src.check_web_security` が公開HTMLの実際のHTTPヘッダーを検査する。Viteの開発サーバーはCloudflare用ヘッダーを適用しないため、本番相当の確認ではCloudflareの公開結果を使う。
+- 音声配信元や外部サービスを追加する場合は、実際に必要なホストだけCSPへ追加し、検査コードも見直す。全ホストや `unsafe-inline` を一括許可して回避しない。
 
 ## GitHub Pagesの公開停止
 
