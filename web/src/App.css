@@ -650,6 +650,7 @@
   height: 12px;
 }
 .episode-title {
+  font-family: var(--font-body);
   font-size: 21px;
   line-height: 1.6;
   font-weight: 800;
