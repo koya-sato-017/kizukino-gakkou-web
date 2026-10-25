@@ -326,8 +326,12 @@ function App() {
           onClick={scrollToTop}
           aria-label="キズキノ學校 トップへ"
         >
-          <FiRadio aria-hidden="true" />
-          <span>キズキノ學校</span>
+          <img
+            src={`${import.meta.env.BASE_URL}brand/logo-orange.jpg`}
+            width="1210"
+            height="216"
+            alt="キズキノ學校"
+          />
         </a>
         <nav className="main-nav" aria-label="メインナビゲーション">
           <a href="#episodes">放送を探す</a>
@@ -346,27 +350,21 @@ function App() {
       <section className="hero" aria-labelledby="site-title">
         <BrandScene />
         <div className="hero-inner">
-          <h1 className="hero-logo" id="site-title" aria-label="キズキノ學校">
-            <span className="hero-logo-top" aria-hidden="true">
-              キズキ
-              <span className="hero-no">
-                ノ
-                <svg className="sound-lines" viewBox="0 0 56 46" fill="none">
-                  <path d="M8 28 5 8M24 23 29 3M39 31 52 15" />
-                </svg>
-              </span>
-            </span>
-            <span className="hero-logo-bottom" aria-hidden="true">
-              <span className="logo-side">気づいて、</span>學校
-              <span className="logo-side">築こう。</span>
-            </span>
+          <h1 className="hero-logo" id="site-title">
+            <img
+              src={`${import.meta.env.BASE_URL}brand/logo-orange.jpg`}
+              width="1210"
+              height="216"
+              alt="キズキノ學校"
+              fetchPriority="high"
+            />
           </h1>
           <p className="hero-description">
             人生二周時代を
             <br className="mobile-break" />
             イキイキ生きるヒントが満載
           </p>
-          <a className="hero-cta" href="#episodes">
+          <a className="hero-cta animated-action" href="#episodes">
             <FiHeadphones aria-hidden="true" /> 放送を聴いてみる{" "}
             <span>
               <FiArrowDown aria-hidden="true" />
@@ -687,7 +685,7 @@ function App() {
                   </p>
                   {displayCount < filteredEpisodes.length && (
                     <button
-                      className="outline-button"
+                      className="outline-button load-more-button animated-action"
                       aria-controls="episode-list"
                       onClick={() =>
                         setDisplayCount((prev) =>
@@ -704,29 +702,6 @@ function App() {
             </>
           )}
         </section>
-
-        <aside className="library-notice">
-          <FiRadio aria-hidden="true" />
-          <div>
-            <strong>毎日の気付きを、ここから。</strong>
-            <p>
-              放送を1時間ごとに確認して、このライブラリーにお届けしています。
-              <br />
-              メンバーシップ限定放送は、stand.fmでお楽しみください。
-            </p>
-            {data?.updated_at && (
-              <p className="update-status">
-                最終取得:{" "}
-                <time dateTime={data.updated_at}>
-                  {new Date(data.updated_at).toLocaleString("sv-SE", {
-                    timeZone: "Asia/Tokyo",
-                  })}
-                </time>{" "}
-                (日本時間)
-              </p>
-            )}
-          </div>
-        </aside>
       </main>
 
       <footer className="site-footer" id="about">
@@ -734,7 +709,13 @@ function App() {
           <div>
             <p className="eyebrow">LISTEN. LEARN. DISCOVER.</p>
             <a className="footer-brand" href="#" onClick={scrollToTop}>
-              キズキノ學校
+              <img
+                src={`${import.meta.env.BASE_URL}brand/logo-orange.jpg`}
+                width="1210"
+                height="216"
+                alt="キズキノ學校"
+                loading="lazy"
+              />
             </a>
             <p>気づいて、築こう。</p>
           </div>

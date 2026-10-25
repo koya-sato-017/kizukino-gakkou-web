@@ -1,11 +1,9 @@
-@import "@fontsource/kaisei-tokumin/800.css";
 @import "@fontsource/zen-kaku-gothic-new/400.css";
 @import "@fontsource/zen-kaku-gothic-new/700.css";
 @import "@fontsource/zen-kaku-gothic-new/900.css";
 
 :root {
   --font-body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
-  --font-sign: "Kaisei Tokumin", "Hiragino Mincho ProN", serif;
   font-family: var(--font-body);
   color: #203b3a;
   background: #fff5da;
