@@ -73,11 +73,7 @@ jobs:
       - name: Lint frontend
         working-directory: web
         run: npm run lint
-      - name: Build site
-        working-directory: web
-        run: npm run build
       - name: Build Cloudflare site
-        if: vars.CLOUDFLARE_PAGES_PROJECT != ''
         working-directory: web
         env:
           VITE_BASE_PATH: /
@@ -91,11 +87,7 @@ jobs:
             git commit -m '放送データを自動更新'
             git push origin HEAD:main
           fi
-      - uses: actions/upload-pages-artifact@v5.0.0
-        with:
-          path: web/dist
       - name: Save Cloudflare build
-        if: vars.CLOUDFLARE_PAGES_PROJECT != ''
         uses: actions/upload-artifact@v7.0.2
         with:
           name: cloudflare-site
@@ -117,25 +109,7 @@ jobs:
           print(f"詳細取得の失敗: {data.get('detail_failures', 0)}件")
           PY
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-24.04
-    timeout-minutes: 5
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    outputs:
-      page_url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5.0.1
-
   deploy-cloudflare:
-    if: vars.CLOUDFLARE_PAGES_PROJECT != ''
     needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 8
@@ -169,31 +143,6 @@ jobs:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy site --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=main
 
-  verify:
-    needs: deploy
-    runs-on: ubuntu-24.04
-    timeout-minutes: 6
-    steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-python@v7.1.0
-        with:
-          python-version: '3.12'
-      - run: python -m pip install -r requirements-web.txt
-      - uses: actions/download-artifact@v8.0.2
-        with:
-          name: validated-episodes
-          path: /tmp/expected
-      - name: Confirm published snapshot
-        if: inputs.restore_commit == ''
-        env:
-          SITE_URL: ${{ needs.deploy.outputs.page_url }}
-        run: python -m src.check_web_site --url "$SITE_URL" --expected /tmp/expected/episodes.json --attempts 8
-      - name: Confirm restored snapshot
-        if: inputs.restore_commit != ''
-        env:
-          SITE_URL: ${{ needs.deploy.outputs.page_url }}
-        run: python -m src.check_web_site --url "$SITE_URL" --expected /tmp/expected/episodes.json --max-age-hours 876000 --max-episode-age-hours 0 --attempts 8
-
   verify-cloudflare:
     needs: deploy-cloudflare
     runs-on: ubuntu-24.04
@@ -221,7 +170,7 @@ jobs:
 
   report:
     if: always() && github.ref == 'refs/heads/main'
-    needs: [build, deploy, verify, deploy-cloudflare, verify-cloudflare]
+    needs: [build, deploy-cloudflare, verify-cloudflare]
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     permissions:

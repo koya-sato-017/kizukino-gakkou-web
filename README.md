@@ -2,9 +2,7 @@
 
 公開サイト: https://kizukino-gakkou.pages.dev/
 
-従来の公開先: https://koya-sato-017.github.io/kizukino-gakkou-web/
-
-Webサイトは `web/` のReact + TypeScript + Viteで構築しています。stand.fmの放送一覧を毎時取得し、検証・ビルドに成功したデータを公開します。Cloudflare Pagesの自動公開はリポジトリの認証設定で有効化し、従来のGitHub Pagesへの公開も維持します。運用、監視、手動更新、復旧、Cloudflare Pagesへの移行は [OPERATIONS.md](OPERATIONS.md) を参照してください。
+Webサイトは `web/` のReact + TypeScript + Viteで構築しています。stand.fmの放送一覧を毎時取得し、検証・ビルドに成功したデータを公開します。公開先はCloudflare Pagesに統一し、旧GitHub Pagesの公開は停止しています。運用、監視、手動更新、復旧、Cloudflare Pagesへの移行は [OPERATIONS.md](OPERATIONS.md) を参照してください。
 
 Web用の更新処理は `python -m src.export_web_data`、公開確認は `python -m src.check_web_site` です。音声ダウンロードやGoogle連携の設定とは独立しています。Web用の依存は `requirements-web.txt` にまとめています。
 

@@ -8,7 +8,7 @@ GitHub Actionsの `Update and deploy site` が毎時17分に実行される。�
 2. 放送ID、公開状態、配信日時、ページ送り、既存データとの件数差を検証する。
 3. 新着や未取得の詳細を優先し、1回最大40件・同時4接続で概要と音声URLを確認する。
 4. 検証済みデータを一時ファイルに書き、正常終了後だけJSONを置き換える。
-5. Pythonの回帰テスト、フロントエンドのlintとビルドに成功したらGitにデータを記録し、GitHub Pagesへ公開する。
+5. Pythonの回帰テスト、フロントエンドのlintとビルドに成功したらGitにデータを記録し、Cloudflare Pagesへ公開する。
 6. 公開URLのJSONと今回のデータを比較する。
 
 一覧取得の途中失敗、0件、ID重複、公開状態の欠損、大幅な既存回の消失、最新配信日の後退は失敗として終了し、既存JSONを維持する。削除は全件一覧の取得が完了した場合だけ反映する。限定化された回の音声URLと概要は公開JSONから除く。
@@ -17,10 +17,10 @@ GitHub Actionsの `Update and deploy site` が毎時17分に実行される。�
 
 ## 初期設定
 
-- GitHubの Settings → Pages → Source を **GitHub Actions** にする。
+- Cloudflare PagesのDirect Uploadプロジェクトと、後述のActions用認証情報・変数を設定する。GitHub Pagesは公開停止のままにする。
 - ワークフローのコードをデフォルトブランチ `main` に置く。
 - Actions → Update and deploy site → Run workflow から初回を実行する。
-- チャンネルIDは公開情報なので追加の認証情報は不要。Google用の `credentials.json` やローカルの `config.json` は使用しない。
+- stand.fmの取得には追加の認証情報は不要。Google用の `credentials.json` やローカルの `config.json` は使用しない。
 - 自動更新は保存と公開を同じワークフローで行う。`GITHUB_TOKEN` によるpushは別のpushワークフローを起動しないため、push後の別ワークフロー任せにしない。
 
 ## 監視と通知
@@ -89,20 +89,29 @@ GitHubリポジトリ Settings → Secrets and variables → Actions に以下�
 | Variable | `CLOUDFLARE_SITE_URL` | `https://kizukino-gakkou.pages.dev/` |
 | Variable | `CLOUDFLARE_PAGES_PROJECT` | `kizukino-gakkou` |
 
-トークンの値をコード、ログ、ドキュメントに書かない。アカウントIDとURLを設定し、Secretを保存した後、最後に `CLOUDFLARE_PAGES_PROJECT` を設定して有効化する。未設定の間は従来のGitHub Pagesだけを更新する。
+トークンの値をコード、ログ、ドキュメントに書かない。アカウントID・URL・プロジェクト名とSecretはすべて必須。設定が不足した場合は公開ジョブを失敗させ、アラートで通知する。
 
-`Update and deploy site` を手動実行し、`deploy-cloudflare` と `verify-cloudflare` の成功を確認する。以後は毎時17分の取得に続いて自動公開する。公開先切り替え中もGitHub Pagesの更新・監視を残すため、既存リンクは利用できる。
+`Update and deploy site` を手動実行し、`deploy-cloudflare` と `verify-cloudflare` の成功を確認する。以後は毎時17分の取得に続いて自動公開する。GitHub Pagesの公開・監視ジョブは削除済みで、Cloudflareだけを更新する。
 
 ### ビルドと監視
 
-- 同じソース・同じ検証済みJSONを使い、Cloudflare用は `VITE_BASE_PATH=/` で別の `dist-cloudflare/` へビルドする。
+- 検証済みJSONを使い、 `VITE_BASE_PATH=/` で別の `dist-cloudflare/` へビルドする。
 - `cloudflare-site` artifactを公開ジョブへ引き継ぎ、Wranglerで本番ブランチ `main` にアップロードする。
-- 公開直後はCloudflareの `episodes.json` と検証済みJSONを比較する。復旧用 `restore_commit` も両公開先で利用できる。
+- 公開直後はCloudflareの `episodes.json` と検証済みJSONを比較する。復旧用 `restore_commit` も利用できる。
 - `Watch published site` はCloudflareの公開JSONも2時間ごとに確認する。異常は既存の運用アラートIssueへまとめる。
 - `web/public/_headers` でCloudflareの `episodes.json` のキャッシュを無効にし、HTMLも再検証する。
 
-Cloudflareでの公開を停止する場合は `CLOUDFLARE_PAGES_PROJECT` を削除する。GitHub Pagesの更新は続く。
+自動更新を一時停止する場合は `Update and deploy site` をDisableする。公開用変数・Secretの削除では既存サイトは非公開にならない。
 
-GitHub PagesのURLとCloudflareのURLは別オリジンなので、現在のlocalStorageに保存しているお気に入りは自動移行されない。GitHub Pagesの旧URLにも引き続きアクセスできる。
+GitHub Pagesの旧URLとCloudflareのURLは別オリジンなので、移行前のlocalStorageに保存していたお気に入りは自動移行されない。
 
 公式手順: [Direct UploadとCIの連携](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/)。
+
+## GitHub Pagesの公開停止
+
+2026-10-25に公開先をCloudflare Pagesへ統一した。
+
+- 自動更新ワークフローからGitHub Pages用のビルド、artifact、公開ジョブ、公開確認を削除。
+- 独立監視もCloudflareのURLだけを確認する。
+- GitHubの Settings → Pages で公開を停止する。Sourceは「Deploy from a branch」、Branchは「None」とし、GitHub Pagesの自動公開元を設定しない。
+- GitHub Pagesを再開する操作や旧 `deploy.sh` / `npm run deploy` は通常運用では使用しない。
