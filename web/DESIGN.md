@@ -1,8 +1,8 @@
 # デザインとイラスト
 
 - 明るいクリーム地、濃い青緑の文字、朱赤のアクセント。
-- ロゴと大見出しは「Dela Gothic One」の極太角ゴシックで、昭和の看板や雑誌見出しを思わせる骨太な印象にする。本文・操作ラベル・放送タイトルには「Zen Kaku Gothic New」を使い、長文の読みやすさを保つ。丸ゴシックは使用しない。
-- フォントはFontsourceのnpmパッケージから配信ファイルに同梱する(外部フォントサービスへのアクセスは不要)。出典: [Dela Gothic One](https://fontsource.org/fonts/dela-gothic-one/about)、[Zen Kaku Gothic New](https://fontsource.org/fonts/zen-kaku-gothic-new)。
+- ロゴ・見出し・放送タイトル・シリーズ名は「Kaisei Tokumin」の800で、昭和の活字を思わせる重厚な明朝体にする(書体比較で採用されたD案)。本文・操作ボタン・日時などの情報には「Zen Kaku Gothic New」を使い、読みやすさを保つ。
+- フォントはFontsourceのnpmパッケージから配信ファイルに同梱する(外部フォントサービスへのアクセスは不要)。出典: [Kaisei Tokumin](https://fontsource.org/fonts/kaisei-tokumin/about)、[Zen Kaku Gothic New](https://fontsource.org/fonts/zen-kaku-gothic-new)。ライセンスは `public/fonts/` に同梱する。
 - 「キズキノ學校」を二段の大きなロゴとして組み、「ノ」だけを傾けて音の線を添える。
 - 音声と学びにまつわる18点を周囲に散らす。写真、人物、価格表示は使用しない。
 - かすれと印刷の揺らぎはイラスト、紙の微細な粒子、注意書き枠に限定し、文字の影・縁取りは使用しない。
