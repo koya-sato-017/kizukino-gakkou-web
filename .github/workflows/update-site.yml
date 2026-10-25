@@ -67,6 +67,9 @@ jobs:
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
         run: npm ci
+      - name: Test series detection
+        working-directory: web
+        run: npm test
       - name: Lint frontend
         working-directory: web
         run: npm run lint

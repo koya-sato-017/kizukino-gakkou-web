@@ -6,6 +6,8 @@ Webサイトは `web/` のReact + TypeScript + Viteで構築しています。st
 
 Web用の更新処理は `python -m src.export_web_data`、公開確認は `python -m src.check_web_site` です。音声ダウンロードやGoogle連携の設定とは独立しています。Web用の依存は `requirements-web.txt` にまとめています。
 
+シリーズ判定は `web/src/series.ts` で管理し、公開放送が5件以上あるシリーズを表示します。「あんな時代もあったね、と」は括弧内の企画名で判定し、読点や回数表記の違いをまとめます。告知や舞台裏など、本文だけで企画名に触れる放送は含めません。判定の検証はNode.js 24で `cd web` → `npm test` を実行してください。
+
 stand.fmの「キズキノ學校」チャンネルから音声をダウンロードし、
 NotebookLMにソースとして直接アップロードするためのツールです。
 

@@ -14,6 +14,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import BrandScene from "./BrandScene";
+import { extractSeriesName } from "./series";
 import "./App.css";
 
 interface Episode {
@@ -81,59 +82,6 @@ interface SeriesInfo {
 
 // === シリーズ検出ユーティリティ ===
 
-/** 表記揺れの正規化マップ */
-const NORMALIZE_MAP: [RegExp, string][] = [
-  [/事は/g, "ことは"],
-  [/の事/g, "のこと"],
-  [/コンビニに学べ！/g, "コンビニから学べ"],
-  [/コンビニから学ぼう/g, "コンビニから学べ"],
-  [/もう一度みたい/g, "もう一度観たい"],
-  [/パラレルワーク（複業）革命/g, "パラレルワーク革命"],
-  [/パラレルワーク革命#/g, "パラレルワーク革命"],
-  [/もっとやさしいWEB\s*3/g, "もっとやさしいWEB3"],
-  [/もっとやさしいWEB\s*３/g, "もっとやさしいWEB3"],
-  [/2026年の必須教養/g, "2026年の「必須教養」"],
-  [/SCOP文化を語る$/g, "SCOP文化を語ろう"],
-  [/一緒にしてはならない$/g, "一緒にしてはならない話"],
-  [/パラレルワーク（複業）への筋道/g, "パラレルワークへの筋道"],
-  [/複業（パラレルワーク）/g, "複業2024"],
-  [/時間泥棒に気をつけろ！/g, "時間泥棒に気をつけろ"],
-];
-
-/** シリーズ名を正規化 */
-function normalizeSeriesName(name: string): string {
-  let normalized = name.trim();
-  for (const [pattern, replacement] of NORMALIZE_MAP) {
-    normalized = normalized.replace(pattern, replacement);
-  }
-  return normalized;
-}
-
-/** タイトルからシリーズ名を抽出 */
-function extractSeriesName(title: string): string | null {
-  // 【XXX】の後のテキストを取得
-  const bracketMatch = title.match(/[【〖][^】〗]+[】〗](.+)/);
-  if (!bracketMatch) return null;
-
-  const content = bracketMatch[1];
-
-  // パターン1: 「シリーズ名N〜」（末尾の数字+〜）
-  const numTildeMatch = content.match(
-    /^(.+?)(\d+|[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳])[〜～]/,
-  );
-  if (numTildeMatch && numTildeMatch[1].trim().length >= 4) {
-    return normalizeSeriesName(numTildeMatch[1]);
-  }
-
-  // パターン2: 「シリーズ名 最終回」「シリーズ名 完結」
-  const finalMatch = content.match(/^(.+?)[\s\u3000]*(最終回|完結)/);
-  if (finalMatch && finalMatch[1].trim().length >= 4) {
-    return normalizeSeriesName(finalMatch[1]);
-  }
-
-  return null;
-}
-
 /** 全エピソードからシリーズMapを構築 */
 function buildSeriesMap(episodes: Episode[]): SeriesInfo[] {
   const map = new Map<string, Episode[]>();
@@ -148,7 +96,7 @@ function buildSeriesMap(episodes: Episode[]): SeriesInfo[] {
     map.set(seriesName, existing);
   }
 
-  // 5件以上のシリーズのみ、件数が多い順にソート
+  // 公開放送が5件以上あるシリーズを表示する
   const seriesList: SeriesInfo[] = [];
   for (const [name, eps] of map.entries()) {
     if (eps.length >= 5) {
