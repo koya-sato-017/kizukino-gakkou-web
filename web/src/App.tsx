@@ -720,7 +720,6 @@ function App() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} キズキノ學校</span>
-          <p>お気に入りは、このブラウザーに保存されます。</p>
           <a href="#" onClick={scrollToTop}>
             ページの先頭へ <FiArrowUp aria-hidden="true" />
           </a>
