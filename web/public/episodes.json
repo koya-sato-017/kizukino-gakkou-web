@@ -1,12 +1,12 @@
 {
   "channel_id": "606297aabe8d4428b912db34",
-  "updated_at": "2026-10-26T06:46:12+09:00",
+  "updated_at": "2026-10-26T09:21:32+09:00",
   "detail_failures": 0,
   "latest_published_at": "2026-10-26T06:00:11.658+09:00",
   "episodes": [
     {
       "id": "6ada9533f469d1962371aaf6",
-      "title": "【講義1101】今の日本の事は歴史が全て教えてくれる30〜交渉には相手がいる",
+      "title": "【講義1100】今の日本の事は歴史が全て教えてくれる30〜交渉には相手がいる",
       "duration_ms": 1249233,
       "published": "2026-10-26",
       "published_at": "2026-10-26T06:00:11.658+09:00",
@@ -34,7 +34,7 @@
     },
     {
       "id": "6ad82a3f2012e85b27e686bd",
-      "title": "【講義1100】敗者・アメリカは、どうしてGAFAMを生むことができたのか？",
+      "title": "【講義1099】敗者・アメリカは、どうしてGAFAMを生むことができたのか？",
       "duration_ms": 1227754,
       "published": "2026-10-24",
       "published_at": "2026-10-24T06:00:11.148+09:00",
@@ -48,7 +48,7 @@
     },
     {
       "id": "6ad9cd956500ad32b1adee7e",
-      "title": "【講義1099】ネット騒然の「PHPの欠陥」から我々はどう身を守る？",
+      "title": "【講義1098】ネット騒然の「PHPの欠陥」から我々はどう身を守る？",
       "duration_ms": 2278178,
       "published": "2026-10-23",
       "published_at": "2026-10-23T06:00:07.254+09:00",
@@ -23404,8 +23404,10 @@
       "published_at": "2023-01-19T06:01:00.907+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63be316c9d4ec4187c455ca1",
-      "description": "",
+      "description": "今年からパラダイムシフトが本格的に始まると思われます\n  それに伴って起こる変化をあらかじめ理解しておくとが大切だと思います\n  0:00 オープニング、本編前半\n  7:18 本日の名曲　やさしさに包まれたなら　※楽曲申請済\n  10:15 後半、クロージング\n  \n  ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPWHBDXHPCK7H4CB9457MG7N.m4a",
+      "details_checked_at": "2026-10-26T09:21:19+09:00",
+      "details_status": "ok",
       "index": 1717
     },
     {
@@ -23416,8 +23418,10 @@
       "published_at": "2023-01-18T06:01:01.881+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63c0043588cd5fb2d8438cd2",
-      "description": "",
+      "description": "1/11日本経済新聞　\n  ファストリ、国内人件費15%増へ　年収最大4割上げ\n  について解説しました\n  0:00 オープニング、本編\n  16:50 今日の名曲　明日晴れるかな　桑田佳祐　※楽曲申請済\n  #日本経済新聞 #明日晴れるかな #副業 #複業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPWHAPP4N4MHVDY2Y2NYCCC0.m4a",
+      "details_checked_at": "2026-10-26T09:21:19+09:00",
+      "details_status": "ok",
       "index": 1718
     },
     {
@@ -23440,8 +23444,10 @@
       "published_at": "2023-01-17T06:01:01.718+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63c34e905995d9ce421c39ae",
-      "description": "",
+      "description": "阪神淡路大震災から28年、現地で経験したテツサノの学びとは？\n  \n  0:00 イントロダクション、本編\n  10:55 本日の名曲「何度でも」※楽曲申請済\n  \n  #阪神淡路大震災 #毎日配信 #何度でも ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPY8J38QM2SJQFS9DQWPK4ZD.m4a",
+      "details_checked_at": "2026-10-26T09:21:19+09:00",
+      "details_status": "ok",
       "index": 1720
     },
     {
@@ -23452,8 +23458,10 @@
       "published_at": "2023-01-16T06:01:01.597+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63bd0fda15683d1bdd5c40be",
-      "description": "",
+      "description": "世の中には一緒にしたらあかんのに、話をごちゃ混ぜにする輩が大量に存在しております\n  そういう輩に時間を搾取されないよう、あなたを守る講義をお届けします\n  0:00 イントロ、本編\n  12:00 本日の名曲　君はロックを聴かない　※楽曲申請済\n  #毎日配信 #パラレルワーク #複業 #副業 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPVSNE78WC7E7P137N3T7TR9.m4a",
+      "details_checked_at": "2026-10-26T09:21:20+09:00",
+      "details_status": "ok",
       "index": 1721
     },
     {
@@ -23464,8 +23472,10 @@
       "published_at": "2023-01-15T07:56:43.472+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63c332eb5995d9ce421c37e0",
-      "description": "",
+      "description": "1/9-14、一週間の学びを振り返り（1/14公開収録）\n  ※お時間ない方はタイムスタンプ利用してください\n  0:00 イントロダクション\n  12:50 2023年はどうなる？〜物価と賃金\n  23:25 今日の名曲① 栄光の架け橋　▶︎楽曲申請済\n  26:05 Z世代ってなに？\n  40:55 今日の名曲② 明日晴れるかな　▶︎楽曲申請済\n  43:53 クロージング\n  #公開収録 #副業 #複業 #SCOP #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPS8EZGCQM1FD106F3152ZX4.m4a",
+      "details_checked_at": "2026-10-26T09:21:20+09:00",
+      "details_status": "ok",
       "index": 1722
     },
     {
@@ -23476,8 +23486,10 @@
       "published_at": "2023-01-14T06:01:00.968+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b9254bcfebdded82165a5f",
-      "description": "",
+      "description": "大企業社員でパラレルワーカーであるバターさんが手がける事業、そして今バターさん自体の現在地をお聞きしました\n  #コラボ収録\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPD9FH49PKK0CG1H79GYJ534.m4a",
+      "details_checked_at": "2026-10-26T09:21:21+09:00",
+      "details_status": "ok",
       "index": 1723
     },
     {
@@ -23500,8 +23512,10 @@
       "published_at": "2023-01-13T06:01:01.154+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63bcb787f8bd47f4fd127183",
-      "description": "",
+      "description": "Z世代の解説の後編です\n  前編を聴かれていない方は昨日の放送を先にどうぞ！\n  0:00 イントロ、本題\n  16:50 今日の名曲　「愛を知るまでは」あいみょん　楽曲申請済\n  #副業 #複業 #パラレルワーク #毎日放送 #z世代 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPNPQ5AVGSDVFW57DAZZNQ8W.m4a",
+      "details_checked_at": "2026-10-26T09:21:21+09:00",
+      "details_status": "ok",
       "index": 1725
     },
     {
@@ -23512,8 +23526,10 @@
       "published_at": "2023-01-12T06:01:00.907+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63ba4372efebca69204a139c",
-      "description": "",
+      "description": "最近、よく耳にする、目にする「Ｚ世代」について解説します\n  ビジネスというよりカルチャーの話が主なので、ゆるっとお聞きください。ご質問、ご意見はお気軽に！\n  ■年代と世代を一緒にしてはいけない\n  https://stand.fm/episodes/61c17c51661b5600076b4515\n  \n  0:00 導入\n  5:55 今日の名曲　糸（中島みゆきcover　楽曲申請済）\n  7:30 本編\n  #z世代 #複業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPHFP3GT1TPTZASEBNJYQE8N.m4a",
+      "details_checked_at": "2026-10-26T09:21:21+09:00",
+      "details_status": "ok",
       "index": 1726
     },
     {
@@ -23536,8 +23552,10 @@
       "published_at": "2023-01-11T06:01:01.511+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b7f0cf7bee133fae96456c",
-      "description": "",
+      "description": "物価の上昇に賃金が追いつかないスタグフレーション状態の日本。これは自然と貧乏になっていく図式でふ。対策を学びましょう\n  0:00 前半\n  9:50 今日の名曲　メロディ　※楽曲申請済\n  11:20 後半",
       "audio_url": "https://cdncf.stand.fm/audios/01GPEWSJMXNGKVNA5GT1EES0GW.m4a",
+      "details_checked_at": "2026-10-26T09:21:21+09:00",
+      "details_status": "ok",
       "index": 1728
     },
     {
@@ -23548,8 +23566,10 @@
       "published_at": "2023-01-10T06:01:01.074+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b7ce177bee133fae9642d9",
-      "description": "",
+      "description": "今年の物価と賃金の予測をお届け\n  放送開始当初から物価予想をことごとく当てまくってきたテツサノが今年をしっかり予想します\n  ■2021年配信「スタグフレーションがやってきた」\n  https://stand.fm/episodes/61c454b18d4d270006183323\n  0:00 前半（スタグフレーションがやってきた）\n  7:30 今日の名曲　勇気100%  ※楽曲申請済\n  11:43 後半（今年の物価と賃金はこうなる！）\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GPC9RVGKP7R6B8THVYH6PKCH.m4a",
+      "details_checked_at": "2026-10-26T09:21:23+09:00",
+      "details_status": "ok",
       "index": 1729
     },
     {
@@ -23572,8 +23592,10 @@
       "published_at": "2023-01-09T07:01:03.640+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b6a0e55cae5af453e1763f",
-      "description": "",
+      "description": "新年にあたり、今年の予測を皆さんと共有していきたいと思います。今日は概要なのでユル回です🤣\n  0:00 前半\n  9:45 今日の一曲　赤いスイートピー※楽曲申請済\n  13:31 後半\n  #副業 #複業 #パラレルワーク #毎日配信 #赤いスイートピー ",
       "audio_url": "https://cdncf.stand.fm/audios/01GP9TWVHQNMTXDDY49B47S0CB.m4a",
+      "details_checked_at": "2026-10-26T09:21:22+09:00",
+      "details_status": "ok",
       "index": 1731
     },
     {
@@ -23584,8 +23606,10 @@
       "published_at": "2023-01-08T07:01:07.674+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b97e1defebca69204a0938",
-      "description": "",
+      "description": "月曜日から土曜日の放送をリスナーさんのコメントをお借りして振り返る定番の放送です\n  今回は公開収録の形でお届けします\n  ※お届けした名曲▶︎楽曲申請済\n  myself\n  愛を込めて花束を\n  #副業 #複業 #パラレルワーク #毎日配信 #新年の抱負 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GP6AJB338KD9TE3WVXJA6F9J.m4a",
+      "details_checked_at": "2026-10-26T09:21:22+09:00",
+      "details_status": "ok",
       "index": 1732
     },
     {
@@ -23596,8 +23620,10 @@
       "published_at": "2023-01-07T06:31:01.027+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b50c724280f6f529324788",
-      "description": "",
+      "description": "元旦の日本経済新聞の特集記事を解説します\n  今年も気になる記事を不定期に解説していきます\n  \n  0:00 導入、お知らせ\n  7:15 今日の一曲　メロディー（玉置浩二、楽曲申請済）\n  10:13 本編",
       "audio_url": "https://cdncf.stand.fm/audios/01GP7AQPYRR2YQ7FDQ328RY6AP.m4a",
+      "details_checked_at": "2026-10-26T09:21:23+09:00",
+      "details_status": "ok",
       "index": 1733
     },
     {
@@ -23620,8 +23646,10 @@
       "published_at": "2023-01-06T06:31:01.010+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b3f77198d65748c7f2628b",
-      "description": "",
+      "description": "本シリーズ前５回の振り返りとイノベーションは人材確保からという話\n  #複業 #イノベーション #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GNVFXZXTQBQVZ2X5V2W6E5T4.m4a",
+      "details_checked_at": "2026-10-26T09:21:24+09:00",
+      "details_status": "ok",
       "index": 1735
     },
     {
@@ -23632,8 +23660,10 @@
       "published_at": "2023-01-05T06:31:01.506+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b2a159b4d321df26c9fa36",
-      "description": "",
+      "description": "やらない言い訳、変化しない言い訳に、格言や名言を間違った形で使う輩が後を立たない。そういうテイカー共に搾取されないよう注意しましょう\n  0:00 導入・雑談\n  4:00 ♫何度でも　※楽曲申請済\n  8:00 本題",
       "audio_url": "https://cdncf.stand.fm/audios/01GP17Y6F0YVC4DHX64Y56DAZA.m4a",
+      "details_checked_at": "2026-10-26T09:21:23+09:00",
+      "details_status": "ok",
       "index": 1736
     },
     {
@@ -23644,8 +23674,10 @@
       "published_at": "2023-01-04T06:31:01.514+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63b265d598d65748c7f249d4",
-      "description": "",
+      "description": "創造と挑戦がなくなり現状を招いた日本。団塊の世代前後の世代の罪は極めて大きい。それを打破するためにはSCOPの推進しかないと思います\n  0:00 導入\n  4:00 「愛を込めて花束を」※楽曲申請済\n  7:05 本題\n  #SCOP #副業 #複業 #毎日配信 #パラレルワーク ",
       "audio_url": "https://cdncf.stand.fm/audios/01GP18CVAZNEGB9TKP6K9JXX33.m4a",
+      "details_checked_at": "2026-10-26T09:21:24+09:00",
+      "details_status": "ok",
       "index": 1737
     },
     {
@@ -23668,8 +23700,10 @@
       "published_at": "2023-01-03T06:31:01.209+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63af8b5afdd5b8964a826535",
-      "description": "",
+      "description": "音声配信と音楽は切っても切れない関係なのだ\n  今日の名曲　赤いスイートピー（楽曲申請済）\n  #音声配信 #音楽 #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GP4Z59N6D4G0D22EXRMY6D8K.m4a",
+      "details_checked_at": "2026-10-26T09:21:24+09:00",
+      "details_status": "ok",
       "index": 1739
     },
     {
@@ -23680,8 +23714,10 @@
       "published_at": "2023-01-02T06:31:01.194+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63ad1cd693f2a0f264eacabc",
-      "description": "",
+      "description": "2023年初の「さぁー、みんなで考えよう」は「2023年、私の挑戦」です。\n  締切は1/14です\n  ※本日のミュージック\n  「A happy new year」\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GP4P86HCPW029K6DEPC30RND.m4a",
+      "details_checked_at": "2026-10-26T09:21:24+09:00",
+      "details_status": "ok",
       "index": 1740
     },
     {
@@ -23704,8 +23740,10 @@
       "published_at": "2023-01-01T00:00:09.557+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63ad0880a7e393cb268e7f69",
-      "description": "",
+      "description": "新年あけましておめでとうございます\n  本年もキズキノ學校をよろしくお願いします\n  年初にあたり2023の挑戦を発表します。\n  ※今日のミュージックA happy new year テツサノちゃん\n  #副業 #複業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GNE3JFB8P265XKFTMM53ST8N.m4a",
+      "details_checked_at": "2026-10-26T09:21:25+09:00",
+      "details_status": "ok",
       "index": 1742
     },
     {
@@ -23716,8 +23754,10 @@
       "published_at": "2022-12-31T07:45:00.041+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63af69cefdd5b8964a82630c",
-      "description": "",
+      "description": "なんと、この年末の忙しいタイミングで初の公開収録\n  いつ、なんどき、何にでも挑戦する！\n  常に挑戦だ！笑笑\n  ※お聴きいただいた曲（楽曲申請済）\n  赤いスイートピー\n   #副業 #複業 #パラレルワーク #毎日配信 #公開収録 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GNKDSPF5FZG9PAJA76N0RYJX.m4a",
+      "details_checked_at": "2026-10-26T09:21:25+09:00",
+      "details_status": "ok",
       "index": 1743
     },
     {
@@ -23728,8 +23768,10 @@
       "published_at": "2022-12-30T06:31:00.889+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a8f87784292a232f81ae93",
-      "description": "",
+      "description": "情報、経験、投資！忘れないように\n  曲を提供してくれたコーヘーさんのチャンネル\n  https://stand.fm/channels/612d87ea7de6f0a0e001a7cc\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GN61AD59YYG19EEGAFJ2KXGD.m4a",
+      "details_checked_at": "2026-10-26T09:21:26+09:00",
+      "details_status": "ok",
       "index": 1744
     },
     {
@@ -23740,8 +23782,10 @@
       "published_at": "2022-12-29T06:31:01.441+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a3c7f783332b0216accad7",
-      "description": "",
+      "description": "未来創造研究所\n  仲間の力を借りる\n  Kindle\n  #複業 #副業 #パラレルワーク #毎日更新 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GN5XJKGYFC7ZM0N62FS9FZZP.m4a",
+      "details_checked_at": "2026-10-26T09:21:26+09:00",
+      "details_status": "ok",
       "index": 1745
     },
     {
@@ -23752,8 +23796,10 @@
       "published_at": "2022-12-28T06:31:00.999+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a8e77484292a232f81ad44",
-      "description": "",
+      "description": "2022年の働く人の学び、総括の第九段\n  金、時間、そしてもう一つ。自分作りを進めていくには大事なものがあります\n  #副業 #複業 #パラレルワーク #毎日更新 #情熱の薔薇 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GNB23157W2RPP7F1V7ANYH7A.m4a",
+      "details_checked_at": "2026-10-26T09:21:27+09:00",
+      "details_status": "ok",
       "index": 1746
     },
     {
@@ -23776,8 +23822,10 @@
       "published_at": "2022-12-27T06:31:01.036+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a3c1ebd4e029fc5f0d6a28",
-      "description": "",
+      "description": "※楽曲申請済み「愛は勝つ」\n  スタエフの地盤作り\n  応援の素晴らしさ\n  キズキノ學校の先輩方\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GN9Y8YBVVX4DS4PXRRS85RTE.m4a",
+      "details_checked_at": "2026-10-26T09:21:27+09:00",
+      "details_status": "ok",
       "index": 1748
     },
     {
@@ -23788,8 +23836,10 @@
       "published_at": "2022-12-26T06:31:01.577+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a3bc8a6ac91feb5988192e",
-      "description": "",
+      "description": "「いつから始めても遅くはない」\n  「人との繋がり」\n  「キズキノ學校で得たもの」\n  #複業 #副業 #パラレルワーク #毎日更新 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GMVTW7MTRZW9B7F54AZKYQQK.m4a",
+      "details_checked_at": "2026-10-26T09:21:26+09:00",
+      "details_status": "ok",
       "index": 1749
     },
     {
@@ -23800,8 +23850,10 @@
       "published_at": "2022-12-25T07:01:02.090+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a6be068d7e6c1bbc3d5232",
-      "description": "",
+      "description": "この番組の活用も色々あると思わせてくれる皆さまからのコメントに感謝\n  そのコメントをお借りして一週間を振り返ります\n  #副業 #複業 #毎日配信 #パラレルワーク #キズキノ學校",
       "audio_url": "https://cdncf.stand.fm/audios/01GN1ND8N3ZTDWT93JXW3ZE6HM.m4a",
+      "details_checked_at": "2026-10-26T09:21:27+09:00",
+      "details_status": "ok",
       "index": 1750
     },
     {
@@ -23824,8 +23876,10 @@
       "published_at": "2022-12-24T06:31:01.646+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a3a95a5664b336ea9ff4b6",
-      "description": "",
+      "description": "2022年度にしっかり頭に入れておいて欲しいポイントを整理してお届けしている第七段\n  過去放送も活用ください\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GN5RPJYQQP1152S5AQB3M3RG.m4a",
+      "details_checked_at": "2026-10-26T09:21:28+09:00",
+      "details_status": "ok",
       "index": 1752
     },
     {
@@ -23836,8 +23890,10 @@
       "published_at": "2022-12-23T06:31:01.673+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a261aa6ac91feb598802f3",
-      "description": "",
+      "description": "自分の可能性は自分で開く\n  応援は相乗効果を生む\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GMVCNX05NJGD30E8JWP1F9X6.m4a",
+      "details_checked_at": "2026-10-26T09:21:28+09:00",
+      "details_status": "ok",
       "index": 1753
     },
     {
@@ -23860,8 +23916,10 @@
       "published_at": "2022-12-22T06:18:14.819+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63a25121a7b72d3db422a1e2",
-      "description": "",
+      "description": "日本経済新聞「日銀、異次元金融緩和を転換」について解説します\n  難題でもありますのでフカボリをメンバーシップの方でお話しします #副業 #複業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GMS0TB5N563DGB39KWQJQ8QY.m4a",
+      "details_checked_at": "2026-10-26T09:21:28+09:00",
+      "details_status": "ok",
       "index": 1755
     },
     {
@@ -23872,8 +23930,10 @@
       "published_at": "2022-12-21T06:31:01.032+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/639fc5608e947509a06dd12c",
-      "description": "",
+      "description": "2022年に気付いたこと&築いたこと\n  3名様のnotice and buildをご紹介\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GMM1RT023C1C626BPM0N7R0C.m4a",
+      "details_checked_at": "2026-10-26T09:21:28+09:00",
+      "details_status": "ok",
       "index": 1756
     },
     {
@@ -23884,8 +23944,10 @@
       "published_at": "2022-12-20T06:31:01.058+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/639fc0378e947509a06dd0db",
-      "description": "",
+      "description": "2022年に気付いたこと、築いたこと。\n  リスナーさんからのレターで今年を振り返ります\n  #副業 #複業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GMM1QN2MA5MHF2F672WBDGSM.m4a",
+      "details_checked_at": "2026-10-26T09:21:29+09:00",
+      "details_status": "ok",
       "index": 1757
     },
     {
@@ -23896,8 +23958,10 @@
       "published_at": "2022-12-19T06:31:00.945+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/639996bd23e758aab4a6292d",
-      "description": "",
+      "description": "ウチの会社はダメなのに、うちの社長、うちの役員はダメなのに、なぜ、会社が傾かないのか？\n  そんな質問にお答えします\n  #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GM7ZADS3CP7MJ0J4492F2ZDT.m4a",
+      "details_checked_at": "2026-10-26T09:21:29+09:00",
+      "details_status": "ok",
       "index": 1758
     },
     {
@@ -23920,8 +23984,10 @@
       "published_at": "2022-12-18T07:01:04.944+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/639d713d18262fd8ca52911a",
-      "description": "",
+      "description": "12/12-12/16の放送のまとめです\n  今週も盛りだくさんでした\n  #副業 #複業 #毎日配信 #パラレルワーク #復習 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GMFG5J49SMVTBPNXK9X8WNEC.m4a",
+      "details_checked_at": "2026-10-26T09:21:30+09:00",
+      "details_status": "ok",
       "index": 1760
     },
     {
@@ -23932,8 +23998,10 @@
       "published_at": "2022-12-17T06:31:00.955+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6387290473207db0128890d2",
-      "description": "",
+      "description": "高倉JB珈琲のライさん物語、今日が最終回です\n  辞表を叩きつけたライさんはどうなるのか？\n  #コラボ収録 #複業 #副業 #毎日配信 #パラレルワーク ",
       "audio_url": "https://cdncf.stand.fm/audios/01GM4P7ZDG8NQ75CJESXASHBRB.m4a",
+      "details_checked_at": "2026-10-26T09:21:30+09:00",
+      "details_status": "ok",
       "index": 1761
     },
     {
@@ -23944,8 +24012,10 @@
       "published_at": "2022-12-16T06:31:01.018+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6396f48681b61d63f6cdb9d6",
-      "description": "",
+      "description": "思い出は映画と共に最終回\n  四人の方の映画のエピソードをお届け\n  素敵な思い出が僕の中にも蘇りました\n  ありがとう！\n  #副業 #複業 #映画 #思い出は映画と共に #毎日配信 #パラレルワーク ",
       "audio_url": "https://cdncf.stand.fm/audios/01GM4N6WB5Y4RC208VK41XKNZC.m4a",
+      "details_checked_at": "2026-10-26T09:21:30+09:00",
+      "details_status": "ok",
       "index": 1762
     },
     {
@@ -23956,8 +24026,10 @@
       "published_at": "2022-12-15T06:31:02.151+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6397e40ed9f88c290f6c4ebc",
-      "description": "",
+      "description": "高度成長期には思考力よりも従順な人材が求められても不思議ではないが、バブル崩壊後にそんな世界線は終わっているのに未だに変わらない人の評価基準\n  思考して想像、創造できる人間を目指せば自分だけは勝てます\n  #複業 #副業 #パラレルワーク #毎朝配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GM4N6DFR91CASGG65ESV0TFG.m4a",
+      "details_checked_at": "2026-10-26T09:21:30+09:00",
+      "details_status": "ok",
       "index": 1763
     },
     {
@@ -23968,8 +24040,10 @@
       "published_at": "2022-12-14T06:00:10.939+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6397119c81b61d63f6cdbc31",
-      "description": "",
+      "description": "会社との関係を見直し、整理できたら、次は？\n  #パラレルワーク #複業 #副業 #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GM6SBD2JWXPX62595EF4X207.m4a",
+      "details_checked_at": "2026-10-26T09:21:31+09:00",
+      "details_status": "ok",
       "index": 1764
     },
     {
@@ -23980,8 +24054,10 @@
       "published_at": "2022-12-13T06:31:01.019+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6391506ec22d4eea8780f361",
-      "description": "",
+      "description": "だいたいのサラリーマンは「うちの会社は全然わかってない。ほんま頭に来るわ」とか言ってます。それに対して、評論家やインフルエンサーの多くは「そんな会社は辞めてしまいなさい」と言う\n  間違ってないと思うけど乱暴だとは思う件\n  #副業 #複業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GM6TKX8CXNNK81KKG0D2XNZ9.m4a",
+      "details_checked_at": "2026-10-26T09:21:31+09:00",
+      "details_status": "ok",
       "index": 1765
     },
     {
@@ -23992,8 +24068,10 @@
       "published_at": "2022-12-12T06:31:00.896+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/63915d8b8c511cfad4f360da",
-      "description": "",
+      "description": "2022年、最後のテーマをお届けします\n  お気軽に参加してください\n  レターの受付は12/18迄です\n  よろしくお願いします\n  #さぁー、みんなで考えよう #複業 #副業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GKQXHPWR0EQ06QNA2WAPJEHW.m4a",
+      "details_checked_at": "2026-10-26T09:21:32+09:00",
+      "details_status": "ok",
       "index": 1766
     },
     {
@@ -24016,8 +24094,10 @@
       "published_at": "2022-12-11T07:01:00.982+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6393fcc755a6395c0809b525",
-      "description": "",
+      "description": "12/5から9までの振り返りです\n  会社との向き合い方、映画の話、サッカーW杯からの学び\n  #ワールドカップ #副業 #複業 #パラレルワーク #毎日配信 ",
       "audio_url": "https://cdncf.stand.fm/audios/01GKXTTA57C3AHMM6VKPV81XMZ.m4a",
+      "details_checked_at": "2026-10-26T09:21:32+09:00",
+      "details_status": "ok",
       "index": 1768
     },
     {
