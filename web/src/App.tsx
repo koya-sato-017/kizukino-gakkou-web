@@ -15,6 +15,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import BrandScene, { Illustration } from "./BrandScene";
+import HeroMotion from "./HeroMotion";
 import AudioPlayer from "./AudioPlayer";
 import { useAudioPlayer } from "./useAudioPlayer";
 import type { Episode } from "./episode";
@@ -357,6 +358,7 @@ function App() {
       </header>
 
       <section className="hero" aria-labelledby="site-title">
+        <HeroMotion />
         <BrandScene />
         <div className="hero-edition" aria-hidden="true">
           <span>LISTEN. LEARN. DISCOVER.</span>
