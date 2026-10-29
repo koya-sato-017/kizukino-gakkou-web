@@ -14,7 +14,7 @@ import {
   FiChevronDown,
   FiX,
 } from "react-icons/fi";
-import BrandScene, { Illustration } from "./BrandScene";
+import BrandScene from "./BrandScene";
 import HeroMotion from "./HeroMotion";
 import AudioPlayer from "./AudioPlayer";
 import { useAudioPlayer } from "./useAudioPlayer";
@@ -512,8 +512,7 @@ function App() {
                   aria-pressed={selectedSeries === series.name}
                 >
                   <span className="series-card-top" aria-hidden="true">
-                    <span>SERIES</span>
-                    <Illustration index={[0, 2, 8, 1, 13, 17][index % 6]} />
+                    SERIES
                   </span>
                   <span className="series-name">{series.displayName}</span>
                   <span className="series-card-bottom">

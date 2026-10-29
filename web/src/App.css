@@ -776,7 +776,7 @@
   align-items: stretch;
   justify-content: space-between;
   gap: 14px;
-  min-height: 188px;
+  min-height: 168px;
   padding: 18px 23px 16px;
   border: 1px solid var(--rule);
   border-top: 2px solid var(--ink);
@@ -789,19 +789,9 @@
     background 0.25s;
 }
 .series-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 38px;
-}
-.series-card-top > span {
   font-size: 10px;
   letter-spacing: 0.12em;
   color: var(--muted);
-}
-.series-card-top > .illustration {
-  width: 44px;
-  height: 42px;
 }
 .series-name {
   display: block;
@@ -1946,19 +1936,12 @@
     margin-top: 20px;
   }
   .series-card {
-    min-height: 184px;
+    min-height: 164px;
     padding: 14px 14px 13px;
     gap: 12px;
   }
   .series-card-top {
-    min-height: 32px;
-  }
-  .series-card-top > span {
     font-size: 8px;
-  }
-  .series-card-top > .illustration {
-    width: 32px;
-    height: 32px;
   }
   .series-name {
     font-size: 15px;
