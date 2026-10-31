@@ -42,7 +42,8 @@ export async function dispatchScheduled(controller, env, dependencies = {}) {
     try {
       response = await fetchImpl(`${API_ROOT}${workflow}/dispatches`, {
         method: "POST",
-        redirect: "error",
+        // Workersはerrorモードに未対応。転送先へ認証情報を送らない。
+        redirect: "manual",
         signal: AbortSignal.timeout(20_000),
         headers: {
           Accept: "application/vnd.github+json",

@@ -35,7 +35,7 @@ test("登録した2種類のCronから対象ワークフローのmainだけを�
     const { url, options } = h.requests[0];
     assert.equal(url, `https://api.github.com/repos/koya-sato-017/kizukino-gakkou-web/actions/workflows/${workflow}/dispatches`);
     assert.equal(options.method, "POST");
-    assert.equal(options.redirect, "error");
+    assert.equal(options.redirect, "manual");
     assert.equal(options.headers.Authorization, `Bearer ${TOKEN}`);
     assert.deepEqual(JSON.parse(options.body), { ref: "main" });
     assert.ok(options.signal instanceof AbortSignal);
@@ -79,6 +79,16 @@ test("認証・権限・ワークフロー設定エラーを繰り返さない",
     assert.equal(h.requests.length, 1);
     assert.deepEqual(h.delays, []);
   }
+});
+
+test("リダイレクト先へ認証情報を送らず失敗として終了する", async () => {
+  const h = harness([new Response(null, {
+    status: 302,
+    headers: { Location: "https://example.com/untrusted" },
+  })]);
+  await assert.rejects(dispatchScheduled(event(), { GITHUB_ACTIONS_TOKEN: TOKEN }, h.dependencies), /302/);
+  assert.equal(h.requests.length, 1);
+  assert.deepEqual(h.delays, []);
 });
 
 test("レート制限のRetry-Afterを秒数・日時とも尊重する", async () => {
