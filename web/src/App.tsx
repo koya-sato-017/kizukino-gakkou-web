@@ -804,9 +804,6 @@ function App() {
             aria-label="ページの先頭へ戻る"
           >
             <span className="back-to-top-copy">
-              <span className="back-to-top-caption" aria-hidden="true">
-                上へ、ふわり。
-              </span>
               <span className="back-to-top-label">
                 ページの先頭へ <FiArrowUp aria-hidden="true" />
               </span>

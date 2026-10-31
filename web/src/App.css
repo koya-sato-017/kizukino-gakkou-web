@@ -1277,7 +1277,7 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 20px;
-  min-height: 142px;
+  min-height: 88px;
   padding-block: 14px;
   border-top: 1px solid var(--rule);
   font-size: 12px;
@@ -1291,13 +1291,7 @@
 }
 .back-to-top-copy {
   display: grid;
-  gap: 6px;
   padding-bottom: 12px;
-}
-.back-to-top-caption {
-  color: var(--accent);
-  font-size: 12px;
-  letter-spacing: 0.08em;
 }
 .back-to-top-label {
   display: inline-flex;
@@ -1312,7 +1306,7 @@
 }
 .back-to-top-balloon {
   display: block;
-  width: 72px;
+  width: 36px;
   flex: 0 0 auto;
   transform-origin: 50% 100%;
 }
@@ -1524,7 +1518,7 @@
     transform: translateY(0) rotate(-3deg);
   }
   50% {
-    transform: translateY(-6px) rotate(3deg);
+    transform: translateY(-3px) rotate(3deg);
   }
 }
 @keyframes sound-wave {
@@ -1566,7 +1560,7 @@
   }
   .footer-back-to-top:hover .back-to-top-balloon,
   .footer-back-to-top:focus-visible .back-to-top-balloon {
-    transform: translateY(-12px) rotate(4deg);
+    transform: translateY(-6px) rotate(4deg);
   }
   .footer-back-to-top:hover .back-to-top-copy,
   .footer-back-to-top:focus-visible .back-to-top-copy {
@@ -2119,20 +2113,17 @@
   }
   .footer-bottom {
     font-size: 10px;
-    min-height: 132px;
+    min-height: 80px;
     gap: 10px;
   }
   .footer-back-to-top {
     gap: 6px;
   }
-  .back-to-top-caption {
-    font-size: 11px;
-  }
   .back-to-top-label {
     font-size: 12px;
   }
   .back-to-top-balloon {
-    width: 60px;
+    width: 30px;
   }
   .player-dock {
     bottom: 10px;
