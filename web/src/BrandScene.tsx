@@ -69,7 +69,18 @@ export default function BrandScene() {
     <div className="brand-scene" aria-hidden="true">
       {crops.map((_, index) => (
         <span key={index} className={`motif motif-${index}`}>
-          <Illustration index={index} />
+          {index === 11 ? (
+            <img
+              className="illustration"
+              src={`${import.meta.env.BASE_URL}illustrations/ukulele.webp`}
+              alt=""
+              width="384"
+              height="331"
+              decoding="async"
+            />
+          ) : (
+            <Illustration index={index} />
+          )}
         </span>
       ))}
     </div>

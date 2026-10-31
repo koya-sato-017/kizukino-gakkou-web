@@ -203,7 +203,7 @@ export function mountHeroSoundfield(
       ".hero-description",
       ".hero-cta",
       ".hero-edition",
-      ".hero-bottom-label",
+      ".hero-scroll-cue",
     ];
     selectors.forEach((selector, index) => {
       const rect = hero.querySelector(selector)?.getBoundingClientRect();

@@ -383,15 +383,13 @@ function App() {
             </span>
           </a>
         </div>
-        <div className="hero-bottom-label">
-          <span>
-            <i />
-            声からつながる、学びの場所。
-          </span>
-          <a href="#episodes">
-            放送を探す <FiArrowDown aria-hidden="true" />
-          </a>
-        </div>
+        <a
+          className="hero-scroll-cue"
+          href="#episodes"
+          aria-label="下へスクロールして放送一覧へ"
+        >
+          <FiArrowDown aria-hidden="true" />
+        </a>
       </section>
 
       <section
@@ -424,12 +422,10 @@ function App() {
         >
           <div>
             <p className="eyebrow">THE EPISODE LIBRARY</p>
-            <h2 id="library-title">放送を、探そう。</h2>
-            <p className="section-lead">
-              気になる言葉から。好きなテーマから。
-              <br className="mobile-break" />
-              今日のあなたに、ぴったりの話を。
-            </p>
+            <h2 id="library-title">
+              <span>放送を、</span>
+              <span>探そう。</span>
+            </h2>
           </div>
           <div className="library-total">
             <FiRadio aria-hidden="true" />
@@ -489,7 +485,7 @@ function App() {
             <div className="section-heading">
               <div>
                 <span className="section-index">SERIES</span>
-                <h2 id="series-title">シリーズで、じっくり。</h2>
+                <h2 id="series-title">シリーズで聴く</h2>
               </div>
               <button
                 className="text-button"
@@ -548,7 +544,7 @@ function App() {
                   : selectedSeries ||
                     (searchQuery
                       ? "気になる話、ありましたか？"
-                      : "新しい放送から、どうぞ。")}
+                      : "最新放送から聴く")}
               </h2>
             </div>
             <label className="sort-control">
@@ -795,11 +791,7 @@ function App() {
             rel="noopener noreferrer"
           >
             <FiHeadphones aria-hidden="true" />
-            <span>
-              本日の放送も、
-              <br />
-              stand.fmで。
-            </span>
+            <span>stand.fmで聴く</span>
             <FiArrowUpRight aria-hidden="true" />
           </a>
         </div>

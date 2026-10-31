@@ -203,34 +203,26 @@
 .hero-cta > span svg {
   animation: arrow-invite 2.8s 1.2s 3;
 }
-.hero-bottom-label {
+.hero-scroll-cue {
   position: absolute;
-  bottom: 38px;
-  left: 46px;
-  right: 46px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  z-index: 3;
+  bottom: 32px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 64px;
+  transform: translateX(-50%);
+  color: var(--ink);
 }
-.hero-bottom-label > span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.hero-scroll-cue svg {
+  width: 28px;
+  height: 36px;
+  stroke-width: 1.5;
 }
-.hero-bottom-label i {
-  width: 22px;
-  height: 1px;
-  background: var(--accent);
-}
-.hero-bottom-label a {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 36px;
+.hero-scroll-cue:hover,
+.hero-scroll-cue:focus-visible {
+  color: var(--accent);
 }
 .mobile-break {
   display: none;
@@ -477,7 +469,7 @@
 .motif-11 {
   --x: 72%;
   --y: 86%;
-  --size: 58px;
+  --size: 76px;
 }
 .motif-12 {
   --x: -2%;
@@ -500,7 +492,7 @@
   --size: 80px;
 }
 .motif-16 {
-  --x: 46%;
+  --x: 39%;
   --y: 87%;
   --size: 66px;
 }
@@ -574,10 +566,8 @@
   letter-spacing: -0.025em;
   font-weight: 900;
 }
-.section-lead {
-  margin-top: 20px;
-  font-size: 16px;
-  line-height: 1.9;
+.library-intro h2 > span {
+  display: inline-block;
 }
 .library-total {
   display: flex;
@@ -1481,6 +1471,15 @@
     transform: translateY(-2px);
   }
 }
+@keyframes scroll-invite {
+  0%,
+  100% {
+    transform: translateY(-5px);
+  }
+  55% {
+    transform: translateY(7px);
+  }
+}
 @keyframes sound-wave {
   from {
     transform: scaleY(0.4);
@@ -1507,6 +1506,9 @@
 @media (prefers-reduced-motion: no-preference) {
   .hero-inner {
     animation: page-arrive 0.8s ease-out both;
+  }
+  .hero-scroll-cue svg {
+    animation: scroll-invite 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   }
 }
 
@@ -1607,9 +1609,6 @@
   .library-total > svg {
     width: 20px;
     height: 20px;
-  }
-  .section-lead {
-    font-size: 15px;
   }
   .section-heading > div {
     display: block;
@@ -1713,25 +1712,9 @@
     width: 18px;
     height: 18px;
   }
-  .hero-bottom-label {
+  .hero-scroll-cue {
     bottom: 26px;
-    left: 29px;
-    right: 29px;
-    font-size: 9px;
-    letter-spacing: 0;
-  }
-  .hero-bottom-label > span {
-    gap: 6px;
-  }
-  .hero-bottom-label i {
-    width: 12px;
-  }
-  .hero-bottom-label a {
-    gap: 6px;
-  }
-  .hero-bottom-label a svg {
-    width: 13px;
-    height: 13px;
+    height: 56px;
   }
   .motif-0 {
     --mobile-x: -3%;
@@ -1781,7 +1764,7 @@
   .motif-11 {
     --mobile-x: 65%;
     --mobile-y: 86%;
-    --mobile-size: 31px;
+    --mobile-size: 42px;
   }
   .motif-13 {
     --mobile-x: 46%;
@@ -1794,7 +1777,7 @@
     --mobile-size: 26px;
   }
   .motif-16 {
-    --mobile-x: 43%;
+    --mobile-x: 31%;
     --mobile-y: 89%;
     --mobile-size: 37px;
   }
@@ -1844,10 +1827,8 @@
     font-size: 34px;
     line-height: 1.5;
   }
-  .section-lead {
-    font-size: 14px;
-    line-height: 1.9;
-    margin-top: 15px;
+  .library-intro h2 > span {
+    display: block;
   }
   .library-total {
     width: 94px;
@@ -2136,12 +2117,6 @@
   .hero-description {
     font-size: 15px;
   }
-  .hero-bottom-label > span {
-    display: none;
-  }
-  .hero-bottom-label {
-    justify-content: flex-end;
-  }
   .main-content {
     width: calc(100% - 36px);
   }
@@ -2179,9 +2154,6 @@
 #series,
 #broadcasts {
   scroll-margin-top: 0;
-}
-.hero-bottom-label {
-  z-index: 1;
 }
 .footer-top > div > p:last-child {
   font-size: clamp(22px, 2.5vw, 34px);
@@ -2326,7 +2298,7 @@
   .motif-11 {
     --mobile-x: 69%;
     --mobile-y: 84%;
-    --mobile-size: 38px;
+    --mobile-size: 48px;
   }
   .motif-13 {
     --mobile-x: 48%;
@@ -2339,8 +2311,8 @@
     --mobile-size: 36px;
   }
   .motif-16 {
-    --mobile-x: 45%;
-    --mobile-y: 85%;
+    --mobile-x: 21%;
+    --mobile-y: 87%;
     --mobile-size: 52px;
   }
   .motif-17 {
