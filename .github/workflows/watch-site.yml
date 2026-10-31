@@ -1,9 +1,7 @@
 name: Watch published site
 
 on:
-  schedule:
-    # 更新処理とは別に実行し、更新ジョブの停止も検知する。
-    - cron: '47 */2 * * *'
+  # 2時間ごとの起動はCloudflare Cronからworkflow_dispatchで受ける。
   workflow_dispatch:
 
 permissions:

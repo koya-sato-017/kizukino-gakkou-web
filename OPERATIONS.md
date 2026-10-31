@@ -2,7 +2,7 @@
 
 ## 更新の流れ
 
-GitHub Actionsの `Update and deploy site` が毎時17分に実行される。配信時刻から反映までは通常1時間程度とビルド時間が必要。GitHub側の混雑による遅延はあり得る。
+Cloudflare Worker `kizukino-gakkou-scheduler` のCronが毎時17分にGitHub Actionsの `Update and deploy site` を `workflow_dispatch` で起動する。配信時刻から反映までは通常1時間程度とビルド時間が必要。外部サービスの障害やGitHubの実行待ちによる遅延はあり得る。GitHub側の定期スケジュールは使用しない。
 
 1. stand.fmの全ページを取得する。
 2. 放送ID、公開状態、配信日時、ページ送り、既存データとの件数差を検証する。
@@ -19,6 +19,7 @@ GitHub Actionsの `Update and deploy site` が毎時17分に実行される。�
 
 - Cloudflare PagesのDirect Uploadプロジェクトと、後述のActions用認証情報・変数を設定する。GitHub Pagesは公開停止のままにする。
 - ワークフローのコードをデフォルトブランチ `main` に置く。
+- 定期起動のWorker・Cron・Secretを設定する。設定と認証の詳細は [定期起動Worker](automation/cloudflare-scheduler/README.md) を参照。
 - Actions → Update and deploy site → Run workflow から初回を実行する。
 - stand.fmの取得には追加の認証情報は不要。Google用の `credentials.json` やローカルの `config.json` は使用しない。
 - 自動更新は保存と公開を同じワークフローで行う。`GITHUB_TOKEN` によるpushは別のpushワークフローを起動しないため、push後の別ワークフロー任せにしない。
@@ -30,7 +31,7 @@ GitHub Actionsの `Update and deploy site` が毎時17分に実行される。�
 | 公開直後 | 公開JSONが今回のデータと一致しない、読み込みに失敗、詳細取得の失敗がある |
 | 2時間ごとの独立した確認 | 最終取得から3時間超、最新の公開放送から72時間超、JSONが不正 |
 | 公開直後と2時間ごと | HTMLのCSP・埋め込み禁止などの保護設定が欠落・変更している |
-| 毎週月曜日09:30 (日本時間) | npm・Python依存に既知の脆弱性がある、監査通信が失敗、公開トークンの期限まで30日以下 |
+| 毎週月曜日09:30 (日本時間) | npm・Python依存に既知の脆弱性がある、監査通信が失敗、公開用・定期起動用トークンの期限まで30日以下 |
 
 失敗時は `運用アラート: サイトの自動更新` または `運用アラート: 公開サイトの更新停止` というGitHub Issueを1件だけ作る。回復後に閉じる。失敗が継続しても同じIssueを増やさない。新しい障害は別Issueになる。
 
@@ -38,7 +39,7 @@ Issueの通知を受け取るには、GitHubリポジトリのWatchでIssuesを�
 
 放送休止も72時間の確認に該当するため、配信元を見て原因を切り分ける。休止中は監視の `--max-episode-age-hours` を伸ばすか、0で配信間隔だけの検知を無効化する。
 
-両ワークフローはGitHub上で動くため、GitHub Actions全体の停止は自分では検知できない。公開リポジトリでは60日間活動がないと定期実行が無効になる条件もある。正常時は取得日時を含むコミットが残るが、失敗が長期化する場合は手動確認が必要。厳密な監視が必要になったら外部サービスから `episodes.json` の `updated_at` を確認する。
+起動元はCloudflareに分離したが、取得・公開・確認の実処理はGitHub Actions上で動く。GitHub Actions全体が停止すると監視も実行できない。Cloudflare側の起動失敗はCron Events / Workers Logsで確認する。正常時は取得日時を含むコミットが残る。障害が長期化する場合は、公開JSONの `updated_at` とCloudflare・GitHub双方の実行履歴を確認する。
 
 ## 手動更新と検証
 
@@ -91,6 +92,7 @@ GitHubリポジトリ Settings → Secrets and variables → Actions に以下�
 | Variable | `CLOUDFLARE_SITE_URL` | `https://kizukino-gakkou.pages.dev/` |
 | Variable | `CLOUDFLARE_PAGES_PROJECT` | `kizukino-gakkou` |
 | Variable | `CLOUDFLARE_TOKEN_EXPIRES_ON` | Cloudflareに表示される実際の失効日 (YYYY-MM-DD) |
+| Variable | `SCHEDULER_TOKEN_EXPIRES_ON` | CloudflareからGitHubを起動するキーの実際の失効日 (YYYY-MM-DD) |
 
 トークンの値をコード、ログ、ドキュメントに書かない。アカウントID・URL・プロジェクト名とSecretはすべて必須。設定が不足した場合は公開ジョブを失敗させ、アラートで通知する。
 
@@ -101,7 +103,7 @@ GitHubリポジトリ Settings → Secrets and variables → Actions に以下�
 - 検証済みJSONを使い、 `VITE_BASE_PATH=/` で別の `dist-cloudflare/` へビルドする。
 - `cloudflare-site` artifactを公開ジョブへ引き継ぎ、Wranglerで本番ブランチ `main` にアップロードする。
 - 公開直後はCloudflareの `episodes.json` と検証済みJSONを比較する。復旧用 `restore_commit` も利用できる。
-- `Watch published site` はCloudflareの公開JSONも2時間ごとに確認する。異常は既存の運用アラートIssueへまとめる。
+- `Watch published site` はCloudflare Cronから2時間ごとに起動し、公開JSONを確認する。異常は既存の運用アラートIssueへまとめる。
 - `web/public/_headers` でCloudflareの `episodes.json` のキャッシュを無効にし、HTMLも再検証する。
 
 自動更新を一時停止する場合は `Update and deploy site` をDisableする。公開用変数・Secretの削除では既存サイトは非公開にならない。
@@ -137,6 +139,13 @@ npm run audit:security
 - 期限の30日前から週次検査が失敗してIssueで通知する。期限切れでは自動更新の公開が失敗するが、公開済みの静的サイトは残る。期限の記録だけではトークン自体の有効性を証明できないため、通常の公開ジョブでも実際の認証を確認する。
 - 更新時はCloudflareで期限付きの同じ最小権限のトークンを用意し、GitHubの `CLOUDFLARE_API_TOKEN` と `CLOUDFLARE_TOKEN_EXPIRES_ON` を更新する。公開成功を確認し、不要になった旧トークンは失効する。値をログ・Issue・チャットへ貼り付けない。
 - GitHubとCloudflareの二段階認証を有効にし、復旧コードを本人が安全な場所に保管する。認証アプリやセキュリティキーの登録は本人が行う。
+
+### 定期起動用の認証情報
+
+- 2026-10-31にGitHubのFine-grained personal access tokenを発行。対象は `koya-sato-017/kizukino-gakkou-web` だけ。Actionsの読み書きと、付随するMetadataの読み取りに限定する。ソースの書き込みや他リポジトリの管理権限は付けない。
+- 失効日は **2027-01-29**。値はCloudflare WorkerのProduction Secret `GITHUB_ACTIONS_TOKEN` に保存し、コード・ログ・GitHub変数・チャットへは記載しない。
+- GitHub変数 `SCHEDULER_TOKEN_EXPIRES_ON` には失効日だけを保存する。週次検査で30日前から通知する。更新時はCloudflareのSecretとGitHubの期限変数を両方更新する。
+- Workerの一般公開URLとプレビューURLを無効化し、HTTP経由の任意実行も404にする。起動先のリポジトリ・ワークフロー・ブランチを固定する。
 
 ### ブラウザーの保護
 

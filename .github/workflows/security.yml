@@ -12,6 +12,7 @@ on:
       - 'requirements-security.txt'
       - 'src/check_token_expiry.py'
       - '.github/workflows/security.yml'
+      - 'automation/cloudflare-scheduler/**'
   workflow_dispatch:
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
       - 'requirements-web.txt'
       - 'requirements-security.txt'
       - '.github/**'
+      - 'automation/cloudflare-scheduler/**'
 
 permissions:
   contents: read
@@ -30,6 +32,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  scheduler:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Test scheduler safety
+        run: node --test automation/cloudflare-scheduler/worker.test.mjs
+
   frontend:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
@@ -86,10 +101,14 @@ jobs:
         env:
           CLOUDFLARE_TOKEN_EXPIRES_ON: ${{ vars.CLOUDFLARE_TOKEN_EXPIRES_ON }}
         run: python -m src.check_token_expiry
+      - name: Warn before GitHub scheduler token expiration
+        env:
+          SCHEDULER_TOKEN_EXPIRES_ON: ${{ vars.SCHEDULER_TOKEN_EXPIRES_ON }}
+        run: python -m src.check_token_expiry --github-scheduler
 
   report:
     if: always() && github.ref == 'refs/heads/main'
-    needs: [frontend, python, token-expiry]
+    needs: [frontend, python, token-expiry, scheduler]
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     permissions:
@@ -100,10 +119,11 @@ jobs:
           FRONTEND: ${{ needs.frontend.result }}
           PYTHON: ${{ needs.python.result }}
           TOKEN_EXPIRY: ${{ needs.token-expiry.result }}
+          SCHEDULER: ${{ needs.scheduler.result }}
         with:
           script: |
             const title = '運用アラート: セキュリティ確認';
-            const checks = {frontend: process.env.FRONTEND, python: process.env.PYTHON, 'token-expiry': process.env.TOKEN_EXPIRY};
+            const checks = {frontend: process.env.FRONTEND, python: process.env.PYTHON, 'token-expiry': process.env.TOKEN_EXPIRY, scheduler: process.env.SCHEDULER};
             const failed = Object.values(checks).some(result => result !== 'success');
             const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', creator: 'github-actions[bot]'});
             const issue = issues.find(item => item.title === title && !item.pull_request);

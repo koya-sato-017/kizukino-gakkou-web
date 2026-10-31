@@ -1,9 +1,7 @@
 name: Update and deploy site
 
 on:
-  schedule:
-    # 毎時17分 (UTC)。日本時間でも毎時17分。定刻の実行保証はない。
-    - cron: '17 * * * *'
+  # 毎時17分の起動はCloudflare Cronからworkflow_dispatchで受ける。
   push:
     branches: [main]
     paths:
