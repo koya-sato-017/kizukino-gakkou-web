@@ -72,10 +72,10 @@ export default function BrandScene() {
           {index === 11 ? (
             <img
               className="illustration"
-              src={`${import.meta.env.BASE_URL}illustrations/ukulele.webp`}
+              src={`${import.meta.env.BASE_URL}illustrations/ukulele-four-strings.webp`}
               alt=""
-              width="384"
-              height="331"
+              width="512"
+              height="442"
               decoding="async"
             />
           ) : (

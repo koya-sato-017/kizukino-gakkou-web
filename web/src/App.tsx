@@ -797,8 +797,30 @@ function App() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} キズキノ學校</span>
-          <a href="#" onClick={scrollToTop}>
-            ページの先頭へ <FiArrowUp aria-hidden="true" />
+          <a
+            className="footer-back-to-top"
+            href="#"
+            onClick={scrollToTop}
+            aria-label="ページの先頭へ戻る"
+          >
+            <span className="back-to-top-copy">
+              <span className="back-to-top-caption" aria-hidden="true">
+                上へ、ふわり。
+              </span>
+              <span className="back-to-top-label">
+                ページの先頭へ <FiArrowUp aria-hidden="true" />
+              </span>
+            </span>
+            <span className="back-to-top-balloon" aria-hidden="true">
+              <img
+                src={`${import.meta.env.BASE_URL}illustrations/back-to-top-balloon.webp`}
+                alt=""
+                width="256"
+                height="384"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
           </a>
         </div>
       </footer>

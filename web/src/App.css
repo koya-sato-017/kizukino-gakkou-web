@@ -467,9 +467,9 @@
   --size: 66px;
 }
 .motif-11 {
-  --x: 72%;
-  --y: 86%;
-  --size: 76px;
+  --x: 66%;
+  --y: 80%;
+  --size: 114px;
 }
 .motif-12 {
   --x: -2%;
@@ -1273,20 +1273,58 @@
   transform: translate(3px, -3px);
 }
 .footer-bottom {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 20px;
-  min-height: 82px;
+  min-height: 142px;
+  padding-block: 14px;
   border-top: 1px solid var(--rule);
   font-size: 12px;
 }
-.footer-bottom > a {
+.footer-back-to-top {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
   min-height: 44px;
   font-weight: 700;
+}
+.back-to-top-copy {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 12px;
+}
+.back-to-top-caption {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+.back-to-top-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.back-to-top-label svg {
+  width: 16px;
+  height: 16px;
+}
+.back-to-top-balloon {
+  display: block;
+  width: 72px;
+  flex: 0 0 auto;
+  transform-origin: 50% 100%;
+}
+.back-to-top-balloon img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 90%;
+}
+.footer-back-to-top:hover .back-to-top-label,
+.footer-back-to-top:focus-visible .back-to-top-label {
+  color: var(--accent);
 }
 
 /* 再生は一覧から独立。検索・シリーズの切り替え中も音声を保つ。 */
@@ -1480,6 +1518,15 @@
     transform: translateY(7px);
   }
 }
+@keyframes balloon-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(3deg);
+  }
+}
 @keyframes sound-wave {
   from {
     transform: scaleY(0.4);
@@ -1509,6 +1556,21 @@
   }
   .hero-scroll-cue svg {
     animation: scroll-invite 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .back-to-top-balloon img {
+    animation: balloon-float 3.8s ease-in-out infinite;
+  }
+  .back-to-top-balloon,
+  .back-to-top-copy {
+    transition: transform 0.45s cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+  .footer-back-to-top:hover .back-to-top-balloon,
+  .footer-back-to-top:focus-visible .back-to-top-balloon {
+    transform: translateY(-12px) rotate(4deg);
+  }
+  .footer-back-to-top:hover .back-to-top-copy,
+  .footer-back-to-top:focus-visible .back-to-top-copy {
+    transform: translateY(-3px) rotate(-2deg);
   }
 }
 
@@ -1762,9 +1824,10 @@
     --mobile-size: 34px;
   }
   .motif-11 {
-    --mobile-x: 65%;
-    --mobile-y: 86%;
-    --mobile-size: 42px;
+    --mobile-x: 60%;
+    --mobile-y: 89%;
+    --mobile-size: 63px;
+    --angle: 6deg;
   }
   .motif-13 {
     --mobile-x: 46%;
@@ -2056,11 +2119,20 @@
   }
   .footer-bottom {
     font-size: 10px;
-    min-height: 80px;
+    min-height: 132px;
     gap: 10px;
   }
-  .footer-bottom > a {
+  .footer-back-to-top {
     gap: 6px;
+  }
+  .back-to-top-caption {
+    font-size: 11px;
+  }
+  .back-to-top-label {
+    font-size: 12px;
+  }
+  .back-to-top-balloon {
+    width: 60px;
   }
   .player-dock {
     bottom: 10px;
@@ -2298,7 +2370,7 @@
   .motif-11 {
     --mobile-x: 69%;
     --mobile-y: 84%;
-    --mobile-size: 48px;
+    --mobile-size: 72px;
   }
   .motif-13 {
     --mobile-x: 48%;
