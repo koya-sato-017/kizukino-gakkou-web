@@ -397,19 +397,28 @@ function App() {
         aria-label="キズキノ學校が大切にすること"
       >
         <span className="motto-intro">気付きから、次の一歩へ。</span>
-        <div className="motto-words">
-          <span>
-            <b>S</b>創造
-          </span>
-          <span>
-            <b>C</b>挑戦
-          </span>
-          <span>
-            <b>O</b>応援
-          </span>
-          <span>
-            <b>P</b>称賛
-          </span>
+        <div className="motto-scop">
+          <p className="motto-caption">
+            4つの頭文字から、<span>SCOP</span>。
+          </p>
+          <dl className="motto-words">
+            <div>
+              <dt>創造</dt>
+              <dd><b>S</b>ouzou</dd>
+            </div>
+            <div>
+              <dt>挑戦</dt>
+              <dd><b>C</b>yousen</dd>
+            </div>
+            <div>
+              <dt>応援</dt>
+              <dd><b>O</b>uen</dd>
+            </div>
+            <div>
+              <dt>称賛</dt>
+              <dd><b>P</b>raise</dd>
+            </div>
+          </dl>
         </div>
       </section>
 

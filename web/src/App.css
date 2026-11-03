@@ -516,23 +516,47 @@
   font-weight: 700;
   letter-spacing: 0.03em;
 }
-.motto-words {
-  display: flex;
-  align-items: center;
-  gap: 40px;
+.motto-scop {
+  width: 370px;
+  max-width: 100%;
 }
-.motto-words > span {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 17px;
+.motto-caption {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.motto-caption > span {
+  color: var(--ink);
   font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.motto-words {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+}
+.motto-words > div {
+  display: grid;
+  gap: 2px;
+}
+.motto-words dt {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.motto-words dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
 }
 .motto-words b {
-  font-size: 30px;
-  line-height: 1;
   color: var(--accent);
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .main-content {
@@ -1586,9 +1610,6 @@
   .motto-strip {
     gap: 38px;
   }
-  .motto-words {
-    gap: 26px;
-  }
   .main-content {
     width: calc(100% - 72px);
   }
@@ -1643,14 +1664,8 @@
     gap: 14px;
     padding: 22px;
   }
-  .motto-words {
-    gap: 34px;
-  }
-  .motto-words b {
-    font-size: 25px;
-  }
-  .motto-words > span {
-    font-size: 16px;
+  .motto-caption {
+    text-align: center;
   }
   .main-content {
     padding-top: 70px;
@@ -1850,17 +1865,18 @@
   .motto-intro {
     font-size: 12px;
   }
+  .motto-scop {
+    width: 320px;
+  }
   .motto-words {
-    width: 100%;
-    gap: 12px;
-    justify-content: space-between;
+    gap: 14px;
+    text-align: center;
   }
-  .motto-words > span {
+  .motto-words dt {
     font-size: 14px;
-    gap: 6px;
   }
-  .motto-words b {
-    font-size: 22px;
+  .motto-words dd {
+    font-size: 12px;
   }
   .main-content {
     width: calc(100% - 44px);
@@ -2201,10 +2217,6 @@
   }
   .motto-words {
     gap: 8px;
-  }
-  .motto-words > span {
-    font-size: 13px;
-    gap: 5px;
   }
 }
 
