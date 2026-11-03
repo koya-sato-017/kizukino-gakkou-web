@@ -520,17 +520,6 @@
   width: 370px;
   max-width: 100%;
 }
-.motto-caption {
-  margin-bottom: 12px;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-}
-.motto-caption > span {
-  color: var(--ink);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
 .motto-words {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -539,7 +528,7 @@
 }
 .motto-words > div {
   display: grid;
-  gap: 2px;
+  gap: 4px;
 }
 .motto-words dt {
   font-size: 15px;
@@ -555,7 +544,10 @@
   white-space: nowrap;
 }
 .motto-words b {
+  display: inline-block;
   color: var(--accent);
+  font-size: 30px;
+  line-height: 1;
   font-weight: 700;
 }
 
@@ -1664,9 +1656,6 @@
     gap: 14px;
     padding: 22px;
   }
-  .motto-caption {
-    text-align: center;
-  }
   .main-content {
     padding-top: 70px;
   }
@@ -1877,6 +1866,9 @@
   }
   .motto-words dd {
     font-size: 12px;
+  }
+  .motto-words b {
+    font-size: 26px;
   }
   .main-content {
     width: calc(100% - 44px);

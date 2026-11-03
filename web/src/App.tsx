@@ -398,9 +398,6 @@ function App() {
       >
         <span className="motto-intro">気付きから、次の一歩へ。</span>
         <div className="motto-scop">
-          <p className="motto-caption">
-            4つの頭文字から、<span>SCOP</span>。
-          </p>
           <dl className="motto-words">
             <div>
               <dt>創造</dt>
