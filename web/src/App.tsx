@@ -90,10 +90,10 @@ function buildSeriesMap(episodes: Episode[]): SeriesInfo[] {
     map.set(seriesName, existing);
   }
 
-  // 公開放送が5件以上あるシリーズを表示する
+  // 通常は公開放送が5件以上。指定された新シリーズは初回から表示する。
   const seriesList: SeriesInfo[] = [];
   for (const [name, eps] of map.entries()) {
-    if (eps.length >= 5) {
+    if (eps.length >= 5 || name === "歴史の主役から学ぶ") {
       seriesList.push({
         name,
         displayName: name,

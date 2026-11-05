@@ -40,6 +40,15 @@ export function extractSeriesName(title: string): string | null {
 
   const content = bracketMatch[2];
 
+  // この企画は助詞・副題・回数表記が回ごとに異なる。連番のある本編だけをまとめる。
+  if (
+    /^歴史の主役(?:から|に)学ぶ!?(?:仕事と人生の突破術!?)?(?:第[\d一二三四五六七八九十百]+回|\d+)[〜～~]/.test(
+      content.normalize("NFKC").replace(/\s+/g, ""),
+    )
+  ) {
+    return "歴史の主役から学ぶ";
+  }
+
   // パターン1: 「シリーズ名N〜」（末尾の数字+〜）
   const numTildeMatch = content.match(
     /^(.+?)(\d+|[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳])[〜～]/,

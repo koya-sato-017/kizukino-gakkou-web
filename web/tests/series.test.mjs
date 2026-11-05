@@ -2,6 +2,28 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { extractSeriesName } from "../src/series.ts";
 
+test("歴史の主役の助詞・副題・回数表記の違いを一つのシリーズにまとめる", () => {
+  for (const title of [
+    "【講義1072】歴史の主役から学ぶ！仕事と人生の突破術①〜田中角栄",
+    "【講義1087】歴史の主役に学ぶ　第二回〜渋沢栄一「論語と算盤」",
+    "【講義1106】歴史の主役から学ぶ　第3回〜松下幸之助",
+    "【講義】歴史の主役から学ぶ　第４回～続編",
+    "【講義】歴史の主役に学ぶ⑤〜続編",
+  ]) {
+    assert.equal(extractSeriesName(title), "歴史の主役から学ぶ");
+  }
+});
+
+test("歴史の主役の告知や単なる言及を本編に混ぜない", () => {
+  for (const title of [
+    "【限定講義214】新シリーズ始動！歴史の主役に学ぶ！仕事と人生の突破術",
+    "【ホームルーム】歴史の主役から学ぶ　第4回の予告",
+    "【課外授業】「歴史の主役から学ぶ」の舞台裏",
+  ]) {
+    assert.equal(extractSeriesName(title), null);
+  }
+});
+
 test("あんな時代の読点と回数表記を一つのシリーズにまとめる", () => {
   for (const label of [
     "あんな時代もあったね、と",
