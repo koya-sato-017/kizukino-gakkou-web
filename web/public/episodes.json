@@ -1,6 +1,6 @@
 {
   "channel_id": "606297aabe8d4428b912db34",
-  "updated_at": "2026-11-11T06:17:45+09:00",
+  "updated_at": "2026-11-11T07:17:42+09:00",
   "detail_failures": 0,
   "latest_published_at": "2026-11-11T06:00:10.735+09:00",
   "episodes": [
@@ -122,7 +122,7 @@
       "link": "https://stand.fm/episodes/6ae1406f8efe2a63a9ea4d97",
       "description": "シリーズ「大人の学び」最終回は全体の総括。大人の学びのゴールは、他人の正解集めではなく「自分の持論」を持つことです。世間の常識に惑わされず、ルールを知って生活を守り、自分の頭で考えて人生のハンドルを握り直す。綺麗事抜きに、変化の時代を賢く面白がって生き抜くための実践哲学をお届けします。\n  0:00 オープニング\n  0:50 本編\n  16:30勉強の歌（森高千里）\n  19:35 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01M5ZY8ZTZR6GN4Q3F4NQN5MDF.m4a",
-      "details_checked_at": "2026-11-04T06:17:45+09:00",
+      "details_checked_at": "2026-11-11T07:17:42+09:00",
       "details_status": "ok",
       "index": 9
     },
@@ -29112,7 +29112,7 @@
       "link": "https://stand.fm/episodes/6201e005b0e1000006aef8e6",
       "description": "コンビニのざる蕎麦はいつから一盛りになったのか？\n  そこにはある人の「なぜ？」の物語がありました。\n   #パラレルワーク #複業 #コンビニ ",
       "audio_url": "https://cdncf.stand.fm/audios/01FVJZR8Z9T3VVKTEVVX0TJA0T.m4a",
-      "details_checked_at": "2026-11-04T05:18:20+09:00",
+      "details_checked_at": "2026-11-11T07:17:42+09:00",
       "details_status": "ok",
       "index": 2130
     },
