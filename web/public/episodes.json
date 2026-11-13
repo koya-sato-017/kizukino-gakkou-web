@@ -1,6 +1,6 @@
 {
   "channel_id": "606297aabe8d4428b912db34",
-  "updated_at": "2026-11-14T06:17:37+09:00",
+  "updated_at": "2026-11-14T07:17:37+09:00",
   "detail_failures": 0,
   "latest_published_at": "2026-11-14T06:00:09.833+09:00",
   "episodes": [
@@ -120,9 +120,9 @@
       "published_at": "2026-11-07T06:00:15.612+09:00",
       "is_supporter_only": false,
       "link": "https://stand.fm/episodes/6ae951e19bb0271d08d15c81",
-      "description": "今週の週末LIVEは11/7 土曜日　21:30スタート\n  私の学び　最終回をお届け\n  レターをくれた全員に感謝！\n  0:00 オープニング\n  0:50 本編\n  16:02 You’re My Only Shinin’ Star（中山美穂）\n  19:04 エンディング",
+      "description": "今週の週末LIVEは11/7 土曜日　21:30スタート\n      私の学び　最終回をお届け\n      レターをくれた全員に感謝！\n      0:00 オープニング\n      0:50 本編\n      16:02 You’re My Only Shinin’ Star（中山美穂）\n      19:04 エンディング",
       "audio_url": "https://cdncf.stand.fm/audios/01M6FPGFK415HHD3J8BA0ZX57X.m4a",
-      "details_checked_at": "2026-11-07T06:17:37+09:00",
+      "details_checked_at": "2026-11-14T07:17:37+09:00",
       "details_status": "ok",
       "index": 9
     },
